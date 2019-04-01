@@ -8,6 +8,8 @@ from django.contrib import messages
 
 from input_field_test import Input_field_test
 
+from django.core.mail import send_mail
+
 error_message = None
 error_message_success = "Ticket creation success"
 error_message_empty_input = "Please fill in all input fields"
@@ -152,6 +154,11 @@ def create(request):
                                 ticket = models.Ticket(ticket_id=id, title=title, resolved=0, read=0, description=description, user=username)
                                 ticket.save()
                                 messages.add_message(request, messages.SUCCESS, 'Create Successful')
+
+                                #send email notification to admin
+
+                                send_mail('New Ticket Received', '{} has sent a new ticket'.format(username), "pleasedontlockthisemailthanks@gmail.com",
+                                          ["admin@example.com"])
                                 return render(request, 'ticketcreation/creation.html', {'error_message':error_message})
                         else:
                                 return render(request, 'ticketcreation/creation.html', {'error_message':error_message})

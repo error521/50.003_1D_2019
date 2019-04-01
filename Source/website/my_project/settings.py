@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '50003',
-        'USER': 'newuser',
+        'USER': 'imtired',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
@@ -135,3 +135,11 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Change model used for User authentication
 AUTH_USER_MODEL = "createuser.Extended_User"
+
+# EMAIL BACKEND
+
+EMAIL_HOST = 'gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'pleasedontlockthisemailthanks'
+EMAIL_HOST_PASSWORD = 'e@5yp@55w0rd'
+EMAIL_USE_TLS = True
