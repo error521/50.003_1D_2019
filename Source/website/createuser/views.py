@@ -113,4 +113,4 @@ def get_user(request):
 	else:
 		form = UserForm()
 
-	return render(request, 'createuser/user.html', {'error_message':None})
+	return render(request, 'createuser/user.html', {'error_message':error_message})

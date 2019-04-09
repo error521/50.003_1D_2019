@@ -25,6 +25,8 @@ SECRET_KEY = 'em#)-bxmu4a_^6orrys8031qoo7pzb3-=5ci3u57d8zqss72xk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMINS = [('John', 'john@example.com'), ]   # Literally added this so that mail_admins() can work
+
 ALLOWED_HOSTS = []
 
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'ticket_creation',
     'Profile',
     'createuser',
+    'email_notif',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'path.to.my.context_processor.admin_emails',
             ],
         },
     },
@@ -135,3 +139,25 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Change model used for User authentication
 AUTH_USER_MODEL = "createuser.Extended_User"
+
+# Email Backend
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_SSL = False
+#EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
+EMAIL_PORT = 25
+#EMAIL_PORT = 587
+#EMAIL_PORT = 465
+EMAIL_HOST_USER = "pleasedontlockthisemailthanks@gmail.com"
+EMAIL_HOST_PASSWORD = "e@5yp@55w0rd"
+SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
+
+
+# # Testing Email backend?????
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+#
+# SERVER_EMAIL = 'root@localhost'
+

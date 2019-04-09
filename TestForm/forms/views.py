@@ -21,7 +21,7 @@ received_message_unknown_error = "Unknown error"
 
 
 token = "UKJHhgvIU&^%$bvd#$HJ"
-target_url = "http://127.0.0.1:3000/ticket_creation/remote_create/"
+target_url = "http://127.0.0.1:3000/ticket_creation/"
 data = {"title":None, "description":None, "name":None, "phonenumber":None, "email":None, "token":None}
 
 
@@ -35,7 +35,7 @@ def basic_form(request):
 		name = request.POST.get('name')
 		phonenumber = request.POST.get('phonenumber')
 		email = request.POST.get('email')
-		r = requests.post(target_url, data={"title":title, "description":description, "name":name, "phonenumber":phonenumber, "email":email, "token":token})
+		r = requests.post(target_url, data={"title":title, "description":description, "name":name, "phonenumber":phonenumber, "email":email, "token":token, "is_remote":"True"})
 
 		error_message = r.text
 

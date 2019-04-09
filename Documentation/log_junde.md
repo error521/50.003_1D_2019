@@ -1,8 +1,42 @@
+#### 7/4
+To do:
+- Fix creation of ticket id
+  - Need to put creation of ticket id as a background task, and whenever tickets are created the creation of id is a critical section
+  - django-background-tasks for background tasks
+    https://django-background-tasks.readthedocs.io/en/latest/
+  - QuerySet.select_for_update() to lock row when doing operations
+
+  - All data will be bucketed into multiple tickets (with the first 'ticket' holding information for this entire table)
+    - Each ticket will have (ticket_id)(size{for first 'ticket' this represent total number of tickets in database})(user)(administrator assigned to ticket)(resolved_by)(read_by)
+  - Within each ticket a table will be created "Ticket_{ticket id}", except for the first 'ticket'
+    - Each ticket will have (post_id {starting from 0})(title)(description)(more can come later)
+
+- Add ticket replying
+- Add image attachment, textfile and pdf attachement to ticket (will need ticket id (and possibly reply))
+- Add email and sms notification
+- Add email and sms notificattion whenever ticket reply/ticket create
+- Add automatic account creation when new ticket is created
+
+
+Note: to delete all existing databases:
+```
+$ sudo mysql -u root -p
+$ USE `50003`;
+$ DROP TABLE create_extended_user;
+$ DROP TABLE create_extended_user_groups;
+$ DROP TABLE create_extended_user_user_permissions;
+$ DROP TABLE ticket_creation_all_tickets;
+$ DROP TABLE ticket_creation_ticket;
+$ DROP TABLE ticket_creation_ticket_details;
+
+```
+
+
+
 #### 1/4
 - Recreated model to handle User data: Extended_User in createuser
 --- createuser_extended-user is a table found in database `50003` in mysql and all fields are present, including phonenumber - hence i'd consider this a successful transition from the classic User model to our Extended_User
 --- Creation of user account and logging in works fine
-
 
 
 #### 22/3

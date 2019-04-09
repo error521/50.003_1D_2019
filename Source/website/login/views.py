@@ -76,6 +76,7 @@ def index(request):
 	elif request.method == 'GET':
 		pass
 
+	messages.error(request, error_message)
 	return render(request, 'login/not_logged_in.html', {'form':LoginForm(), 'error_message':error_message})
 
 def log_out(request):
