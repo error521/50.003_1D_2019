@@ -5,6 +5,7 @@
 #for testing exactly the same way as we did for display views only
 
 from django.test import TestCase
+from django.contrib.auth.models import User
 from ticket_creation.models import Ticket
 from django.urls import reverse
 from django.test import Client
@@ -16,14 +17,7 @@ from ticket_creation.views import error_message_invalid_input, \
     error_message_one_checkbox,error_message_unauthorised,\
     error_message_unknown_error
 
-
-# class Ticket(models.Model):
-#     ticket_id = models.CharField(max_length=30)
-#     title = models.CharField(max_length=60)
-#     resolved = models.IntegerField(default=0)
-#     read = models.IntegerField(default=0)
-#     description = models.CharField(max_length=256)
-#     user = models.CharField(max_length=60)
+# run in Source\website --> python manage.py test ticket_creation.tests.test_view.CreateTicketInstanceViewTest
 
 
 class CreateTicketInstanceViewTest(TestCase):
@@ -31,6 +25,9 @@ class CreateTicketInstanceViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         # Create an existing User
+        # test_admin = User(username='joe',is_staff=True)
+        # test_admin.set_password('12345')
+        # test_admin.save()
         test_user2 = Extended_User.objects.create(username='testuser2',
                                                   password='HelloSekai123',
                                                   email='testing@test.com',
@@ -102,13 +99,37 @@ class CreateTicketInstanceViewTest(TestCase):
         print(response)
         print(response.context['error_message'])
         self.assertTrue(response.status_code,200)
-        self.assertNotEqual(response.context["error_message"], error_message_success)
+        self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
 
-    def test_display_ticket(self):
+    def test_display_ticket_TO_ADMIN(self):
+        login = self.client.login(username='joe', password='1234')
+        response = self.client.get(reverse('ticket_creation:display'))
+        self.assertEqual(response.status_code,302)
+
+    def test_display_ticket_TO_USER(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.get(reverse('ticket_creation:display'))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('home:index'))
+
+    def test_get_details(self):
+        # logins user first to create a ticket
         login = self.client.login(username='testuser2', password='HelloSekai123')
         response = self.client.post(reverse('ticket_creation:create'), {
-            'title': 'HelpAgain',
+            'title': 'Help',
             'email': 'testing@test.com',
-            'description': 'Please help again thanks',
+            'description': 'Please help thanks',
         })
+        logout = self.client.logout()
+        # logins admin
+        login = self.client.login(username='joe', password='1234')
         response = self.client.get(reverse('ticket_creation:display'))
+        id_test = 1
+        response = self.client.get('/ticket_creation/detail/?id={}'.format(id_test))
+        print(response)
+        response = self.client.get(reverse("ticket_creation:display"))
+        self.assertEqual(response.status_code, 302)
+        # print(response)
+        item = Ticket.objects.all().filter(id=id_test)
+        print(item[0].read)
+        self.assertTrue(response.context['item'], item[0])

@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 import time
 
+# run in Source\website --> python manage.py test createuser.tests.test_system.AccountTestCase
 
 class AccountTestCase(LiveServerTestCase):
 

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createuser/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createuser/tests/test_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests/test_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createuser/tests/test_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests/test_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createuser/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests/test_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email_notif/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_notif/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,50 +19,72 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_remotecreate.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_remotecreate Coverage Results" MODIFIED="1554715205195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_and_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_and_create_ticket Coverage Results" MODIFIED="1554803606708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__login_tests_test_form_TestUserForm.coverage" NAME="Test: login.tests.test_form.TestUserForm Coverage Results" MODIFIED="1553611024003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_redirect_to_new_form.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_redirect_to_new_form Coverage Results" MODIFIED="1554709550350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_after_successful_creation.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_after_successful_creation Coverage Results" MODIFIED="1554804176100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_form_invalid_email.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_form_invalid_email Coverage Results" MODIFIED="1554742625141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket Coverage Results" MODIFIED="1554819868331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_home_page_status_code.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_home_page_status_code Coverage Results" MODIFIED="1555001185464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_no_notif_selection_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_no_notif_selection_form Coverage Results" MODIFIED="1554812666985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_bad_Username_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin Coverage Results" MODIFIED="1554820002059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_create_success_render.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_create_success_render Coverage Results" MODIFIED="1554803639442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_remote_create.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_remote_create Coverage Results" MODIFIED="1554715659818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_successful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_successful_creation Coverage Results" MODIFIED="1554714099842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_empty_phoneNumber.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_empty_phoneNumber Coverage Results" MODIFIED="1555006711719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_password_EDGE_CASE.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_password_EDGE_CASE Coverage Results" MODIFIED="1555007998999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_empty_email.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_empty_email Coverage Results" MODIFIED="1555008457629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_form_TestUserForm_test_C_AC_Create_001.coverage" NAME="Test: createuser.tests.test_form.TestUserForm.test_C_AC_Create_001 Coverage Results" MODIFIED="1555011745220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest.coverage" NAME="Test: email_notif.tests.EmailTest Coverage Results" MODIFIED="1554146187267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1553610980268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_bad_phoneNumber_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_bad_phoneNumber_registerAndLogin Coverage Results" MODIFIED="1554708685997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_url_by_name.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_url_by_name Coverage Results" MODIFIED="1554731934657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_SetupClass.coverage" NAME="Test: createuser.tests.SetupClass Coverage Results" MODIFIED="1555009253275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_ticket_TO_ADMIN.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_ADMIN Coverage Results" MODIFIED="1555014239879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_post1.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_post1 Coverage Results" MODIFIED="1554744064427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_ Coverage Results" MODIFIED="1554815490768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_FAILURE_INVALID_TITLE_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket Coverage Results" MODIFIED="1555000573363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_registerAndLogin Coverage Results" MODIFIED="1554295248414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_form_invalid_password.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_form_invalid_password Coverage Results" MODIFIED="1554742731107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_after_sucessful_creation.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_after_sucessful_creation Coverage Results" MODIFIED="1554803032795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_page_status_code.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code Coverage Results" MODIFIED="1555001332642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_successful_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_successful_registerAndLogin Coverage Results" MODIFIED="1554706403550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_sucessful_creation Coverage Results" MODIFIED="1554712489162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_if_username_taken.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_if_username_taken Coverage Results" MODIFIED="1554811903915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_email.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_email Coverage Results" MODIFIED="1555008488348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_form_TestUserForm_test_TC_AC_Create_003_bt1.coverage" NAME="Test: createuser.tests.test_form.TestUserForm.test_TC_AC_Create_003_bt1 Coverage Results" MODIFIED="1555011683305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_redirect_after_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_redirect_after_sucessful_creation Coverage Results" MODIFIED="1554214486511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_post.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_post Coverage Results" MODIFIED="1554732415289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_redirect_if_not_logged_in.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_redirect_if_not_logged_in Coverage Results" MODIFIED="1554776078194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest_test_mail_admins.coverage" NAME="Test: email_notif.tests.EmailTest.test_mail_admins Coverage Results" MODIFIED="1554147619645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_submit_empty_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_submit_empty_form Coverage Results" MODIFIED="1554812595134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_AccountAlreadyExists_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_AccountAlreadyExists_registerAndLogin Coverage Results" MODIFIED="1554708891915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest Coverage Results" MODIFIED="1554749161173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_SUCCESS_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket Coverage Results" MODIFIED="1555000608123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest_test_send_email.coverage" NAME="Test: email_notif.tests.EmailTest.test_send_email Coverage Results" MODIFIED="1554147876324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_phoneNumber.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_phoneNumber Coverage Results" MODIFIED="1555008084357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_username.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_username Coverage Results" MODIFIED="1555007844996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_create.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_create Coverage Results" MODIFIED="1554749140367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_UserForm.coverage" NAME="Test: createuser.tests.UserForm Coverage Results" MODIFIED="1555009264662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_test_form_TestUserForm.coverage" NAME="Test: login.tests.test.test_form.TestUserForm Coverage Results" MODIFIED="1553610922724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$views.coverage" NAME="views Coverage Results" MODIFIED="1554742180063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ticket_creation" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_message_after_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_message_after_sucessful_creation Coverage Results" MODIFIED="1554296188646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_view_LoginInstanceViewTest_test_uses_correct_template.coverage" NAME="Test: login.tests.test_view.LoginInstanceViewTest.test_uses_correct_template Coverage Results" MODIFIED="1553610833331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_password.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_password Coverage Results" MODIFIED="1555007595897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_remotecreate.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_remotecreate Coverage Results" MODIFIED="1554715205195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_and_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_and_create_ticket Coverage Results" MODIFIED="1554803606708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__login_tests_test_form_TestUserForm.coverage" NAME="Test: login.tests.test_form.TestUserForm Coverage Results" MODIFIED="1553611024003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_redirect_to_new_form.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_redirect_to_new_form Coverage Results" MODIFIED="1554709550350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket Coverage Results" MODIFIED="1554819868331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details Coverage Results" MODIFIED="1555021442685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_no_notif_selection_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_no_notif_selection_form Coverage Results" MODIFIED="1554812666985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_bad_Username_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin Coverage Results" MODIFIED="1554820002059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_submit_empty_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_submit_empty_form Coverage Results" MODIFIED="1555007324004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_create_success_render.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_create_success_render Coverage Results" MODIFIED="1554803639442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_remote_create.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_remote_create Coverage Results" MODIFIED="1554715659818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_successful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_successful_creation Coverage Results" MODIFIED="1554714099842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_form_TestUserForm.coverage" NAME="Test: createuser.tests.test_form.TestUserForm Coverage Results" MODIFIED="1555021887962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket Coverage Results" MODIFIED="1555012912916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_bad_phoneNumber_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_bad_phoneNumber_registerAndLogin Coverage Results" MODIFIED="1554708685997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_empty_password.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_empty_password Coverage Results" MODIFIED="1555006720871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_url_by_name.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_url_by_name Coverage Results" MODIFIED="1554731934657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_ Coverage Results" MODIFIED="1554815490768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_FAILURE_INVALID_TITLE_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket Coverage Results" MODIFIED="1555000573363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_form_invalid_password.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_form_invalid_password Coverage Results" MODIFIED="1554742731107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_no_notification_selected.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_no_notification_selected Coverage Results" MODIFIED="1555006837641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_after_sucessful_creation.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_after_sucessful_creation Coverage Results" MODIFIED="1554803032795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_page_status_code.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code Coverage Results" MODIFIED="1555001332642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_successful_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_successful_registerAndLogin Coverage Results" MODIFIED="1554706403550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_sucessful_creation Coverage Results" MODIFIED="1554712489162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_empty_username.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_empty_username Coverage Results" MODIFIED="1555007296549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_if_username_taken.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_if_username_taken Coverage Results" MODIFIED="1554811903915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_submit_empty_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_submit_empty_form Coverage Results" MODIFIED="1554812595134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_AccountAlreadyExists_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_AccountAlreadyExists_registerAndLogin Coverage Results" MODIFIED="1554708891915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_SUCCESS_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket Coverage Results" MODIFIED="1555000608123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest Coverage Results" MODIFIED="1555012202301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest_test_send_email.coverage" NAME="Test: email_notif.tests.EmailTest.test_send_email Coverage Results" MODIFIED="1554147876324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_ticket_TO_USER.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_USER Coverage Results" MODIFIED="1555020107591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_message_after_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_message_after_sucessful_creation Coverage Results" MODIFIED="1554296188646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_no_notification_selection_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_no_notification_selection_form Coverage Results" MODIFIED="1555006698580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_view_uses_correct_template.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_view_uses_correct_template Coverage Results" MODIFIED="1554713515920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest Coverage Results" MODIFIED="1554812428338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_view_LoginInstanceViewTest.coverage" NAME="Test: login.tests.test_view.LoginInstanceViewTest Coverage Results" MODIFIED="1553610776514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest Coverage Results" MODIFIED="1555008502518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -94,11 +121,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="70" column="69" selection-start-line="70" selection-start-column="69" selection-end-line="70" selection-end-column="69" />
+            <state relative-caret-position="271">
+              <caret line="130" column="15" selection-start-line="130" selection-start-column="15" selection-end-line="130" selection-end-column="15" />
               <folding>
                 <element signature="e#286#318#0" expanded="true" />
               </folding>
@@ -107,54 +134,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my_project/settings.py">
+        <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/be340fd4-fba9-48d4-878e-864238f1b78c/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createuser/tests/test_form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
-              <caret line="146" column="76" selection-start-line="146" selection-start-column="76" selection-end-line="146" selection-end-column="76" />
+            <state relative-caret-position="119">
+              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket_creation/models.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/my_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            <state relative-caret-position="221">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createuser/models.py">
+        <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state relative-caret-position="17">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticket_creation/views.py.save">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-459" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_project/urls.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticket_creation/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -163,12 +188,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createuser/tests/test_system.py">
+        <entry file="file://$PROJECT_DIR$/home/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
+            <state>
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,10 +201,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="-562">
+              <caret line="290" column="35" lean-forward="true" selection-start-line="290" selection-start-column="35" selection-end-line="290" selection-end-column="35" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,9 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ticket_creation/templates/show.html" />
-        <option value="$PROJECT_DIR$/ticket_creation/templates/creation.html" />
-        <option value="$PROJECT_DIR$/ticket_creation/__init__.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/view_ticket/templates/show.html" />
         <option value="$PROJECT_DIR$/view_ticket/views.py" />
@@ -244,30 +276,33 @@
         <option value="$PROJECT_DIR$/login/templates/login/not_logged_in.html" />
         <option value="$PROJECT_DIR$/login/views.py" />
         <option value="$PROJECT_DIR$/ticket_creation/templates/ticketcreation/creation.html" />
-        <option value="$PROJECT_DIR$/createuser/tests/test_form.py" />
         <option value="$PROJECT_DIR$/login/tests/test_form.py" />
         <option value="$PROJECT_DIR$/login/tests/test_view.py" />
         <option value="$PROJECT_DIR$/login/tests/test/test_form.py" />
         <option value="$PROJECT_DIR$/login/tests/__init__.py" />
         <option value="$PROJECT_DIR$/createuser/tests/__init__.py" />
-        <option value="$PROJECT_DIR$/email_notif/tests.py" />
-        <option value="$PROJECT_DIR$/my_project/settings.py" />
         <option value="$PROJECT_DIR$/email_notif/views.py" />
-        <option value="$PROJECT_DIR$/createuser/tests/test_system.py" />
         <option value="$PROJECT_DIR$/login/templates/login/base.html" />
         <option value="$PROJECT_DIR$/createuser/views.py" />
         <option value="$PROJECT_DIR$/input_field_test.py" />
-        <option value="$PROJECT_DIR$/createuser/tests/test_view.py" />
         <option value="$PROJECT_DIR$/ticket_creation/models.py" />
         <option value="$PROJECT_DIR$/ticket_creation/views.py" />
         <option value="$PROJECT_DIR$/ticket_creation/templates/ticketcreation/base.html" />
+        <option value="$PROJECT_DIR$/ticket_creation/tests/test_models.py" />
+        <option value="$PROJECT_DIR$/email_notif/tests.py" />
+        <option value="$PROJECT_DIR$/createuser/tests/test_view.py" />
+        <option value="$PROJECT_DIR$/createuser/tests/test_system.py" />
+        <option value="$PROJECT_DIR$/createuser/tests.py" />
+        <option value="$PROJECT_DIR$/my_project/settings.py" />
+        <option value="$PROJECT_DIR$/createuser/tests/test_form.py" />
+        <option value="$PROJECT_DIR$/ticket_creation/tests/test_model.py" />
         <option value="$PROJECT_DIR$/ticket_creation/tests/test_view.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2035" />
-    <option name="width" value="1820" />
+    <option name="x" value="1732" />
+    <option name="width" value="2123" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -276,49 +311,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="my_project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -404,6 +396,85 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="email_notif" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="my_project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ticketcreation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,8 +513,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code">
-    <configuration name="Test: createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin" type="DjangoTestsConfigurationType" temporary="true">
+  <component name="RunManager" selected="Django tests.Test: createuser.tests.test_form.TestUserForm">
+    <configuration name="Test: createuser.tests.test_form.TestUserForm" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -456,14 +527,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin" />
+      <option name="TARGET" value="createuser.tests.test_form.TestUserForm" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -476,14 +547,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket" />
+      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_ADMIN" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -496,14 +567,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket" />
+      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_ADMIN" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_USER" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -516,14 +587,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code" />
+      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_USER" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_home_page_status_code" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -536,7 +607,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_home_page_status_code" />
+      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -569,11 +640,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code" />
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_home_page_status_code" />
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket" />
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket" />
-        <item itemvalue="Django tests.Test: createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin" />
+        <item itemvalue="Django tests.Test: createuser.tests.test_form.TestUserForm" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_USER" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_ADMIN" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket" />
       </list>
     </recent_temporary>
   </component>
@@ -603,7 +674,8 @@
       <workItem from="1554130020533" duration="22244000" />
       <workItem from="1554295133662" duration="1244000" />
       <workItem from="1554548505153" duration="54809000" />
-      <workItem from="1554991002160" duration="3547000" />
+      <workItem from="1554991002160" duration="4363000" />
+      <workItem from="1555003365494" duration="14170000" />
     </task>
     <task id="LOCAL-00001" summary="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing">
       <created>1554826454032</created>
@@ -616,39 +688,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket - 2019.04.09 at 22h 19m 59s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 13m 11s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket - 2019.04.09 at 22h 20m 37s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 14m 08s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket - 2019.04.09 at 22h 21m 37s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 14m 23s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket - 2019.04.09 at 22h 23m 59s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 16m 07s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_logged_in_create_ticket - 2019.04.09 at 22h 24m 39s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 16m 43s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__createuser_tests_test_system_AccountTestCase_test_bad_Username_registerAndLogin - 2019.04.09 at 22h 27m 13s.xml">
-      <configuration name="Test: createuser.tests.test_system.AccountTestCase.test_bad_Username_registerAndLogin" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 17m 31s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_FAILURE_INVALID_TITLE_logged_in_create_ticket - 2019.04.12 at 00h 36m 25s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 19m 28s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_SUCCESS_logged_in_create_ticket - 2019.04.12 at 00h 36m 58s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 22m 20s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_home_page_status_code - 2019.04.12 at 00h 46m 30s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_home_page_status_code" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 23m 30s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_page_status_code - 2019.04.12 at 00h 48m 57s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_get_details - 2019.04.12 at 06h 24m 17s.xml">
+      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_get_details" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145601000" />
+    <option name="totallyTimeSpent" value="160587000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -660,16 +732,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="814" y="0" width="728" height="830" extended-state="0" />
+    <frame x="693" y="0" width="849" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17462687" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31858408" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31714284" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3014286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -678,11 +749,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3285968" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35285714" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.24285714" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3557143" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.24142857" />
       <window_info anchor="bottom" id="manage.py@website" order="13" weight="0.3285968" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" />
       <window_info anchor="bottom" id="Messages" order="15" />
+      <window_info anchor="bottom" id="Database Console" order="16" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -763,45 +835,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/email_notif/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/email_notif/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Profile/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/email_notif/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/smtplib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="641" selection-start-line="641" selection-end-line="641" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Profile/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -811,9 +844,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/email_notif/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/createuser/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -839,35 +869,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/email_notif/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/login/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/templates/createuser/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1068">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login/forms.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -888,32 +894,6 @@
         <state relative-caret-position="51">
           <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_system.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/geckodriver.log">
@@ -944,16 +924,6 @@
     <entry file="file://$PROJECT_DIR$/my_project/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -971,32 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/createuser/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1007,53 +951,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/tests/test_system.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createuser/tests/test_form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="146" column="76" selection-start-line="146" selection-start-column="76" selection-end-line="146" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/02626162-037a-4051-a7ee-d1cbe45494e8/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cda2eb7c-8fc7-42c6-98d5-c551743e4a17/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://cda2eb7c-8fc7-42c6-98d5-c551743e4a17/schema/50003/table/ticket_creation_ticket">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://cda2eb7c-8fc7-42c6-98d5-c551743e4a17/schema/50003/table/ticket_creation_ticket" />
     <entry file="file://$PROJECT_DIR$/login/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/be340fd4-fba9-48d4-878e-864238f1b78c/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="81" column="43" lean-forward="true" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_notif/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/templates/createuser/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1086">
+          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_notif/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_notif/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/tests/test_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createuser/tests/test_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,20 +1060,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my_project/settings.py">
+    <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+        <state relative-caret-position="-52">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/be340fd4-fba9-48d4-878e-864238f1b78c/console.sql">
+    <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="41" column="62" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_project/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/views.py.save">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/templates/ticketcreation/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="-562">
+          <caret line="290" column="35" lean-forward="true" selection-start-line="290" selection-start-column="35" selection-end-line="290" selection-end-column="35" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1086,11 +1129,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="70" column="69" selection-start-line="70" selection-start-column="69" selection-end-line="70" selection-end-column="69" />
+        <state relative-caret-position="271">
+          <caret line="130" column="15" selection-start-line="130" selection-start-column="15" selection-end-line="130" selection-end-column="15" />
           <folding>
             <element signature="e#286#318#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
         </state>
       </provider>
     </entry>

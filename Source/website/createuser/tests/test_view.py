@@ -10,19 +10,10 @@ from django.urls import reverse
 from createuser.views import error_message_user_exist, error_message_empty_input, \
     error_message_invalid_input, error_message_notification_check_one
 
-# class Extended_User(AbstractUser):
-# 	username = models.CharField(max_length=100, unique=True)
-# 	password = models.CharField(max_length=100)
-# 	email = models.CharField(max_length=100)
-# 	phoneNumber = models.CharField(max_length=100)
-# 	notify_email = models.BooleanField(default=False)
-# 	notify_sms = models.BooleanField(default=False)
-#
-# 	USERNAME_FIELD = "username"
-# 	REQUIRED_FIELDS = ["password", "email", "phoneNumber"]
+# run in Source\website --> python manage.py test createuser.tests.test_view.CreateUserInstanceViewTest
 
 
-class CreateUserInstanceViewtest(TestCase):
+class CreateUserInstanceViewTest(TestCase):
     def setUp(self):
         # Create an existing User
         test_user1 = Extended_User.objects.create(username='testuser1',
@@ -32,7 +23,6 @@ class CreateUserInstanceViewtest(TestCase):
                                                   notify_email=True,
                                                   notify_sms=False)
         test_user1.set_password('HelloWorld123')
-        # test_user1.is_active = True
         test_user1.save()
 
     # Test for GET request
@@ -70,58 +60,173 @@ class CreateUserInstanceViewtest(TestCase):
 
 
     def test_submit_empty_form(self):
-        response = self.client.post(reverse('createuser:index'),{'username':None,
-                                                                 'password':None,
-                                                                 'email':None,
-                                                                 'phoneNumber':None,
-                                                                 'notify_email':True,
-                                                                 'notify_sms':None})
+        response = self.client.post(reverse('createuser:index'),{'username': None,
+                                                                 'password': None,
+                                                                 'email': None,
+                                                                 'phoneNumber': None,
+                                                                 'notify_email': True,
+                                                                 'notify_sms': None})
+        self.assertEqual(response.status_code,200)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
         print(response.context['error_message'])
         #self.assertEqual(response.context['error_message'], error_message_empty_input)
         self.assertEqual(response.context['error_message'], error_message_invalid_input)
 
-    def test_no_notif_selection_form(self):
-        response = self.client.post(reverse('createuser:index'),{'username':None,
-                                                                 'password':None,
-                                                                 'email':None,
-                                                                 'phoneNumber':None,
-                                                                 'notify_email':None,
-                                                                 'notify_sms':None})
-        self.assertTrue('error_message' in response.context)
-        # Check that the right Error Message is displayed
-        print(response.context['error_message'])
-        #self.assertEqual(response.context['error_message'], error_message_empty_input)
-        self.assertEqual(response.context['error_message'], error_message_invalid_input)
-
-
-    def test_form_invalid_password(self):
-        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
-                                                                  'password': None,
-                                                                  'email': 'test.test@gmail.com',
-                                                                  'phoneNumber':'98765432',
-                                                                  'notify_email': True,
-                                                                  'notify_sms':False})
+    def test_form_all_empty_including_notification_(self):
+        response = self.client.post(reverse('createuser:index'),{'username': None,
+                                                                 'password': None,
+                                                                 'email': None,
+                                                                 'phoneNumber': None,
+                                                                 'notify_email': None,
+                                                                 'notify_sms': None})
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse('createuser:index'))
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        print(response.context['error_message'])
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_empty_username(self):
+        response = self.client.post(reverse('createuser:index'), {'username': None,
+                                                                  'password': 'veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
         self.assertEqual(response.context['error_message'], error_message_empty_input)
 
+    def test_form_invalid_username_EDGE_CASE(self):
+        response = self.client.post(reverse('createuser:index'), {'username': '@HappyDay2',
+                                                                  'password': 'veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_invalid_username(self):
+        response = self.client.post(reverse('createuser:index'), {'username': '@@@',
+                                                                  'password': 'veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+
+    def test_form_empty_password(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay2',
+                                                                  'password': None,
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_invalid_password(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay2',
+                                                                  'password': '@@@',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_invalid_password_EDGE_CASE(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay2',
+                                                                  'password': '@veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '98765432',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_empty_phoneNumber(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay2',
+                                                                  'password': 'veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': None,
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_invalid_phoneNumber(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay2',
+                                                                  'password': 'veryhappyz',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': 'abcdefg',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        print(response)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+
+    def test_form_empty_email(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
+                                                                  'password': 'passWord123',
+                                                                  'email': None,
+                                                                  'phoneNumber':' 3456789',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
 
     def test_form_invalid_email(self):
         response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
                                                                   'password': 'passWord123',
-                                                                  'email': None,
-                                                                  'phoneNumber':'3456789',
+                                                                  'email': 'test.test@@gmail.com',
+                                                                  'phoneNumber':' 3456789',
                                                                   'notify_email': True,
-                                                                  'notify_sms':False})
+                                                                  'notify_sms': False})
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse('createuser:index'))
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
-        self.assertEqual(response.context['error_message'], error_message_empty_input)
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_no_notification_selected(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
+                                                                  'password': 'passWord123',
+                                                                  'email': 'test.test@gmail.com',
+                                                                  'phoneNumber': '3456789',
+                                                                  'notify_email': None,
+                                                                  'notify_sms': None})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_notification_check_one)
 
 
     def test_uses_correct_template(self):

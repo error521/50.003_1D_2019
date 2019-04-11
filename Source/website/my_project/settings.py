@@ -29,6 +29,7 @@ ADMINS = [('John', 'john@example.com'), ]   # Literally added this so that mail_
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'createuser.Extended_User'
 
 # Application definition
 
