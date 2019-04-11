@@ -29,7 +29,6 @@ from ticket_creation.views import error_message_invalid_input, \
 class CreateTicketInstanceViewTest(TestCase):
     @classmethod
     def setUp(self):
-        # self.factory = RequestFactory()
         self.client = Client()
         # Create an existing User
         test_user2 = Extended_User.objects.create(username='testuser2',
@@ -64,34 +63,16 @@ class CreateTicketInstanceViewTest(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTrue('error_message' in response.context)
 
-
-
-    # def test_view_create(self):
-    #     # # Create an existing Ticket
-    #     # self.ticket1 = Ticket.objects.create(ticket_id='testticket1',
-    #     #                                      title='Help', resolved=0,
-    #     #                                      read=0,
-    #     #                                      description='Please help thanks',
-    #     #                                      user='John')
-    #     request = self.factory.get('/ticket_creation/')
-    #     request.user = self.user1
-    #     response = create(request)
-    #     self.assertEqual(response.status_code,200)
-
-    # def test_view_remote_create(self):
-    #     # # Create an existing Ticket
-    #     # self.ticket1 = Ticket.objects.create(ticket_id='testticket1',
-    #     #                                      title='Help', resolved=0,
-    #     #                                      read=0,
-    #     #                                      description='Please help thanks',
-    #     #                                      user='Jon')
-    #     request = self.factory.get(reverse('ticket_creation:remote_create'))
-    #     request.user = self.user1
-    #     response = create(request)
-    #     self.assertEqual(response.status_code,200)
-
     def test_home_page_status_code(self):
         response = self.client.get('/ticket_creation/')
+        self.assertEquals(response.status_code, 302)
+
+    def test_create_page_status_code(self):
+        response = self.client.get(reverse('ticket_creation:create'))
+        self.assertEquals(response.status_code, 302)
+
+    def test_display_page_status_code(self):
+        response = self.client.get(reverse('ticket_creation:display'))
         self.assertEquals(response.status_code, 302)
 
     def test_view_url_by_name(self):
@@ -99,78 +80,35 @@ class CreateTicketInstanceViewTest(TestCase):
         self.assertEquals(response.status_code, 302)
 
 
-    # @patch('ticket_creation.models.Ticket.save',MagicMock(name="save"))
-    # def test_post(self):
-    #     # create the request
-    #     # ticket_id = 'testticket1',
-    #     # title='Help',
-    #     # resolved=0,
-    #     # read=0,
-    #     # description='Please help thanks',
-    #     # user='John'
-    #
-    #     data = {
-    #         'ticket_id': 'testticket1',
-    #         'title': 'Help',
-    #         'resolved': 0,
-    #         'read': 0,
-    #         'description': 'Please help thanks',
-    #         'user': 'John',
-    #     }
-    #     request = self.factory.post(reverse('ticket_creation:create'),data)
-    #     request.user = self.user1
-    #
-    #     response = create(request)
-    #     self.assertEqual(response.status_code,302)
-    #
-    #     self.assertTrue(Ticket.save.called)
-    #     self.assertEqual(Ticket.save.call_count,1)
-
-# https://github.com/hjwp/Book-TDD-Web-Dev-Python/blob/master/chapter_database_layer_validation.asciidoc
-#     def test_logged_in_and_create_ticket(self):
-#         login = self.client.login(username='testuser2',password='HelloSekai123')
-#         response = self.client.get(reverse('login:index'))
-#         #print(response.context)
-#         #self.assertTemplateUsed(response,'login/not_logged_in.html')
-#         #self.assertEqual(response.status_code,200)
-#         #self.assertTrue('error_message' in response.context)
-#         data = {
-#             'ticket_id': 'testTicket2',
-#             'title': 'Help',
-#             'resolved': 0,
-#             'read': 0,
-#             'description': 'Please help thanks',
-#             'user': 'John',
-#         }
-#         response = self.client.post(reverse('ticket_creation:create'), data)
-#         print(response)
-#         #self.assertEqual(response.status_code,302)
-#         #self.assertTemplateNotUsed(response)
-#         self.assertContains(response, error_message_success)
-
-    def test_logged_in_create_ticket(self):
+    def test_SUCCESS_logged_in_create_ticket(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
-        # data = {
-        #             'ticket_id': 'testticket2',
-        #             'title': 'Help',
-        #             'resolved': 0,
-        #             'read': 0,
-        #             'description': 'Please help thanks',
-        #             'user': 'testuser2'
-        #         }
-        # response = self.client.post(reverse('ticket_creation:create'), {'ticket_id': 'testticket',
-        #                                     'title': 'Help',
-        #                                     'resolved': 0,
-        #                                     'read': 0,
-        #                                     'description': 'Please help thanks',
-        #                                     'user': 'testuser2'})
         response = self.client.post(reverse('ticket_creation:create'), {
                                                                         'title': 'Help',
                                                                         'email': 'testing@test.com',
                                                                         'description': 'Please help thanks',
                                                                         })
-
         print(response)
         print(response.context['error_message'])
         self.assertTrue(response.status_code,200)
         self.assertEqual(response.context["error_message"], error_message_success)
+
+    def test_FAILURE_INVALID_TITLE_logged_in_create_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+                                                                        'title': '@Help',
+                                                                        'email': 'testing@test.com',
+                                                                        'description': 'Please help thanks',
+                                                                        })
+        print(response)
+        print(response.context['error_message'])
+        self.assertTrue(response.status_code,200)
+        self.assertNotEqual(response.context["error_message"], error_message_success)
+
+    def test_display_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+            'title': 'HelpAgain',
+            'email': 'testing@test.com',
+            'description': 'Please help again thanks',
+        })
+        response = self.client.get(reverse('ticket_creation:display'))
