@@ -421,7 +421,7 @@ def resolve(request):
 			# return render(request, 'ticketcreation/show.html', {"list": list})
 		else:
 			# user is normal user
-			return HttpResponseRedirect(reverse("home:index"))
+			return HttpResponseForbidden()
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
