@@ -179,8 +179,9 @@ def create(request):
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
-                                        email_to_admin(request) # uses mail_admins
-                                        email_to_user(request) # uses send_mail
+                                        # to be implemented in the near future
+                                        # email_to_admin(request) # uses mail_admins
+                                        # email_to_user(request) # uses send_mail
                                 else:
                                         # input fields are not valid
                                         empty_input_state = False
@@ -231,7 +232,7 @@ def list(request):
 		outputList = []
 
 		if (request.user.is_superuser):
-			outputList = sort_ticket_list(request, models.All_Tickets.objects.all(), request.user.is_superuser)
+			outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
 
 			return render(request, 'ticketcreation/show.html', {"list":outputList})
 		else:
@@ -253,13 +254,13 @@ def selected_list(request):
 			# User is admin
 			querySet = models.All_Tickets.objects.filter(addressed_by=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+				outputList = sort_ticket_list(request, querySet)
 
 		else:
 			# User is non-admin
 			querySet = models.All_Tickets.objects.filter(creator=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+				outputList = sort_ticket_list(request, querySet)
 
 		return render(request, 'ticketcreation/show.html', {"list":outputList})
 	else:
@@ -417,7 +418,7 @@ def resolve(request):
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
-def sort_ticket_list(request, querySetObj, is_superuser):
+def sort_ticket_list(request, querySetObj):
 	"""
 	Private function used by list() and selected_list()
 
@@ -475,11 +476,8 @@ def sort_ticket_list(request, querySetObj, is_superuser):
 				each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None}
 				each_ticket["id"] = k.id
 
-				if (is_superuser):
-					if k.resolved_by != None:
-						each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
-					else:
-						each_ticket["user"] = no_assigned_admin
+				if (request.user.is_superuser):
+					each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
 				else:
 					if k.resolved_by != None:
 						each_ticket["user"] = Extended_User.objects.get(id=k.resolved_by)  # in the perspective of the user, this will display the name of the admin addressing the issue
