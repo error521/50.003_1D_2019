@@ -210,12 +210,12 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-                                return render(request, 'ticketcreation/creation.html')
+                                return render(request, 'ticketcreation/creation.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
                                 print(q)
 
-                                return render(request, 'ticketcreation/creation.html')
+                                return render(request, 'ticketcreation/creation.html', {'error_message':error_message})
                 else:
                         # user is superuser
                         return HttpResponseForbidden()
