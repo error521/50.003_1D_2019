@@ -85,7 +85,7 @@ def index(request):
 					user.save()
 					error_message = error_message_success
 				else:
-					error_message = error_message_notification_check_one
+					error_message = error_message_one_checkbox
 			else:
 				# input fields are not valid
 				empty_input_state = False
