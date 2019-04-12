@@ -25,8 +25,13 @@ class CreateTicketInstanceViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         # Create an existing User
-        # test_admin = User(username='joe',is_staff=True)
-        # test_admin.set_password('12345')
+        # test_admin = User(username='joe',
+        #                   is_staff=True,
+        #                   email='admin@test.com',)
+        #                   #phoneNumber='97532134',
+        #                   #notify_email=True,
+        #                   #notify_sms=False)
+        # test_admin.set_password('1234')
         # test_admin.save()
         test_user2 = Extended_User.objects.create(username='testuser2',
                                                   password='HelloSekai123',
@@ -85,8 +90,10 @@ class CreateTicketInstanceViewTest(TestCase):
                                                                         'description': 'Please help thanks',
                                                                         })
         print(response)
-        print(response.context['error_message'])
+        print("@@@")
+        print(response.context)
         self.assertTrue(response.status_code,200)
+        self.assertTrue('error_message' in response.context)
         self.assertEqual(response.context["error_message"], error_message_success)
 
     def test_FAILURE_INVALID_TITLE_logged_in_create_ticket(self):
@@ -96,7 +103,7 @@ class CreateTicketInstanceViewTest(TestCase):
                                                                         'email': 'testing@test.com',
                                                                         'description': 'Please help thanks',
                                                                         })
-        print(response)
+        print(response.context)
         print(response.context['error_message'])
         self.assertTrue(response.status_code,200)
         self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
@@ -123,13 +130,18 @@ class CreateTicketInstanceViewTest(TestCase):
         logout = self.client.logout()
         # logins admin
         login = self.client.login(username='joe', password='1234')
-        response = self.client.get(reverse('ticket_creation:display'))
-        id_test = 1
-        response = self.client.get('/ticket_creation/detail/?id={}'.format(id_test))
+        request = self.client.get(reverse('ticket_creation:display'))
+        print(request)
+        test_id = request.user.id
+        response = self.client.get(reverse("ticket_creation:detail")+"?id={0}".format(test_id))
         print(response)
-        response = self.client.get(reverse("ticket_creation:display"))
-        self.assertEqual(response.status_code, 302)
-        # print(response)
-        item = Ticket.objects.all().filter(id=id_test)
-        print(item[0].read)
-        self.assertTrue(response.context['item'], item[0])
+
+        # id_test = 1
+        # response = self.client.get('/ticket_creation/detail/?id={}'.format(id_test))
+        # print(response.content)
+        # response = self.client.get(reverse("ticket_creation:display"))
+        # self.assertEqual(response.status_code, 302)
+        # # print(response)
+        # item = Ticket.objects.all().filter(id=id_test)
+        # print(item[0].read)
+        # self.assertTrue(response.context['item'], item[0])
