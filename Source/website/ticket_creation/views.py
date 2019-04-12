@@ -179,8 +179,9 @@ def create(request):
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
-                                        email_to_admin(request) # uses mail_admins
-                                        email_to_user(request) # uses send_mail
+                                        # to be implemented in the near future
+                                        # email_to_admin(request) # uses mail_admins
+                                        # email_to_user(request) # uses send_mail
                                 else:
                                         # input fields are not valid
                                         empty_input_state = False
@@ -217,8 +218,9 @@ def create(request):
                                 return render(request, 'ticketcreation/creation.html')
                 else:
                         # user is superuser
-                        return HttpResponseForbidden(error_message_forbidden_administrator)
+                        return HttpResponseForbidden()
         else:
+                # user is not logged in
                 return HttpResponseRedirect(reverse("login:index"))
 
 
@@ -231,12 +233,13 @@ def list(request):
 		outputList = []
 
 		if (request.user.is_superuser):
-			outputList = sort_ticket_list(request, models.All_Tickets.objects.all(), request.user.is_superuser)
+			outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
 
 			return render(request, 'ticketcreation/show.html', {"list":outputList})
 		else:
 			# user is normal user
 			return HttpResponseForbidden()
+
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
@@ -253,13 +256,13 @@ def selected_list(request):
 			# User is admin
 			querySet = models.All_Tickets.objects.filter(addressed_by=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+				outputList = sort_ticket_list(request, querySet)
 
 		else:
 			# User is non-admin
 			querySet = models.All_Tickets.objects.filter(creator=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+				outputList = sort_ticket_list(request, querySet)
 
 		return render(request, 'ticketcreation/show.html', {"list":outputList})
 	else:
@@ -344,40 +347,45 @@ def detail(request):
 
 		else:
 			# user is retrieving the message thread of a ticket
-			# ----- instantiate and declare variables
 			outputList = []
 			all_tickets_data = {}
-
-			# ----- retrival of data
 			all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
 
-			for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-				ticketDetails = {"title":None, "id":None, "user":None, "description":None, "ticket_id":None}
-				ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
+			# Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
+			is_admin = request.user.is_superuser
+			is_author = request.user.id == all_tickets_row.creator
+			is_authorised = is_admin or (not is_admin and is_author)
 
-				ticketDetails["title"] = ticket_details_row.title
-				ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
-				ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
-				ticketDetails["description"] = ticket_details_row.description
-				ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+			if is_authorised:
+				for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
+					ticketDetails = {"title":None, "id":None, "user":None, "description":None, "ticket_id":None}
+					ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
 
-				outputList.append(ticketDetails)
+					ticketDetails["title"] = ticket_details_row.title
+					ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+					ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
+					ticketDetails["description"] = ticket_details_row.description
+					ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
 
-			# updating read_by attribute of All_Ticket to include the current user
-			read_by = all_tickets_row.read_by
-			if read_by == None:
-				all_tickets_row.read_by = str(request.user.id)+","
-			else:
-				if request.user.id in all_tickets_row.read_by.split(","):
-					pass
+					outputList.append(ticketDetails)
+
+				# updating read_by attribute of All_Ticket to include the current user
+				read_by = all_tickets_row.read_by
+				if read_by == None:
+					all_tickets_row.read_by = str(request.user.id)+","
 				else:
-					all_tickets_row.read_by += str(request.user.id)+","
-			all_tickets_row.save()
+					if request.user.id in all_tickets_row.read_by.split(","):
+						pass
+					else:
+						all_tickets_row.read_by += str(request.user.id)+","
+				all_tickets_row.save()
 
-			# fill up all_tickets_data
-			all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
+				# fill up all_tickets_data
+				all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
 
-			return render(request, 'ticketcreation/detail.html', {"item": outputList, "all_tickets_data":all_tickets_data})
+				return render(request, 'ticketcreation/detail.html', {"item": outputList, "all_tickets_data":all_tickets_data})
+			else:
+				return HttpResponseForbidden()
 
 	else:
 		# user is not logged in
@@ -417,7 +425,7 @@ def resolve(request):
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
-def sort_ticket_list(request, querySetObj, is_superuser):
+def sort_ticket_list(request, querySetObj):
 	"""
 	Private function used by list() and selected_list()
 
@@ -475,11 +483,8 @@ def sort_ticket_list(request, querySetObj, is_superuser):
 				each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None}
 				each_ticket["id"] = k.id
 
-				if (is_superuser):
-					if k.resolved_by != None:
-						each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
-					else:
-						each_ticket["user"] = no_assigned_admin
+				if (request.user.is_superuser):
+					each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
 				else:
 					if k.resolved_by != None:
 						each_ticket["user"] = Extended_User.objects.get(id=k.resolved_by)  # in the perspective of the user, this will display the name of the admin addressing the issue
