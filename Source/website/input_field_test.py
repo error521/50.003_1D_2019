@@ -17,6 +17,8 @@ class Input_field_test:
 		"""
 		if input_value == "":
 			return False
+		elif input_value=="":
+			return False
 		else:
 			return True
 

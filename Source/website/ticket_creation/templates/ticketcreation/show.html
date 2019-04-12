@@ -22,7 +22,7 @@
     <thead>
       <tr>
         <th>id</th>
-        <th>User</th>
+        <th>user</th>
         <th>title</th>
         <th>read</th>
         <th>resolved </th>
@@ -33,20 +33,20 @@
     <tbody>
     {% load static %}
     {% for line in list %}
-
       <tr>
-
-          <td>{{line.id}}</td>
+        <td>{{line.id}}</td>
         <td>{{line.user}}</td>
         <td><a href="/ticket_creation/detail/?id={{ line.id }}" >{{line.title}}</a></td>
         <td>{{line.read}}</td>
-        <td>{{ line.resolved }}</td>
+        <td>{{line.resolved}}</td>
         <td>
+          {% if request.user.is_superuser %}
             <form method="POST" action="">
             {% csrf_token %}
                 <button type="button" class="btn btn-danger" value="delete"></button>
                 <a href="/ticket_creation/delete/?id={{ line.id }}" type="button" onclick="return clicked();">Delete</a>
-        </form></td>
+            </form></td>
+          {% endif %}
       </tr>
     {% endfor %}
 

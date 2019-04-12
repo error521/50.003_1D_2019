@@ -12,6 +12,8 @@ To do:
     - Each ticket will have (post_id {starting from 0})(title)(description)(more can come later)
 
 - Add ticket replying
+--- Show my tickets for user side
+--- Reply my tickets for user side
 - Add image attachment, textfile and pdf attachement to ticket (will need ticket id (and possibly reply))
 - Add email and sms notification
 - Add email and sms notificattion whenever ticket reply/ticket create

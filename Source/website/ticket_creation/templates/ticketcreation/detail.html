@@ -1,27 +1,69 @@
 {% extends "home/base.html" %}
 {% block content %}
+<head>
+  <style>
+  div.dotted {border-style:dotted;}
+  </style>
+
+</head>
+
+
 <body xmlns="http://www.w3.org/1999/html">
+{% if request.user.is_superuser %}
+  {% if all_tickets_data.resolved_by == None %}
+    <div class="dotted">
+      <h5>Click to resolve ticket:</h5>
+      <a href="/ticket_creation/resolve/?id={{ item.0.ticket_id }}" type="button" onclick="return clicked();">Resolve</a>
+    </div>
+  {% endif %}
+{% endif %}
 
-<!-- demo-title -->
-<div class="demo-title">
-	<h1 class="display-1">{{ item.title }}</h1>
-
-    <h3>{{ item.id}}</h3>
-    <h3>{{ item.user }}</h3>
-    <h3>{{ item.description }}</h3>
-    <dl class="item-property">
-    <dt>Description</dt>
-    <dd><p>{{ item.description }}</p></dd>
-    </dl>
-    <dl class="param param-feature">
-    <dt>User</dt>
-    <dd>{{ item.user }}</dd>
-    </dl>  <!-- item-property-hor .// -->
-    <dl class="param param-feature">
-    <dt>ID</dt>
-    <dd>{{ item.ticket_id }}</dd>
-    </dl>  <!-- item-property-hor .// -->
-    <a href="/ticket_creation/resolve/?id={{ item.id }}" type="button" onclick="return clicked();">Resolve</a>
+{% for row in item %}
+ <div class="dotted">
+     <dl class="param param-feature">
+     <dt>Title</dt>
+     <dd>{{ row.title }}</dd>
+     </dl>  <!-- item-property-hor .// -->
+     <dl class="param param-feature">
+     <dt>Ticket/Reply id (in Ticket_Details)</dt>
+     <dd>{{ row.id }}</dd>
+     </dl>  <!-- item-property-hor .// -->
+     <dl class="param param-feature">
+     <dt>Ticket/Reply author</dt>
+     <dd>{{ row.user }}</dd>
+     </dl>  <!-- item-property-hor .// -->
+     <dl class="param param-feature">
+     <dt>Description</dt>
+     <dd>{{ row.description }}</dd>
+     </dl>  <!-- item-property-hor .// -->
+     <dl class="param param-feature">
+     <dt>User</dt>
+     <dd>{{ row.user }}</dd>
+     </dl>  <!-- item-property-hor .// -->
+     <dl class="param param-feature">
+     <dt>Thread ID (in All_Tickets)</dt>
+     <dd>{{ row.ticket_id }}</dd>
+     </dl>
+ </div>
+{% endfor %}
+<div class="dotted">
+  <h3>To reply to ticket thread</h3>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="col form-group">
+      <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="">
+      </div>
+      <div class="col form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" placeholder="">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Reply</button>
+      </div>
+    </div>
+  </form>
 </div>
 
 <script>
