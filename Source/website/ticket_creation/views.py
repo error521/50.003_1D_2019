@@ -218,8 +218,9 @@ def create(request):
                                 return render(request, 'ticketcreation/creation.html')
                 else:
                         # user is superuser
-                        return HttpResponseForbidden(error_message_forbidden_administrator)
+                        return HttpResponseForbidden()
         else:
+                # user is not logged in
                 return HttpResponseRedirect(reverse("login:index"))
 
 
@@ -238,6 +239,7 @@ def list(request):
 		else:
 			# user is normal user
 			return HttpResponseForbidden()
+
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
@@ -345,40 +347,45 @@ def detail(request):
 
 		else:
 			# user is retrieving the message thread of a ticket
-			# ----- instantiate and declare variables
 			outputList = []
 			all_tickets_data = {}
-
-			# ----- retrival of data
 			all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
 
-			for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-				ticketDetails = {"title":None, "id":None, "user":None, "description":None, "ticket_id":None}
-				ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
+			# Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
+			is_admin = request.user.is_superuser
+			is_author = request.user.id == all_tickets_row.creator
+			is_authorised = is_admin or (not is_admin and is_author)
 
-				ticketDetails["title"] = ticket_details_row.title
-				ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
-				ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
-				ticketDetails["description"] = ticket_details_row.description
-				ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+			if is_authorised:
+				for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
+					ticketDetails = {"title":None, "id":None, "user":None, "description":None, "ticket_id":None}
+					ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
 
-				outputList.append(ticketDetails)
+					ticketDetails["title"] = ticket_details_row.title
+					ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+					ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
+					ticketDetails["description"] = ticket_details_row.description
+					ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
 
-			# updating read_by attribute of All_Ticket to include the current user
-			read_by = all_tickets_row.read_by
-			if read_by == None:
-				all_tickets_row.read_by = str(request.user.id)+","
-			else:
-				if request.user.id in all_tickets_row.read_by.split(","):
-					pass
+					outputList.append(ticketDetails)
+
+				# updating read_by attribute of All_Ticket to include the current user
+				read_by = all_tickets_row.read_by
+				if read_by == None:
+					all_tickets_row.read_by = str(request.user.id)+","
 				else:
-					all_tickets_row.read_by += str(request.user.id)+","
-			all_tickets_row.save()
+					if request.user.id in all_tickets_row.read_by.split(","):
+						pass
+					else:
+						all_tickets_row.read_by += str(request.user.id)+","
+				all_tickets_row.save()
 
-			# fill up all_tickets_data
-			all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
+				# fill up all_tickets_data
+				all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
 
-			return render(request, 'ticketcreation/detail.html', {"item": outputList, "all_tickets_data":all_tickets_data})
+				return render(request, 'ticketcreation/detail.html', {"item": outputList, "all_tickets_data":all_tickets_data})
+			else:
+				return HttpResponseForbidden()
 
 	else:
 		# user is not logged in
