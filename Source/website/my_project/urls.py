@@ -30,5 +30,4 @@ urlpatterns = [
     path('createuser/', include('createuser.urls'), name='createuser'),
     path('ticket_creation/', include('ticket_creation.urls'), name='ticket_creation'),
     path('Profile/', include('Profile.urls'), name='Profile'),
-    path('edit_profile/', include('edit_profile.urls'), name='edit_profile'),
 ]
