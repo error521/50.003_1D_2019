@@ -19,7 +19,6 @@ error_message_unknown_error = "Unknown error"  # thrown when we cant save ticket
 
 
 
-# Create your views here.
 def index(request):
 	"""
 	For admins and non-admin, allows user to view current email, phone number, notification preferences,
@@ -81,7 +80,6 @@ def index(request):
 
 					if "empty" not in password_validity:
 						user.set_password(password)
-					print("ping")
 					user.save()
 					error_message = error_message_success
 				else:
@@ -117,7 +115,10 @@ def index(request):
 					# input fields have invalid input
 					error_message = error_message_invalid_input
 
-			messages.error(request, error_message)
+			if error_message == error_message_success:
+				messages.success(request, error_message)
+			else:
+				messages.error(request, error_message)
 
 		# applicable for both GET and POST requests
 		user_information = {'username':None, 'email':None, 'phoneNumber':None, 'notify_email':None, 'notify_sms':None}
