@@ -43,14 +43,6 @@
       <form method="post" action="" enctype="multipart/form-data">
           {% csrf_token %}
         <div class="mb-3">
-          <label for="email">Email </label>
-          <input type="email" class="form-control" name="email" placeholder="you@example.com">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
-        </div>
-
-        <div class="mb-3">
           <label for="title">Ticket Title</label>
           <input type="text" class="form-control" name="title">
           <div class="invalid-feedback">
