@@ -93,7 +93,7 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'phoneNumber': '98765432',
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         print(response)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
@@ -133,7 +133,7 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'phoneNumber': '98765432',
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         print(response)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
@@ -159,7 +159,7 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'phoneNumber': '98765432',
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         print(response)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
