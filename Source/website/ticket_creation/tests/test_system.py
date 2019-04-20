@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import  NoSuchElementException
 import time
+from ticket_creation.models import All_Tickets, Ticket, Ticket_Details
 
 
 class CreateTicketByUser(LiveServerTestCase):
@@ -59,10 +60,9 @@ class CreateTicketByUser(LiveServerTestCase):
         time.sleep(1)
         create_ticket_button = driver.find_element_by_xpath("/html/body/div/div[2]/form/button")
         create_ticket_button.click()
-        expectedMessage = "Ticket creation success"
+        # expectedMessage = "Ticket creation success"
         message = driver.find_element_by_xpath("/html/body/ul/li/div")
         self.assertTrue(message)
-
         driver.quit()
 
 
@@ -109,3 +109,110 @@ class ViewTicketByAdmin(LiveServerTestCase):
         self.assertNotEqual(previousRead,newRead)
 
         driver.quit()
+
+
+class ResolveTicketByAdmin(LiveServerTestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        super(ResolveTicketByAdmin, self).setUp()
+
+    def tearDown(self):
+        self.driver.quit()
+        super(ResolveTicketByAdmin, self).tearDown()
+
+    def test_ResolveTicketByAdmin(self):
+        user_username = 'joe'
+        user_password = '1234'
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/login/")
+        username_field = driver.find_element_by_name("username")
+        password_field = driver.find_element_by_name("password")
+        username_field.send_keys(user_username)
+        time.sleep(1)
+        password_field.send_keys(user_password)
+        time.sleep(1)
+        login_button = driver.find_element_by_xpath("/html/body/form/div/button")
+        login_button.click()
+        time.sleep(2)
+        print("Admin has logged in")
+
+        # Admin has logged in
+        # Admin clicks View all tickets link to create ticket
+        link_create_ticket = driver.find_element_by_link_text('View all tickets')
+        time.sleep(1)
+        link_create_ticket.click()
+        time.sleep(1)
+        link_view_ticket = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[3]/a")
+        previousResolve = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[5]").text
+        id = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[1]").text
+        time.sleep(1)
+        link_view_ticket.click()
+        time.sleep(1)
+        resolve_button = driver.find_element_by_xpath("/html/body/div[1]/a")
+        resolve_button.click()
+        time.sleep(1)
+        alert_obj = driver.switch_to.alert
+        msg = alert_obj.text
+        print("Alert shows following message: " + msg)
+        alert_obj.accept()
+        time.sleep(1)
+        # driver.get("http://127.0.0.1:8000/ticket_creation/display/")
+        # time.sleep(3)
+        newResolve = driver.find_element_by_xpath("/html/body/table/tbody/tr[{}]/td[5]".format(id)).text
+        self.assertNotEqual(previousResolve, newResolve)
+
+        driver.quit()
+
+
+class CancelResolveTicketByAdmin(LiveServerTestCase):
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        super(CancelResolveTicketByAdmin, self).setUp()
+
+    def tearDown(self):
+        self.driver.quit()
+        super(CancelResolveTicketByAdmin, self).tearDown()
+
+    def test_ResolveTicketByAdmin(self):
+        user_username = 'joe'
+        user_password = '1234'
+        driver = self.driver
+        driver.get("http://127.0.0.1:8000/login/")
+        username_field = driver.find_element_by_name("username")
+        password_field = driver.find_element_by_name("password")
+        username_field.send_keys(user_username)
+        time.sleep(1)
+        password_field.send_keys(user_password)
+        time.sleep(1)
+        login_button = driver.find_element_by_xpath("/html/body/form/div/button")
+        login_button.click()
+        time.sleep(2)
+        print("Admin has logged in")
+
+        # Admin has logged in
+        # Admin clicks View all tickets link to create ticket
+        link_create_ticket = driver.find_element_by_link_text('View all tickets')
+        time.sleep(1)
+        link_create_ticket.click()
+        time.sleep(1)
+        link_view_ticket = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[3]/a")
+        previousResolve = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[5]").text
+        id = driver.find_element_by_xpath("/html/body/table/tbody/tr[1]/td[1]").text
+        time.sleep(1)
+        link_view_ticket.click()
+        time.sleep(1)
+        resolve_button = driver.find_element_by_xpath("/html/body/div[1]/a")
+        resolve_button.click()
+        time.sleep(1)
+        alert_obj = driver.switch_to.alert
+        msg = alert_obj.text
+        print("Alert shows following message: " + msg)
+        alert_obj.dismiss()
+        time.sleep(1)
+        driver.get("http://127.0.0.1:8000/ticket_creation/display/")
+        # time.sleep(3)
+        newResolve = driver.find_element_by_xpath("/html/body/table/tbody/tr[{}]/td[5]".format(id)).text
+        self.assertEqual(previousResolve, newResolve)
+
+        driver.quit()
+

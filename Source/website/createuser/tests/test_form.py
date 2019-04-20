@@ -18,19 +18,19 @@ class TestUserForm(TestCase):
                                              notify_sms=False
                                              )
 
-    def test_C_AC_Create_001(self):
-        # test valid data
-        valid_data = {
-            "username": "Johnlee",
-            "password": "password",
-            "email": "test@test.com",
-            "phoneNumber": "98765432",
-            "notify_email": True,
-            "notify_sms": False
-        }
-
-        form = UserForm(data= valid_data)
-        self.assertTrue(form.is_valid(), 'Form is valid')
+    # def test_C_AC_Create_001(self):
+    #     # test valid data
+    #     valid_data = {
+    #         "username": "Johnlee",
+    #         "password": "password",
+    #         "email": "test@test.com",
+    #         "phoneNumber": "98765432",
+    #         "notify_email": True,
+    #         "notify_sms": False
+    #     }
+    #
+    #     form = UserForm(data= valid_data)
+    #     self.assertTrue(form.is_valid(), 'Form is valid')
 
     def test_TC_AC_Create_003_bt1(self):
         # boundary cases for invalid email: extra char

@@ -1,9 +1,10 @@
+# Testing with views is a little more complicated
+# need to test more code paths: intial display, display after data validation has failed
+# display after validation has suceeded. The good news is that we use the client
+# for testing exactly the same way as we did for display views only
 
-#Testing with views is a little more complicated
-#need to test more code paths: intial display, display after data validation has failed
-#display after validation has suceeded. The good news is that we use the client
-#for testing exactly the same way as we did for display views only
-
+import datetime
+from ticket_creation.models import All_Tickets
 from django.test import TestCase
 from django.contrib.auth.models import User
 from ticket_creation.models import Ticket
@@ -49,6 +50,11 @@ class CreateTicketInstanceViewTest(TestCase):
                                              user='testuser2')
         test_ticket1.save()
 
+        all_ticket = All_Tickets.objects.create(size=1, creator=0,
+                                 addressed_by=1, resolved_by=None,
+                                 read_by=1, queue_number=1,
+                                 dateTime_created=datetime.datetime.now())
+        all_ticket.save()
 
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse('ticket_creation:create'))
@@ -56,7 +62,7 @@ class CreateTicketInstanceViewTest(TestCase):
 
     def test_logged_in_(self):
         login = self.client.login(username='testuser2',
-                             password='HelloSekai123')
+                                  password='HelloSekai123')
         print("Is user logged in")
         print(login)
         response = self.client.get(reverse('login:index'))
@@ -80,7 +86,6 @@ class CreateTicketInstanceViewTest(TestCase):
     def test_view_url_by_name(self):
         response = self.client.get(reverse('ticket_creation:create'))
         self.assertEquals(response.status_code, 302)
-
 
     def test_SUCCESS_logged_in_create_ticket(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
@@ -108,6 +113,44 @@ class CreateTicketInstanceViewTest(TestCase):
         self.assertTrue(response.status_code,200)
         self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
 
+    def test_FAILURE_INVALID_DESCRIPTION_logged_in_create_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+                                                                        'title': 'Help',
+                                                                        'email': 'testing@test.com',
+                                                                        'description': '@Please help thanks',
+                                                                        })
+
+
+        # print(response.context)
+        # print(response.context['error_message'])
+        self.assertTrue(response.status_code,200)
+        self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
+
+    def test_FAILURE_INVALID_TITLE_INVALID_DESCRIPTION_logged_in_create_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+                                                                        'title': '#Help#',
+                                                                        'email': 'testing@test.com',
+                                                                        'description': '#Please help thanks#',
+                                                                        })
+        # print(response.context)
+        # print(response.context['error_message'])
+        self.assertTrue(response.status_code,200)
+        self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
+
+    def test_FAILURE_INVALID_EMAIL_logged_in_create_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+                                                                        'title': 'Help',
+                                                                        'email': 'testing@@test.com',
+                                                                        'description': 'Please help thanks',
+                                                                        })
+        # print(response.context)
+        # print(response.context['error_message'])
+        self.assertTrue(response.status_code,200)
+        self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
+
     def test_display_ticket_TO_ADMIN(self):
         login = self.client.login(username='joe', password='1234')
         response = self.client.get(reverse('ticket_creation:display'))
@@ -117,10 +160,55 @@ class CreateTicketInstanceViewTest(TestCase):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         response = self.client.get(reverse('ticket_creation:display'))
         self.assertEqual(response.status_code, 403)
-        #self.assertRedirects(response, reverse('home:index'))
+        # self.assertRedirects(response, reverse('home:index'))
+
+    # def test_display_ticket_context(self):
+    #     login = self.client.login(username='testuser2', password='HelloSekai123')
+    #     response = self.client.post(reverse('ticket_creation:create'), {
+    #         'title': 'Help',
+    #         'email': 'testing@test.com',
+    #         'description': 'Please help thanks',
+    #     })
+    #     self.client.logout()
+    #     login = self.client.login(username='joe', password='1234')
+    #     response = self.client.get(reverse('ticket_creation:display'))
+    #     # print(response.context)
+    #     self.assertEqual(response.status_code, 302)
+    #     # self.assertRedirects(response, reverse('home:index'))
+
+    def test_admin_reply_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+            'title': 'Help',
+            'email': 'testing@test.com',
+            'description': 'Please help thanks',
+        })
+        self.client.logout()
+        login = self.client.login(username='joe', password='1234')
+        response = self.client.post(reverse('ticket_creation:detail'),{
+            'title': "No worries",
+            'description': "You will be found"
+        })
+        self.assertEqual(response.status_code, 302)
+
+    def test_admin_resolve_ticket(self):
+        login = self.client.login(username='testuser2', password='HelloSekai123')
+        response = self.client.post(reverse('ticket_creation:create'), {
+            'title': 'Help',
+            'email': 'testing@test.com',
+            'description': 'Please help thanks',
+        })
+        self.client.logout()
+        login = self.client.login(username='joe', password='1234')
+        response = self.client.post(reverse('ticket_creation:detail'), {
+            'title': "No worries",
+            'description': "You will be found"
+        })
+        response = self.client.get(reverse('ticket_creation:resolve'))
+        self.assertEqual(response.status_code, 302)
 
     # def test_get_details(self):
-    #     # logins user first to create a ticket
+    #     # login user first to create a ticket
     #     login = self.client.login(username='testuser2', password='HelloSekai123')
     #     response = self.client.post(reverse('ticket_creation:create'), {
     #         'title': 'Help',
