@@ -60,9 +60,11 @@ class CreateTicketByUser(LiveServerTestCase):
         time.sleep(1)
         create_ticket_button = driver.find_element_by_xpath("/html/body/div/div[2]/form/button")
         create_ticket_button.click()
-        # expectedMessage = "Ticket creation success"
+        expectedMessage = "Ticket creation success"
         message = driver.find_element_by_xpath("/html/body/ul/li/div")
+        msg_text = message.text
         self.assertTrue(message)
+        self.assertEqual(msg_text, expectedMessage)
         driver.quit()
 
 

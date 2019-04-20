@@ -153,17 +153,17 @@ def view_profile(request):
 
 
 
-def update_profile(request):
-    if (request.user.is_authenticated):
-        # user is logged in
-        if request.method == 'POST':
-            username = request.user.username
-            email = request.user.email
-            phone = request.POST.get('email')
-            description = request.POST.get('description')
-            print(username)
-            ticket = models.Ticket(ticket_id=id, title=title, resolved=0, read=0, description=description, user=username)
-            ticket.save()
-        return render(request, 'ticketcreation/creation.html')
-    else:
-        return HttpResponseRedirect(reverse("login:index"))
+# def update_profile(request):
+#     if (request.user.is_authenticated):
+#         # user is logged in
+#         if request.method == 'POST':
+#             username = request.user.username
+#             email = request.user.email
+#             phone = request.POST.get('email')
+#             description = request.POST.get('description')
+#             print(username)
+#             ticket = models.Ticket(ticket_id=id, title=title, resolved=0, read=0, description=description, user=username)
+#             ticket.save()
+#         return render(request, 'ticketcreation/creation.html')
+#     else:
+#         return HttpResponseRedirect(reverse("login:index"))

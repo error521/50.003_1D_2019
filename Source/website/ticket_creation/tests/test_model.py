@@ -4,6 +4,7 @@ from django.urls import reverse
 from ticket_creation.models import Ticket_Details
 from ticket_creation.models import All_Tickets
 import datetime
+from createuser.models import Extended_User
 from django.apps import apps
 
 # class Ticket(models.Model):
@@ -38,6 +39,15 @@ from django.apps import apps
 
 class TicketCreationModelTest(TestCase):
     def setUp(self):
+        test_user2 = Extended_User.objects.create(username='testuser2',
+                                                  password='HelloSekai123',
+                                                  email='testing@test.com',
+                                                  phoneNumber='12345679',
+                                                  notify_email=True,
+                                                  notify_sms=False)
+        test_user2.set_password('HelloSekai123')
+        test_user2.is_active = True
+        test_user2.save()
         test_ticket1 = Ticket.objects.create(ticket_id='testTicket1',
                               title='Help me',
                               resolved=0,
@@ -74,13 +84,18 @@ class TicketCreationModelTest(TestCase):
                           'Tried to create a ticket but gives error')
         self.assertEquals(title_ticket2.user, 'testuser2')
 
-    def test_all_ticket_model(self):
+    def test_Existence_of_Every_Ticket_model(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
-        all_ticket = All_Tickets(size=1,creator=0,
-                                 addressed_by=1,resolved_by=None,
-                                 read_by=1,queue_number=1,
-                                 dateTime_created=datetime.datetime.now())
-        all_ticket.save()
+        response = self.client.post(reverse('ticket_creation:create'), {
+            'title': 'Help me now',
+            'email': 'testing@test.com',
+            'description': 'Pretty please help thanks',
+        })
+
+        # all_ticket = All_Tickets(size=1,creator=0,
+        #                          addressed_by=1,resolved_by=None,
+        #                          read_by=1,queue_number=1,
+        #                          dateTime_created=datetime.datetime.now())
+        # all_ticket.save()
         self.assertTrue(All_Tickets.objects.exists())
-
-
+        self.assertTrue(Ticket_Details.objects.exists())
