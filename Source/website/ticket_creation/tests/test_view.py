@@ -58,7 +58,7 @@ class CreateTicketInstanceViewTest(TestCase):
 
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse('ticket_creation:create'))
-        self.assertRedirects(response,'/login/')
+        self.assertRedirects(response,'/')
 
     def test_logged_in_(self):
         login = self.client.login(username='testuser2',
@@ -67,7 +67,7 @@ class CreateTicketInstanceViewTest(TestCase):
         print(login)
         response = self.client.get(reverse('login:index'))
         print(response.context)
-        self.assertTemplateUsed(response,'login/not_logged_in.html')
+        self.assertTemplateUsed(response,'login.html')
         self.assertEqual(response.status_code,200)
         self.assertTrue('error_message' in response.context)
 

@@ -5,6 +5,7 @@ from ticket_creation.models import Ticket_Details
 from ticket_creation.models import All_Tickets
 import datetime
 from createuser.models import Extended_User
+from django.test import Client
 from django.apps import apps
 
 # class Ticket(models.Model):

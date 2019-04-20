@@ -43,11 +43,7 @@ class ProfileTestView(TestCase):
 
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse('Profile:viewProfile'))
-        self.assertRedirects(response,'/login/')
-
-    def test_Profile_index_status_code(self):
-        response = self.client.get(reverse('Profile:index'))
-        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response,'/')
 
     def test_Profile_viewProfile_status_code(self):
         response = self.client.get(reverse('Profile:viewProfile'))
@@ -56,7 +52,7 @@ class ProfileTestView(TestCase):
     def test_valid_edit_username_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'), {
+        response = self.client.post(reverse('Profile:viewProfile'), {
             'username': 'TestUser2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -72,7 +68,7 @@ class ProfileTestView(TestCase):
     def test_invalid_username_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'),{
+        response = self.client.post(reverse('Profile:viewProfile'),{
             'username': 'test@user2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -87,7 +83,7 @@ class ProfileTestView(TestCase):
     def test_valid_edit_Email_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'), {
+        response = self.client.post(reverse('Profile:viewProfile'), {
             'username': 'testuser2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -102,7 +98,7 @@ class ProfileTestView(TestCase):
     def test_valid_edit_SMS_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'), {
+        response = self.client.post(reverse('Profile:viewProfile'), {
             'username': 'testuser2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -118,7 +114,7 @@ class ProfileTestView(TestCase):
     def test_empty_password_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'), {
+        response = self.client.post(reverse('Profile:viewProfile'), {
             'username': 'testuser2',
             'password': None,
             'email': 'testing@test.com',
@@ -133,7 +129,7 @@ class ProfileTestView(TestCase):
     def test_invalid_email_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'),{
+        response = self.client.post(reverse('Profile:viewProfile'),{
             'username': 'test@user2',
             'password': 'HelloSekai123',
             'email': 'testing@@test.com',
@@ -148,7 +144,7 @@ class ProfileTestView(TestCase):
     def test_invalid_phoneNumber_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'),{
+        response = self.client.post(reverse('Profile:viewProfile'),{
             'username': 'test@user2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -163,7 +159,7 @@ class ProfileTestView(TestCase):
     def test_invalid_notify_All_False_Profile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         # print(login)
-        response = self.client.post(reverse('Profile:index'),{
+        response = self.client.post(reverse('Profile:viewProfile'),{
             'username': 'test@user2',
             'password': 'HelloSekai123',
             'email': 'testing@test.com',
@@ -179,5 +175,10 @@ class ProfileTestView(TestCase):
     def test_viewProfile(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         response = self.client.get(reverse('Profile:viewProfile'))
-        # print(response.context['line'])
-        self.assertEqual(response.context['line'],['testing@test.com', 'testuser2'])
+        # print(response.context['user_information'])
+        self.assertEqual(response.context['user_information'],
+                         {'username': 'testuser2',
+                          'email': 'testing@test.com',
+                          'phoneNumber': '12345679',
+                          'notify_email': True,
+                          'notify_sms': False})

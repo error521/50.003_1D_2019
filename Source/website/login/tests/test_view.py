@@ -2,12 +2,14 @@ from django.contrib.auth.models import User
 from createuser.models import Extended_User
 from django.test import TestCase
 from django.urls import reverse
+from django.test import Client
 
 from login.views import error_message_incorrect_userpass, error_message_empty_input, error_message_invalid_input
 
 
 class LoginInstanceViewTest(TestCase):
     def setUp(self):
+        self.client = Client()
         # Create an existing User
         test_user1 = Extended_User.objects.create(username='testuser1')
         test_user1.set_password('HelloWorld123')
@@ -15,9 +17,8 @@ class LoginInstanceViewTest(TestCase):
 
     # Test for correct template being used
     def test_uses_correct_template(self):
-        response = self.client.get('/login/')
-        self.assertEqual(response.status_code,200)
-        self.assertTemplateUsed(response, 'login/not_logged_in.html')
+        response = self.client.get(reverse('login:index'))
+        self.assertTemplateUsed(response, 'login.html')
 
     # Test for Get Request, should return an empty Login form
     def test_login_page(self):

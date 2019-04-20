@@ -5,6 +5,7 @@
 #for testing exactly the same way as we did for display views only
 
 from createuser.models import Extended_User
+from django.test import Client
 from django.test import TestCase
 from django.urls import reverse
 from createuser.views import error_message_user_exist, error_message_empty_input, \
@@ -16,6 +17,7 @@ from createuser.views import error_message_user_exist, error_message_empty_input
 class CreateUserInstanceViewTest(TestCase):
     def setUp(self):
         # Create an existing User
+        self.client = Client()
         test_user1 = Extended_User.objects.create(username='testuser1',
                                                   password='HelloWorld123',
                                                   email='test@test.com',
@@ -120,7 +122,7 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
         self.assertEqual(response.status_code, 200)
-        print(response)
+        print(response.context)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
         self.assertEqual(response.context['error_message'], error_message_invalid_input)
@@ -134,7 +136,7 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
         self.assertEqual(response.status_code, 302)
-        print(response)
+        print(response.context)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
         self.assertEqual(response.context['error_message'], error_message_invalid_input)
@@ -146,8 +148,8 @@ class CreateUserInstanceViewTest(TestCase):
                                                                   'phoneNumber': '98765432',
                                                                   'notify_email': True,
                                                                   'notify_sms': False})
-        self.assertEqual(response.status_code, 200)
-        print(response)
+        self.assertEqual(response.status_code, 302)
+        print(response.context)
         self.assertTrue('error_message' in response.context)
         # Check that the right Error Message is displayed
         self.assertEqual(response.context['error_message'], error_message_invalid_input)
@@ -232,4 +234,4 @@ class CreateUserInstanceViewTest(TestCase):
     def test_uses_correct_template(self):
         response = self.client.get('/createuser/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'createuser/user.html')
+        self.assertTemplateUsed(response, 'register.html')

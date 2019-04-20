@@ -25,7 +25,7 @@ SECRET_KEY = 'em#)-bxmu4a_^6orrys8031qoo7pzb3-=5ci3u57d8zqss72xk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ADMINS = [('John', 'john@example.com'), ]   # Literally added this so that mail_admins() can work
+# ADMINS = [('John', 'john@example.com'), ]   # Literally added this so that mail_admins() can work
 
 ALLOWED_HOSTS = []
 
