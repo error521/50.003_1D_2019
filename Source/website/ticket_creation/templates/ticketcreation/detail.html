@@ -18,34 +18,27 @@
   {% endif %}
 {% endif %}
 
-{% for i in range(len(item)) %}
+{% for row in item %}
  <div class="dotted">
-     {% if i==0 %}
+     {% if row.title != None %}
      <dl class="param param-feature">
      <dt>Title</dt>
-     <dd>{{ row.i.title }}</dd>
+     <dd>{{ row.title }}</dd>
      </dl>  <!-- item-property-hor .// -->
      {% endif %}
      <dl class="param param-feature">
      <dt>Ticket/Reply id (in Ticket_Details)</dt>
-     <dd>{{ row.i.id }}</dd>
+     <dd>{{ row.id }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>Ticket/Reply author</dt>
-     <dd>{{ row.i.user }}</dd>
+     <dd>{{ row.user }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>Description</dt>
-     <dd>{{ row.i.description }}</dd>
+     <dd>{{ row.description }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
-     <dt>User</dt>
-     <dd>{{ row.i.user }}</dd>
-     </dl>  <!-- item-property-hor .// -->
-     <dl class="param param-feature">
-     <dt>Thread ID (in All_Tickets)</dt>
-     <dd>{{ row.i.ticket_id }}</dd>
-     </dl>
  </div>
 {% endfor %}
 <div class="dotted">
