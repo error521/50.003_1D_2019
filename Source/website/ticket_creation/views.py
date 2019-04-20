@@ -278,21 +278,18 @@ def detail(request):
 		if request.method == "POST":
 			# user is posting reply to ticket
 			input_field_test = Input_field_test()
-			title = None
 			description = None
 			all_tickets_row = None
 
 
 			try:
-				title = request.POST.get("title")
 				description = request.POST.get("description")
 			except ValueError:
 				pass
 
-			title_validity = input_field_test.ticket_title(title)
 			description_validity = input_field_test.ticket_description(description)
 
-			if len(title_validity)==1 and len(description_validity)==1:
+			if len(description_validity)==1:
 				# update data of thread under All_Tickets
 				all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
 				new_queue_number = all_tickets_row.size + 1
@@ -300,7 +297,7 @@ def detail(request):
 				all_tickets_row.save()
 
 				# creation of new entry into Ticket_Detail
-				ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, title=title, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
+				ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
 				ticket_details_row.save()
 
 				# updating read_by attribute of All_Ticket to be only read by the user posting the reply
@@ -320,11 +317,6 @@ def detail(request):
 				invalid_input_state = False
 				invalid_token_state = False
 
-				for i in title_validity:
-					if i == "empty":
-						empty_input_state = True
-					elif i == "invalid value":
-						invalid_input_state = True
 				for i in description_validity:
 					if i == "empty":
 						empty_input_state = True
