@@ -1,2 +1,3 @@
 # remove all files in pycache
 */__pycache__/*
+*.xml

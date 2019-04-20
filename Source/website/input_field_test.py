@@ -15,7 +15,7 @@ class Input_field_test:
 		Private method
 		Returns True if input_value is not an empty string, False otherwise
 		"""
-		if input_value==None:
+		if input_value == "":
 			return False
 		elif input_value=="":
 			return False

@@ -16,6 +16,7 @@ from email_notif.views import email_to_user
 from createuser.models import Extended_User
 from input_field_test import Input_field_test
 
+
 error_message_success = "Ticket creation success"
 error_message_empty_input = "Please fill in all input fields"
 error_message_invalid_input = "Please ensure input fields are valid"
@@ -68,6 +69,7 @@ def create(request):
         error_message = None
 
         # checking if this url is the posting of remote form
+        error_message = None
         if request.method == 'POST':
                 try:
                         is_remote = request.POST.get('is_remote')
