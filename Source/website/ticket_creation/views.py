@@ -38,6 +38,7 @@ Note:
 error_message is still needed for zhijun's tests, so don't remove even if we transmit messages to frontend using Message framework
 """
 
+s3 =boto3.resource('s3', aws_access_key_id='AKIAYWWKI5JM3V7UYB5Y', aws_secret_access_key='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', region_name='ap-southeast-1')
 
 # csrf_exempt so that other websites may access this url without acquiring a csrf token
 @csrf_exempt
@@ -175,7 +176,7 @@ def create(request):
                                                 name = None
                                         else:
                                                 name = "https://s3-ap-southeast-1.amazonaws.com/50003/"+file.name
-                                        s3.Bucket('50003').put_object(Key=file.name, Body=file)
+                                                s3.Bucket('50003').put_object(Key=file.name, Body=file)
                                 except ValueError:
                                         pass
 
@@ -435,7 +436,7 @@ def resolve(request):
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
-def sort_ticket_list(request, querySetObj):
+def sort_ticket_list(request, querySetObj, is_superuser):
 	"""
 	Private function used by list() and selected_list()
 
