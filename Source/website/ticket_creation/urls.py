@@ -10,4 +10,6 @@ urlpatterns = [
     path('detail/', views.detail, name='detail'),
     path('resolve/', views.resolve, name='resolve'),
     path('selected_list/', views.selected_list, name='selected_list'),
+    path('viewUnread/', views.viewUnread, name='unread'),
+    path('viewUnresolve/', views.viewUnresolved, name='unresolve'),
 ]
