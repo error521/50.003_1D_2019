@@ -18,31 +18,33 @@
   {% endif %}
 {% endif %}
 
-{% for row in item %}
+{% for i in range(len(item)) %}
  <div class="dotted">
+     {% if i==0 %}
      <dl class="param param-feature">
      <dt>Title</dt>
-     <dd>{{ row.title }}</dd>
+     <dd>{{ row.i.title }}</dd>
      </dl>  <!-- item-property-hor .// -->
+     {% endif %}
      <dl class="param param-feature">
      <dt>Ticket/Reply id (in Ticket_Details)</dt>
-     <dd>{{ row.id }}</dd>
+     <dd>{{ row.i.id }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>Ticket/Reply author</dt>
-     <dd>{{ row.user }}</dd>
+     <dd>{{ row.i.user }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>Description</dt>
-     <dd>{{ row.description }}</dd>
+     <dd>{{ row.i.description }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>User</dt>
-     <dd>{{ row.user }}</dd>
+     <dd>{{ row.i.user }}</dd>
      </dl>  <!-- item-property-hor .// -->
      <dl class="param param-feature">
      <dt>Thread ID (in All_Tickets)</dt>
-     <dd>{{ row.ticket_id }}</dd>
+     <dd>{{ row.i.ticket_id }}</dd>
      </dl>
  </div>
 {% endfor %}
@@ -51,10 +53,6 @@
   <form method="post">
     {% csrf_token %}
     <div class="form-row">
-      <div class="col form-group">
-      <label>Title</label>
-        <input type="text" class="form-control" name="title" placeholder="">
-      </div>
       <div class="col form-group">
         <label>Description</label>
         <input type="text" class="form-control" name="description" placeholder="">
