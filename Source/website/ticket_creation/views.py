@@ -350,14 +350,16 @@ def detail(request):
 
 			if is_authorised:
 				for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-					ticketDetails = {"title":None, "id":None, "user":None, "description":None, "ticket_id":None}
+					ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None}
 					ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
 
-					ticketDetails["title"] = ticket_details_row.title
 					ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
 					ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
 					ticketDetails["description"] = ticket_details_row.description
 					ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+
+					if i==0:  # first row is the only row with title
+						ticketDetails["title"] = ticket_details_row.title
 
 					outputList.append(ticketDetails)
 
