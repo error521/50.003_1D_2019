@@ -1,4 +1,4 @@
-<!doctype html>
+<level!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -27,23 +27,21 @@
         </li>
       </ul>
     </nav>
-
     {% if messages %}
         <ul class="messages">
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-            <div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                {{ message }}
-            </div>
-        {% endif %}
-     </li>
+          <div class="alert alert-danger alert-dismissable">
+              <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+              {{ message }}
+          </div>
+        </li>
         {% endfor %}
-    </ul>
+        </ul>
     {% endif %}
 
     {% block content %}
     {% endblock %}
   </body>
 </html>
+
