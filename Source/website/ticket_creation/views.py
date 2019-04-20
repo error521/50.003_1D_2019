@@ -1,5 +1,6 @@
 import datetime
 
+from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse
@@ -15,7 +16,7 @@ from email_notif.views import email_to_user
 
 from createuser.models import Extended_User
 from input_field_test import Input_field_test
-
+import boto3
 
 error_message_success = "Ticket creation success"
 error_message_empty_input = "Please fill in all input fields"
@@ -37,6 +38,7 @@ Note:
 error_message is still needed for zhijun's tests, so don't remove even if we transmit messages to frontend using Message framework
 """
 
+s3 =boto3.resource('s3', aws_access_key_id='AKIAYWWKI5JM3V7UYB5Y', aws_secret_access_key='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', region_name='ap-southeast-1')
 
 # csrf_exempt so that other websites may access this url without acquiring a csrf token
 @csrf_exempt
@@ -162,10 +164,19 @@ def create(request):
                                 input_field_test = Input_field_test()
                                 title = None
                                 description = None
+                                file = None
+                                name = None
+
 
                                 try:
                                         title = request.POST.get("title")
                                         description = request.POST.get('description')
+                                        file = request.FILES.get("file")
+                                        if not file:
+                                                name = None
+                                        else:
+                                                name = "https://s3-ap-southeast-1.amazonaws.com/50003/"+file.name
+                                                s3.Bucket('50003').put_object(Key=file.name, Body=file)
                                 except ValueError:
                                         pass
 
@@ -176,13 +187,12 @@ def create(request):
                                         all_tickets = models.All_Tickets(size=0, creator=request.user.id, addressed_by=None, resolved_by=None, read_by=None, queue_number=0, dateTime_created = datetime.datetime.now())
                                         all_tickets.save()
 
-                                        ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
+                                        ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                                         ticket_details.save()
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
-                                        # to be implemented in the near future
-                                        # email_to_admin(request) # uses mail_admins
+                                        email_to_admin(request) # uses mail_admins
                                         # email_to_user(request) # uses send_mail
                                 else:
                                         # input fields are not valid
@@ -212,12 +222,13 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-                                return render(request, 'ticketcreation/creation.html', {'error_message':error_message})
+                                send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
+                                return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
                                 print(q)
 
-                                return render(request, 'ticketcreation/creation.html', {'error_message':error_message})
+                                return render(request, 'createticketform.html', {'error_message':error_message, 'username':request.user.get_username()})
                 else:
                         # user is superuser
                         return HttpResponseForbidden()
@@ -258,13 +269,13 @@ def selected_list(request):
 			# User is admin
 			querySet = models.All_Tickets.objects.filter(addressed_by=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet)
+				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
 		else:
 			# User is non-admin
 			querySet = models.All_Tickets.objects.filter(creator=request.user.id)
 			if querySet != None:
-				outputList = sort_ticket_list(request, querySet)
+				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
 		return render(request, 'ticketcreation/show.html', {"list":outputList})
 	else:
@@ -350,15 +361,16 @@ def detail(request):
 			is_author = request.user.id == all_tickets_row.creator
 			is_authorised = is_admin or (not is_admin and is_author)
 
-			if is_authorised:
+			if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
 				for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-					ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None}
+					ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None, 'file':None}
 					ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
 
 					ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
 					ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
 					ticketDetails["description"] = ticket_details_row.description
 					ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+					ticketDetails["file"]=ticket_details_row.file
 
 					if i==0:  # first row is the only row with title
 						ticketDetails["title"] = ticket_details_row.title
@@ -379,7 +391,10 @@ def detail(request):
 				# fill up all_tickets_data
 				all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
 
-				return render(request, 'ticketcreation/detail.html', {"item": outputList, "all_tickets_data":all_tickets_data})
+				if request.user.is_superuser:
+					return render(request, 'detail.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
+				else:
+					return render(request, 'detail_user.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
 			else:
 				return HttpResponseForbidden()
 
@@ -416,12 +431,12 @@ def resolve(request):
 			return HttpResponseRedirect(reverse("ticket_creation:display"))
 			# return render(request, 'ticketcreation/show.html', {"list": list})
 		else:
-			# user is normal user
+			# user is normal user - note that only admin users can resolve tickets
 			return HttpResponseForbidden()
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
-def sort_ticket_list(request, querySetObj):
+def sort_ticket_list(request, querySetObj, is_superuser):
 	"""
 	Private function used by list() and selected_list()
 
@@ -502,3 +517,24 @@ def sort_ticket_list(request, querySetObj):
 				outputList.append(each_ticket)
 
 	return outputList
+
+def viewUnread(request):
+	if (request.user.is_authenticated):
+		if (request.user.is_superuser):
+			list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
+			return render(request, 'viewticketsadmin.html',{'list':list})
+		else:
+			return HttpResponseRedirect(reverse("home:index"))
+	else:
+		return HttpResponseRedirect(reverse("login:index"))
+
+def viewUnresolved(request):
+	if (request.user.is_authenticated):
+		if (request.user.is_superuser):
+			list = sort_ticket_list(request, models.All_Tickets.objects.all().filter(resolved_by=None), request.user.is_superuser)
+
+			return render(request, 'viewticketsadmin.html',{'list':list})
+		else:
+			return HttpResponseRedirect(reverse("home:index"))
+	else:
+		return HttpResponseRedirect(reverse("login:index"))

@@ -22,7 +22,7 @@ error_message_unauthorised = "Not authorised"  # used if the token sent by form 
 error_message_unknown_error = "Unknown error"  # thrown when we cant save ticket into model for some reason
 
 
-def index(request):
+def view_profile(request):
 	"""
 	For admins and non-admin, allows user to view current email, phone number, notification preferences,
 	and can change email, phone number, notiifcation preferences, and password.
@@ -133,37 +133,10 @@ def index(request):
 		user_information['notify_email'] = extended_user_row.notify_email
 		user_information['notify_sms'] = extended_user_row.notify_sms
 
-		return render(request, 'Profile/index.html', {'error_message':error_message, 'user_information':user_information})
+		if (request.user.is_superuser):
+			return render(request, 'profileadmin.html', {'error_message':error_message, 'user_information':user_information})
+		else:
+			return render(request, 'profileuser.html', {'error_message':error_message, 'user_information':user_information})
 	else:
 		return HttpResponseRedirect(reverse("login:index"))
 
-
-@csrf_exempt
-def view_profile(request):
-    if (request.user.is_authenticated):
-        email = request.user.email
-        print(email)
-        #phoneNo = request.user.phoneNumber
-        username = request.user.username
-        line = [email,username]
-        return render(request, "Profile/viewProfile.html", {"line": line})
-    else:
-        return HttpResponseRedirect(reverse("login:index"))
-
-
-
-
-# def update_profile(request):
-#     if (request.user.is_authenticated):
-#         # user is logged in
-#         if request.method == 'POST':
-#             username = request.user.username
-#             email = request.user.email
-#             phone = request.POST.get('email')
-#             description = request.POST.get('description')
-#             print(username)
-#             ticket = models.Ticket(ticket_id=id, title=title, resolved=0, read=0, description=description, user=username)
-#             ticket.save()
-#         return render(request, 'ticketcreation/creation.html')
-#     else:
-#         return HttpResponseRedirect(reverse("login:index"))

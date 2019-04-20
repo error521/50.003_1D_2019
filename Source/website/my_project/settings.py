@@ -61,10 +61,9 @@ ROOT_URLCONF = 'my_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'home/templates'),
-                 os.path.join(BASE_DIR, 'login/templates'),
-                 os.path.join(BASE_DIR, 'createuser/templates'),
-                 os.path.join(BASE_DIR, 'Profile/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'home/templates'),
+                 os.path.join(BASE_DIR, 'createuser/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -162,4 +161,10 @@ SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
 # EMAIL_PORT = 1025
 #
 # SERVER_EMAIL = 'root@localhost'
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.join(HERE, '../')
+STATICFILES_DIRS = (
+    os.path.join(HERE, 'static/'),
+)
 
