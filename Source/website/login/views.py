@@ -7,10 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from input_field_test import Input_field_test
 from login.forms import LoginForm
 from django.contrib import messages
+from createuser.models import Extended_User as User
 
 error_message_incorrect_userpass = "Login failure, username or password is incorrect"
 error_message_empty_input = "Please fill in all input fields"
 error_message_invalid_input = "Please ensure input fields are valid"
+error_message_user_does_not_exist = "Invalid email, Please try again"
+
 
 @csrf_exempt
 def index(request):
@@ -77,8 +80,30 @@ def index(request):
 		pass
 
 	messages.error(request, error_message)
-	return render(request, 'login/not_logged_in.html', {'form':LoginForm(), 'error_message':error_message})
+	return render(request, 'login.html', {'form':LoginForm(), 'error_message':error_message})
 
 def log_out(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('login:index'))
+
+@csrf_exempt
+def reset_password(request):
+	error_message = None
+	if request.method == 'POST':
+		email = None
+		email = request.POST.get('email')
+
+		# input field email does exist
+		user = User.objects.filter(email=email)
+		if user.exists()==False:
+			error_message = error_message_user_does_not_exist
+
+		else:
+			username = request.user.get_username()
+			send_mail('Reset Password fo AccentureIST Account', 'Greetings '+username+ ', you told us that you forgot your password, just ignore this password. ', '50003escproject@gmail.com', email, fail_silently = False)
+
+		messages.error(request, error_message)
+		return render(request, 'forgot-password.html', {'error_message': error_message} )
+	else:
+		return render(request, 'forgot-password.html' )
+
