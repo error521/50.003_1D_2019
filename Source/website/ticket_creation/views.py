@@ -163,19 +163,19 @@ def create(request):
                                 input_field_test = Input_field_test()
                                 title = None
                                 description = None
-				file = None
-				name = None
+                                file = None
+                                name = None
 
 
                                 try:
                                         title = request.POST.get("title")
                                         description = request.POST.get('description')
-					file = request.FILES.get("file")
-					if not file:
-						name = None
-					else:
-						name = "https://s3-ap-southeast-1.amazonaws.com/50003/"+file.name
-						s3.Bucket('50003').put_object(Key=file.name, Body=file)
+                                        file = request.FILES.get("file")
+                                        if not file:
+                                                name = None
+                                        else:
+                                                name = "https://s3-ap-southeast-1.amazonaws.com/50003/"+file.name
+                                        s3.Bucket('50003').put_object(Key=file.name, Body=file)
                                 except ValueError:
                                         pass
 
@@ -221,7 +221,7 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-				send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
+                                send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)

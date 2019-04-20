@@ -130,6 +130,9 @@ def view_profile(request):
 		user_information['notify_email'] = extended_user_row.notify_email
 		user_information['notify_sms'] = extended_user_row.notify_sms
 
-		return render(request, 'Profile/index.html', {'error_message':error_message, 'user_information':user_information})
+		if (request.user.is_superuser):
+			return render(request, 'profileadmin.html', {'error_message':error_message, 'user_information':user_information})
+		else:
+			return render(request, 'profileuser.html', {'error_message':error_message, 'user_information':user_information})
 	else:
 		return HttpResponseRedirect(reverse("login:index"))

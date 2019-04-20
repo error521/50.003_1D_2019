@@ -100,7 +100,7 @@ def reset_password(request):
 
 		else:
 			username = request.user.get_username()
-			send_mail('Reset Password fo AccentureIST Account', 'Greetings '+username+ ', you told us that you forgot you$
+			send_mail('Reset Password fo AccentureIST Account', 'Greetings '+username+ ', you told us that you forgot your password, just ignore this password. ', '50003escproject@gmail.com', email, fail_silently = False)
 
 		messages.error(request, error_message)
 		return render(request, 'forgot-password.html', {'error_message': error_message} )
