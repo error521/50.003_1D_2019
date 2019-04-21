@@ -41,6 +41,6 @@ class Ticket_Details(models.Model):
 
 class notification(models.Model):
     type = models.IntegerField()
-    creater = models.CharField(max_length=256)
-    creater_role = models.IntegerField()
     ticket_id = models.IntegerField()
+    creater = models.CharField(max_length=256)
+    creater_type = models.IntegerField()

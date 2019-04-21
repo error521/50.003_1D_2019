@@ -17,6 +17,7 @@ from email_notif.views import email_to_user
 from createuser.models import Extended_User
 from input_field_test import Input_field_test
 import boto3
+from django.db.models import Q
 
 error_message_success = "Ticket creation success"
 error_message_empty_input = "Please fill in all input fields"
@@ -102,9 +103,13 @@ def create(request):
                         try:
                                 all_tickets = models.All_Tickets(size=0, creator=arbitrary_user_for_remote_user, addressed_by=None, resolved_by=None, read_by=None, queue_number=0, dateTime_created = datetime.datetime.now())
                                 all_tickets.save()
-
                                 ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=0, title=title, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
                                 ticket_details.save()
+
+                                notify = models.notification(type = 0, creater=request.user.get_username(),creater_type=1,ticket_id=all_tickets.id)
+                                notify.save()
+
+
                                 error_message = error_message_success
                         except Exception:
                                 error_message = error_message_unknown_error
@@ -189,7 +194,12 @@ def create(request):
 
                                         ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                                         ticket_details.save()
-                                        
+
+
+                                        notify = models.notification(type=0, creater=request.user.get_username(),
+                                                                     creater_type=1, ticket_id=all_tickets.id)
+                                        notify.save()
+
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
@@ -408,6 +418,19 @@ def detail(request):
         # user is loggged in
         ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
 
+
+        if request.user.is_superuser:
+            try:
+                remove_notify_ticket = models.notification.objects.get(type=0, ticket_id=ticket_id)
+                remove_notify_ticket.delete()
+            except:
+                remove_notify_ticket = None
+        try:
+            remove_notify_msg = models.notification.objects.filter(~Q(creater=request.user.get_username()))
+            remove_notify_msg.delete()
+        except:
+            remove_notify_msg = None
+
         if request.method == "POST":
             # user is posting reply to ticket
             input_field_test = Input_field_test()
@@ -432,6 +455,17 @@ def detail(request):
                 # creation of new entry into Ticket_Detail
                 ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
                 ticket_details_row.save()
+                #create msg notification
+
+                creater_type = None
+                if request.user.is_superuser:
+                    creater_type=0
+                else:
+                    creater_type=1
+                notify = models.notification(type=1, creater=request.user.get_username(), creater_type=creater_type,
+                                             ticket_id=ticket_id)
+                notify.save()
+                print("save??")
 
                 # updating read_by attribute of All_Ticket to be only read by the user posting the reply
                 # updating addressed by to the first admin that replies if addressed_by==None
@@ -552,7 +586,10 @@ def resolve(request):
         if (request.user.is_superuser):
             column_id = request.GET.get("id")
             models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
-            print("yes")
+
+            notification = models.notification(type=0, creater=request.user.get_username(),creater_type=0, ticket_id=column_id)
+            notification.save()
+
 
             return HttpResponseRedirect(reverse("home:index"))
             # return render(request, 'ticketcreation/show.html', {"list": list})
