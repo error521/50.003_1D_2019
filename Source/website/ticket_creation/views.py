@@ -246,9 +246,9 @@ def list(request):
         outputList = []
 
         if (request.user.is_superuser):
-            outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
+            outputList = sort_ticket_list(request, models.All_Tickets.objects.all(), True)
 
-            return render(request, 'ticketcreation/show.html', {"list":outputList})
+            return render(request, 'dashboardadmin.html', {"list":outputList})
         else:
             # user is normal user
             return HttpResponseForbidden()
@@ -401,6 +401,7 @@ def selected_list(request):
 #     else:
 #         # user is not logged in
 #         return HttpResponseRedirect(reverse("login:index"))
+@csrf_exempt
 def detail(request):
     error_message = None
     if (request.user.is_authenticated):
@@ -519,6 +520,7 @@ def detail(request):
                 else:
                     return render(request, 'detail_user.html', {"info":info,"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
             else:
+                print("hihi")
                 return HttpResponseForbidden()
 
     else:
@@ -548,10 +550,11 @@ def resolve(request):
     if (request.user.is_authenticated):
         # user is logged in
         if (request.user.is_superuser):
-            column_id = request.GET.get("id")
+            column_id = request.POST.get("id")
             models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
+            print("yes")
 
-            return HttpResponseRedirect(reverse("ticket_creation:display"))
+            return HttpResponseRedirect(reverse("home:index"))
             # return render(request, 'ticketcreation/show.html', {"list": list})
         else:
             # user is normal user - note that only admin users can resolve tickets

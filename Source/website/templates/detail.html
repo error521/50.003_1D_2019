@@ -15,7 +15,7 @@
     {% if all_tickets_data.resolved_by == None %}
     <div class="dotted">
          <h5>Click to resolve ticket:</h5>
-        <a href="/ticket_creation/resolve/?id={{ item.0.ticket_id }}" type="button">Resolve</a>
+        <a href="/ticket_creation/resolve/?id={{ item.0.ticket_id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Resolve</a>
     </div>
     {% endif %}
     {% endif %}
@@ -210,6 +210,7 @@ img{ max-width:100%;}
             </div>
             <div class="inbox_msg">
                 <div class="type_msg">
+                    {% csrf_token %}
                     <form method="post">
                         <div class="input_msg_write">
                             <input type="text" class="write_msg" name="description" placeholder="Type a message" />
