@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket_creation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket_creation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/views.py" afterDir="false" />
     </list>
@@ -118,11 +117,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ticket_creation/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="554" column="24" lean-forward="true" selection-start-line="554" selection-start-column="12" selection-end-line="554" selection-end-column="24" />
+            <state relative-caret-position="277">
+              <caret line="191" column="40" selection-start-line="191" selection-start-column="40" selection-end-line="191" selection-end-column="40" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -131,28 +139,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ticket_creation/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="141" selection-start-line="17" selection-start-column="141" selection-end-line="17" selection-end-column="141" />
+            <state relative-caret-position="851">
+              <caret line="243" column="52" lean-forward="true" selection-start-line="243" selection-start-column="52" selection-end-line="243" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboardadmin.html">
+        <entry file="file://$PROJECT_DIR$/templates/baseadmin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="123" column="155" selection-start-line="123" selection-start-column="84" selection-end-line="123" selection-end-column="155" />
+            <state relative-caret-position="178">
+              <caret line="223" column="71" selection-start-line="223" selection-start-column="71" selection-end-line="223" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_project/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -245,8 +253,8 @@
         <option value="$PROJECT_DIR$/ticket_creation/tests/test_system.py" />
         <option value="$PROJECT_DIR$/my_project/settings.py" />
         <option value="$PROJECT_DIR$/templates/detail_user.html" />
-        <option value="$PROJECT_DIR$/ticket_creation/models.py" />
         <option value="$PROJECT_DIR$/templates/detail.html" />
+        <option value="$PROJECT_DIR$/ticket_creation/models.py" />
         <option value="$PROJECT_DIR$/ticket_creation/views.py" />
       </list>
     </option>
@@ -273,23 +281,6 @@
             <path>
               <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="email_notif" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -309,11 +300,6 @@
               <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -665,7 +651,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178362000" />
+    <option name="totallyTimeSpent" value="179515000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -678,6 +664,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="38" y="23" width="1402" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24117647" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -693,7 +680,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.45095542" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16815287" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.24142857" />
       <window_info anchor="bottom" id="manage.py@website" order="13" weight="0.3285968" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" />
@@ -874,13 +861,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/02626162-037a-4051-a7ee-d1cbe45494e8/console.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cda2eb7c-8fc7-42c6-98d5-c551743e4a17/console.sql" />
     <entry file="das://cda2eb7c-8fc7-42c6-98d5-c551743e4a17/schema/50003/table/ticket_creation_ticket" />
-    <entry file="file://$PROJECT_DIR$/login/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/be340fd4-fba9-48d4-878e-864238f1b78c/console.sql" />
     <entry file="file://$PROJECT_DIR$/createuser/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -985,8 +965,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-717">
-          <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -1071,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboardadmin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -1085,17 +1058,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/login/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="141" selection-start-line="17" selection-start-column="141" selection-end-line="17" selection-end-column="141" />
+        <state relative-caret-position="851">
+          <caret line="243" column="52" lean-forward="true" selection-start-line="243" selection-start-column="52" selection-end-line="243" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="554" column="24" lean-forward="true" selection-start-line="554" selection-start-column="12" selection-end-line="554" selection-end-column="24" />
+        <state relative-caret-position="277">
+          <caret line="191" column="40" selection-start-line="191" selection-start-column="40" selection-end-line="191" selection-end-column="40" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

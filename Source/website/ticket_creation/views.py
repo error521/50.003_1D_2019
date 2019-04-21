@@ -189,6 +189,7 @@ def create(request):
 
                                         ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                                         ticket_details.save()
+                                        
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
