@@ -413,7 +413,7 @@ def delete(request):
                         models.All_Tickets.objects.filter(id=column_id).delete()
                         models.Ticket_Details.objects.filter(ticket_id=column_id).delete()
 
-                        return HttpResponseRedirect(reverse("ticket_creation:display"))
+                        return HttpResponseRedirect(reverse("home:index"))
                 else:
                         # user is normal user
                         return HttpResponseRedirect(reverse("home:index"))
