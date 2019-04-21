@@ -189,6 +189,7 @@ def create(request):
 
                                         ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                                         ticket_details.save()
+                                        
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
@@ -222,7 +223,6 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-                                send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
@@ -238,169 +238,294 @@ def create(request):
 
 
 def list(request):
-	"""
-	Used exclusively by admin to view all available tickets
-	"""
-	if (request.user.is_authenticated):
-		# user is logged in
-		outputList = []
+    """
+    Used exclusively by admin to view all available tickets
+    """
+    if (request.user.is_authenticated):
+        # user is logged in
+        outputList = []
 
-		if (request.user.is_superuser):
-			outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
+        if (request.user.is_superuser):
+            outputList = sort_ticket_list(request, models.All_Tickets.objects.all(), True)
 
-			return render(request, 'ticketcreation/show.html', {"list":outputList})
-		else:
-			# user is normal user
-			return HttpResponseForbidden()
+            return render(request, 'dashboardadmin.html', {"list":outputList})
+        else:
+            # user is normal user
+            return HttpResponseForbidden()
 
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+    else:
+        return HttpResponseRedirect(reverse("login:index"))
 
 def selected_list(request):
-	"""
-	Used for non-admin and admin users to see a list of tickets they are assigned to/they have submitted
-	This is not combined with list() as the admin would have 2 different ways of using this function. Without 
-	adding new information to the url that request this, it would be impossible to differentiate when the admin needs one of the two functions
-	"""
-	if (request.user.is_authenticated):
-		outputList = []  # list of dictionaries of ticket details
+    """
+    Used for non-admin and admin users to see a list of tickets they are assigned to/they have submitted
+    This is not combined with list() as the admin would have 2 different ways of using this function. Without 
+    adding new information to the url that request this, it would be impossible to differentiate when the admin needs one of the two functions
+    """
+    if (request.user.is_authenticated):
+        outputList = []  # list of dictionaries of ticket details
 
-		if (request.user.is_superuser):
-			# User is admin
-			querySet = models.All_Tickets.objects.filter(addressed_by=request.user.id)
-			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+        if (request.user.is_superuser):
+            # User is admin
+            querySet = models.All_Tickets.objects.filter(addressed_by=request.user.id)
+            if querySet != None:
+                outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
-		else:
-			# User is non-admin
-			querySet = models.All_Tickets.objects.filter(creator=request.user.id)
-			if querySet != None:
-				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
+        else:
+            # User is non-admin
+            querySet = models.All_Tickets.objects.filter(creator=request.user.id)
+            if querySet != None:
+                outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
-		return render(request, 'ticketcreation/show.html', {"list":outputList})
-	else:
-		# user is not authenticated
-		return HttpResponseRedirect(reverse("login:index"))
+        return render(request, 'ticketcreation/show.html', {"list":outputList})
+    else:
+        # user is not authenticated
+        return HttpResponseRedirect(reverse("login:index"))
 
+# def detail(request):
+#     error_message = None
+#     if (request.user.is_authenticated):
+#         # user is loggged in
+#         ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
+#
+#         if request.method == "POST":
+#             # user is posting reply to ticket
+#             input_field_test = Input_field_test()
+#             description = None
+#             all_tickets_row = None
+#
+#
+#             try:
+#                 description = request.POST.get("description")
+#             except ValueError:
+#                 pass
+#
+#             description_validity = input_field_test.ticket_description(description)
+#
+#             if len(description_validity)==1:
+#                 # update data of thread under All_Tickets
+#                 all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
+#                 new_queue_number = all_tickets_row.size + 1
+#                 all_tickets_row.size = new_queue_number
+#                 all_tickets_row.save()
+#
+#                 # creation of new entry into Ticket_Detail
+#                 ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
+#                 ticket_details_row.save()
+#
+#                 # updating read_by attribute of All_Ticket to be only read by the user posting the reply
+#                 # updating addressed by to the first admin that replies if addressed_by==None
+#                 all_tickets_row.read_by = str(request.user.id)+","
+#                 if (request.user.is_superuser):
+#                     addressed_by = all_tickets_row.addressed_by
+#                     if addressed_by == None:
+#                         all_tickets_row.addressed_by = request.user.id
+#                         all_tickets_row.save()
+#
+#                 messages.add_message(request, messages.SUCCESS, error_message_success)
+#                 error_message = error_message_success
+#             else:
+#                 # input fields are not valid
+#                 empty_input_state = False
+#                 invalid_input_state = False
+#                 invalid_token_state = False
+#
+#                 for i in description_validity:
+#                     if i == "empty":
+#                         empty_input_state = True
+#                     elif i == "invalid value":
+#                         invalid_input_state = True
+#
+#                 if invalid_token_state:
+#                     # wrong token submitted
+#                     error_message = error_message_unauthorised
+#                 elif empty_input_state:
+#                     # input fields are empty
+#                     error_message = error_message_empty_input
+#                 elif invalid_input_state:
+#                     # input fields have invalid input
+#                     error_message = error_message_invalid_input
+#
+#                 messages.add_message(request, messages.SUCCESS, error_message)
+#
+#             return HttpResponseRedirect(reverse("ticket_creation:detail")+"?id={0}".format(ticket_id))
+#
+#         else:
+#             # user is retrieving the message thread of a ticket
+#             outputList = []
+#             all_tickets_data = {}
+#             all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
+#
+#             # Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
+#             is_admin = request.user.is_superuser
+#             is_author = request.user.id == all_tickets_row.creator
+#             is_authorised = is_admin or (not is_admin and is_author)
+#
+#             if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
+#                 for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
+#                     ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None, 'file':None}
+#                     ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
+#
+#                     ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+#                     ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
+#                     ticketDetails["description"] = ticket_details_row.description
+#                     ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+#                     ticketDetails["file"]=ticket_details_row.file
+#
+#                     if i==0:  # first row is the only row with title
+#                         ticketDetails["title"] = ticket_details_row.title
+#
+#                     outputList.append(ticketDetails)
+#
+#                 # updating read_by attribute of All_Ticket to include the current user
+#                 read_by = all_tickets_row.read_by
+#                 if read_by == None:
+#                     all_tickets_row.read_by = str(request.user.id)+","
+#                 else:
+#                     if request.user.id in all_tickets_row.read_by.split(","):
+#                         pass
+#                     else:
+#                         all_tickets_row.read_by += str(request.user.id)+","
+#                 all_tickets_row.save()
+#
+#                 # fill up all_tickets_data
+#                 all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
+#
+#                 if request.user.is_superuser:
+#                     return render(request, 'detail.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
+#                 else:
+#                     return render(request, 'detail_user.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
+#             else:
+#                 return HttpResponseForbidden()
+#
+#     else:
+#         # user is not logged in
+#         return HttpResponseRedirect(reverse("login:index"))
+@csrf_exempt
 def detail(request):
-	error_message = None
-	if (request.user.is_authenticated):
-		# user is loggged in
-		ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
+    error_message = None
+    if (request.user.is_authenticated):
+        # user is loggged in
+        ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
 
-		if request.method == "POST":
-			# user is posting reply to ticket
-			input_field_test = Input_field_test()
-			description = None
-			all_tickets_row = None
+        if request.method == "POST":
+            # user is posting reply to ticket
+            input_field_test = Input_field_test()
+            description = None
+            all_tickets_row = None
 
 
-			try:
-				description = request.POST.get("description")
-			except ValueError:
-				pass
+            try:
+                description = request.POST.get("description")
+            except ValueError:
+                pass
 
-			description_validity = input_field_test.ticket_description(description)
+            description_validity = input_field_test.ticket_description(description)
 
-			if len(description_validity)==1:
-				# update data of thread under All_Tickets
-				all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
-				new_queue_number = all_tickets_row.size + 1
-				all_tickets_row.size = new_queue_number
-				all_tickets_row.save()
+            if len(description_validity)==1:
+                # update data of thread under All_Tickets
+                all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
+                new_queue_number = all_tickets_row.size + 1
+                all_tickets_row.size = new_queue_number
+                all_tickets_row.save()
 
-				# creation of new entry into Ticket_Detail
-				ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
-				ticket_details_row.save()
+                # creation of new entry into Ticket_Detail
+                ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
+                ticket_details_row.save()
 
-				# updating read_by attribute of All_Ticket to be only read by the user posting the reply
-				# updating addressed by to the first admin that replies if addressed_by==None
-				all_tickets_row.read_by = str(request.user.id)+","
-				if (request.user.is_superuser):
-					addressed_by = all_tickets_row.addressed_by
-					if addressed_by == None:
-						all_tickets_row.addressed_by = request.user.id
-						all_tickets_row.save()
+                # updating read_by attribute of All_Ticket to be only read by the user posting the reply
+                # updating addressed by to the first admin that replies if addressed_by==None
+                all_tickets_row.read_by = str(request.user.id)+","
+                if (request.user.is_superuser):
+                    addressed_by = all_tickets_row.addressed_by
+                    if addressed_by == None:
+                        all_tickets_row.addressed_by = request.user.id
+                        all_tickets_row.save()
 
-				messages.add_message(request, messages.SUCCESS, error_message_success)
-				error_message = error_message_success
-			else:
-				# input fields are not valid
-				empty_input_state = False
-				invalid_input_state = False
-				invalid_token_state = False
+                messages.add_message(request, messages.SUCCESS, error_message_success)
+                error_message = error_message_success
+            else:
+                # input fields are not valid
+                empty_input_state = False
+                invalid_input_state = False
+                invalid_token_state = False
 
-				for i in description_validity:
-					if i == "empty":
-						empty_input_state = True
-					elif i == "invalid value":
-						invalid_input_state = True
+                for i in description_validity:
+                    if i == "empty":
+                        empty_input_state = True
+                    elif i == "invalid value":
+                        invalid_input_state = True
 
-				if invalid_token_state:
-					# wrong token submitted
-					error_message = error_message_unauthorised
-				elif empty_input_state:
-					# input fields are empty
-					error_message = error_message_empty_input
-				elif invalid_input_state:
-					# input fields have invalid input
-					error_message = error_message_invalid_input
+                if invalid_token_state:
+                    # wrong token submitted
+                    error_message = error_message_unauthorised
+                elif empty_input_state:
+                    # input fields are empty
+                    error_message = error_message_empty_input
+                elif invalid_input_state:
+                    # input fields have invalid input
+                    error_message = error_message_invalid_input
 
-				messages.add_message(request, messages.SUCCESS, error_message)
+                messages.add_message(request, messages.SUCCESS, error_message)
 
-			return HttpResponseRedirect(reverse("ticket_creation:detail")+"?id={0}".format(ticket_id))
+            return HttpResponseRedirect(reverse("ticket_creation:detail")+"?id={0}".format(ticket_id))
 
-		else:
-			# user is retrieving the message thread of a ticket
-			outputList = []
-			all_tickets_data = {}
-			all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
+        else:
+            # user is retrieving the message thread of a ticket
+            outputList = []
+            all_tickets_data = {}
+            all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
 
-			# Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
-			is_admin = request.user.is_superuser
-			is_author = request.user.id == all_tickets_row.creator
-			is_authorised = is_admin or (not is_admin and is_author)
+            info = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0)
 
-			if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
-				for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-					ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None, 'file':None}
-					ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
+            # Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
+            is_admin = request.user.is_superuser
+            is_author = request.user.id == all_tickets_row.creator
+            is_authorised = is_admin or (not is_admin and is_author)
 
-					ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
-					ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
-					ticketDetails["description"] = ticket_details_row.description
-					ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
-					ticketDetails["file"]=ticket_details_row.file
+            if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
+                info = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0)
+                if all_tickets_row.size!=1:
+                    for i in range(all_tickets_row.size + 1):  # note that index=0 and index=size both represents some ticket/reply
+                        ticketDetails = {"user": None, "description": None, "time":None, "type":None}
+                        ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id,thread_queue_number=i)
+                        ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+                        ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
+                        ticketDetails["description"] = ticket_details_row.description
+                        ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+                        ticketDetails["file"] = ticket_details_row.file
+                        ticketDetails["time"]=ticket_details_row.dateTime_created
+                        if ticketDetails["user"]==request.user.id:
+                            ticketDetails["type"]=0
+                        else:
+                            ticketDetails["type"]=1
+                        outputList.append(ticketDetails)
 
-					if i==0:  # first row is the only row with title
-						ticketDetails["title"] = ticket_details_row.title
+                # updating read_by attribute of All_Ticket to include the current user
+                read_by = all_tickets_row.read_by
+                if read_by == None:
+                    all_tickets_row.read_by = str(request.user.id)+","
+                else:
+                    if str(request.user.id) in all_tickets_row.read_by.split(","):
+                        pass
+                    else:
+                        all_tickets_row.read_by += str(request.user.id)+","
+                all_tickets_row.save()
 
-					outputList.append(ticketDetails)
+                # fill up all_tickets_data
+                all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
 
-				# updating read_by attribute of All_Ticket to include the current user
-				read_by = all_tickets_row.read_by
-				if read_by == None:
-					all_tickets_row.read_by = str(request.user.id)+","
-				else:
-					if request.user.id in all_tickets_row.read_by.split(","):
-						pass
-					else:
-						all_tickets_row.read_by += str(request.user.id)+","
-				all_tickets_row.save()
+                if request.user.is_superuser:
+                    return render(request, 'detail.html', {"info":info, "item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
+                else:
+                    return render(request, 'detail_user.html', {"info":info,"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
+            else:
+                print("hihi")
+                return HttpResponseForbidden()
 
-				# fill up all_tickets_data
-				all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
-
-				if request.user.is_superuser:
-					return render(request, 'detail.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
-				else:
-					return render(request, 'detail_user.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
-			else:
-				return HttpResponseForbidden()
-
-	else:
-		# user is not logged in
-		return HttpResponseRedirect(reverse("login:index"))
+    else:
+        # user is not logged in
+        return HttpResponseRedirect(reverse("login:index"))
 
 
 
@@ -413,7 +538,7 @@ def delete(request):
                         models.All_Tickets.objects.filter(id=column_id).delete()
                         models.Ticket_Details.objects.filter(ticket_id=column_id).delete()
 
-                        return HttpResponseRedirect(reverse("ticket_creation:display"))
+                        return HttpResponseRedirect(reverse("home:index"))
                 else:
                         # user is normal user
                         return HttpResponseRedirect(reverse("home:index"))
@@ -422,119 +547,120 @@ def delete(request):
                 return HttpResponseRedirect(reverse("login:index"))
 
 def resolve(request):
-	if (request.user.is_authenticated):
-		# user is logged in
-		if (request.user.is_superuser):
-			column_id = request.GET.get("id")
-			models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
+    if (request.user.is_authenticated):
+        # user is logged in
+        if (request.user.is_superuser):
+            column_id = request.GET.get("id")
+            models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
+            print("yes")
 
-			return HttpResponseRedirect(reverse("ticket_creation:display"))
-			# return render(request, 'ticketcreation/show.html', {"list": list})
-		else:
-			# user is normal user - note that only admin users can resolve tickets
-			return HttpResponseForbidden()
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+            return HttpResponseRedirect(reverse("home:index"))
+            # return render(request, 'ticketcreation/show.html', {"list": list})
+        else:
+            # user is normal user - note that only admin users can resolve tickets
+            return HttpResponseForbidden()
+    else:
+        return HttpResponseRedirect(reverse("login:index"))
 
 def sort_ticket_list(request, querySetObj, is_superuser):
-	"""
-	Private function used by list() and selected_list()
+    """
+    Private function used by list() and selected_list()
 
-	Takes a list of QuerySet objects (specifically elements in the Ticket_Details table), sorts through accordingly and
-	outputs ordered list of ticket details
+    Takes a list of QuerySet objects (specifically elements in the Ticket_Details table), sorts through accordingly and
+    outputs ordered list of ticket details
 
-	Order:
-	All unread tickets
-		unresolved tickets
-			according to priority queue
-		resolved tickets
-			according to priority queue
-	All read tickets
-		unresolved tickets
-			according to priority queue
-		resolved tickets
-			according to priority queue
+    Order:
+    All unread tickets
+        unresolved tickets
+            according to priority queue
+        resolved tickets
+            according to priority queue
+    All read tickets
+        unresolved tickets
+            according to priority queue
+        resolved tickets
+            according to priority queue
 
-	"""
-	outputList = []
-	readList = [[],[]]  # unresolved tickets, resolved tickets
-	nonreadList = [[],[]]  # unresolved tickets, resolved tickets
+    """
+    outputList = []
+    readList = [[],[]]  # unresolved tickets, resolved tickets
+    nonreadList = [[],[]]  # unresolved tickets, resolved tickets
 
-	for i in range(highest_queue_number+1):
-		for j in querySetObj.filter(queue_number=i):
-			if j.id != None:
-				read_state = False
-				resolve_state = False
+    for i in range(highest_queue_number+1):
+        for j in querySetObj.filter(queue_number=i):
+            if j.id != None:
+                read_state = False
+                resolve_state = False
 
-				if j.read_by != None:
-					if str(request.user.id) in j.read_by.split(","):
-						read_state = True
-					else:
-						read_state = False
-				else:
-					read_state = False
+                if j.read_by != None:
+                    if str(request.user.id) in j.read_by.split(","):
+                        read_state = True
+                    else:
+                        read_state = False
+                else:
+                    read_state = False
 
-				if j.resolved_by != None:
-					resolve_state = True
-				else:
-					resolve_state = False
+                if j.resolved_by != None:
+                    resolve_state = True
+                else:
+                    resolve_state = False
 
-				if read_state and not resolve_state:
-					readList[0].append(j)
-				elif read_state and resolve_state:
-					readList[1].append(j)
-				elif not read_state and not resolve_state:
-					nonreadList[0].append(j)
-				elif not read_state and resolve_state:
-					nonreadList[1].append(j)
+                if read_state and not resolve_state:
+                    readList[0].append(j)
+                elif read_state and resolve_state:
+                    readList[1].append(j)
+                elif not read_state and not resolve_state:
+                    nonreadList[0].append(j)
+                elif not read_state and resolve_state:
+                    nonreadList[1].append(j)
 
-	for i in nonreadList,readList:  # first nonreadList, then readList
-		for j in i:  # first unresolved tickets, then resolved tickets
-			for k in j:  # for all elements in unresolved/resolved tickets
-				each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None}
-				each_ticket["id"] = k.id
+    for i in nonreadList,readList:  # first nonreadList, then readList
+        for j in i:  # first unresolved tickets, then resolved tickets
+            for k in j:  # for all elements in unresolved/resolved tickets
+                each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None}
+                each_ticket["id"] = k.id
 
-				if (request.user.is_superuser):
-					each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
-				else:
-					if k.resolved_by != None:
-						each_ticket["user"] = Extended_User.objects.get(id=k.resolved_by)  # in the perspective of the user, this will display the name of the admin addressing the issue
-					else:
-						each_ticket["user"] = no_assigned_admin
+                if (request.user.is_superuser):
+                    each_ticket["user"] = Extended_User.objects.get(id=k.creator)  # in the perspective of the admin, this will display author of ticket
+                else:
+                    if k.resolved_by != None:
+                        each_ticket["user"] = Extended_User.objects.get(id=k.resolved_by)  # in the perspective of the user, this will display the name of the admin addressing the issue
+                    else:
+                        each_ticket["user"] = no_assigned_admin
 
-				each_ticket["title"] = models.Ticket_Details.objects.get(ticket_id=k.id, thread_queue_number=0).title
+                each_ticket["title"] = models.Ticket_Details.objects.get(ticket_id=k.id, thread_queue_number=0).title
 
-				if k.read_by != None:
-					each_ticket["read"] = str(request.user.id) in k.read_by.split(",")
-				else:
-					each_ticket["read"] = False
+                if k.read_by != None:
+                    each_ticket["read"] = str(request.user.id) in k.read_by.split(",")
+                else:
+                    each_ticket["read"] = False
 
-				if k.resolved_by == None:
-					each_ticket["resolved"] = False
-				else:
-					each_ticket["resolved"] = True
+                if k.resolved_by == None:
+                    each_ticket["resolved"] = False
+                else:
+                    each_ticket["resolved"] = True
 
-				outputList.append(each_ticket)
+                outputList.append(each_ticket)
 
-	return outputList
+    return outputList
 
 def viewUnread(request):
-	if (request.user.is_authenticated):
-		if (request.user.is_superuser):
-			list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
-			return render(request, 'viewticketsadmin.html',{'list':list})
-		else:
-			return HttpResponseRedirect(reverse("home:index"))
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+    if (request.user.is_authenticated):
+        if (request.user.is_superuser):
+            list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
+            return render(request, 'viewticketsadmin.html',{'list':list})
+        else:
+            return HttpResponseRedirect(reverse("home:index"))
+    else:
+        return HttpResponseRedirect(reverse("login:index"))
 
 def viewUnresolved(request):
-	if (request.user.is_authenticated):
-		if (request.user.is_superuser):
-			list = sort_ticket_list(request, models.All_Tickets.objects.all().filter(resolved_by=None), request.user.is_superuser)
+    if (request.user.is_authenticated):
+        if (request.user.is_superuser):
+            list = sort_ticket_list(request, models.All_Tickets.objects.all().filter(resolved_by=None), request.user.is_superuser)
 
-			return render(request, 'viewticketsadmin.html',{'list':list})
-		else:
-			return HttpResponseRedirect(reverse("home:index"))
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+            return render(request, 'viewticketsadmin.html',{'list':list})
+        else:
+            return HttpResponseRedirect(reverse("home:index"))
+    else:
+        return HttpResponseRedirect(reverse("login:index"))

@@ -1,0 +1,17 @@
+
+{% extends 'baseuser.html' %}
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, There!</h1>
+    <p class="lead">There are currently no tickets to be shown at the moment.</p>
+    <hr class="my-4">
+    <p>Try creating a Ticket and return back to this page. <br>
+        Thank you!
+    </p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'ticket_creation:create'%}" role="button">Create Ticket</a>
+    </p>
+  </div>
+
+{% endblock %}

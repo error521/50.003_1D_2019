@@ -26,12 +26,19 @@ def home(request):
 
 		else:
 			# user is normal user
+
 			username = request.user.id
+			
+			ticketlist = len(All_Tickets.objects.all().filter(creator=username))
+			unresolvedlist = len(All_Tickets.objects.all().filter(resolved_by=None, creator=username))
+			unreadlist = len(All_Tickets.objects.all().filter(read_by=None, creator=username))
+			if (ticketlist ==0):
+				return render(request, 'noticketuser.html' )
 			print(request.user.email)
 			outputList = sort_ticket_list(request, All_Tickets.objects.all().filter(creator=request.user.id),
 				request.user.is_superuser)
 			print(len(outputList))
-			return render(request, 'dashboarduser.html', {'error_message':error_message,'username':request.user.get_username(), "list":outputList})
+			return render(request, 'dashboarduser.html', {'error_message':error_message,'username':request.user.get_username(), "list":outputList, 'ticket':ticketlist, "unresolved":unresolvedlist, "unread":unreadlist, 'unread':unreadlist,"username":username})
 
 	else:
 		# user has not logged in, redirect to login page
