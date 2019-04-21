@@ -1,3 +1,11 @@
 # remove all files in pycache
+/Source/website/createuser/__pycache__/*
+/Source/website/Profile/__pycache__/*
+/Source/website/email_notif/__pycache__/*
+/Source/website/home/__pycache__/*
+/Source/website/login/__pycache__/*
+/Source/website/my_project/__pycache__/*
+/Source/website/ticket_creation/__pycache__/*
+
 */__pycache__/*
 *.xml

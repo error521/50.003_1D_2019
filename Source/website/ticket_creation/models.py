@@ -23,7 +23,7 @@ class All_Tickets(models.Model):
     creator = models.IntegerField()  # id of user
     addressed_by = models.IntegerField(null=True, blank=True)  # id of admin
     resolved_by = models.IntegerField(null=True, blank=True)  # if None, ticket is not resolved
-    read_by = models.CharField(max_length=100, null=True, blank=True)  # to have concaternated ids of admins (delimited by ",") that read the ticket to be concaternated to this value. I chose not to create new table as i needed to push for progress, otherwise that is defo prefered
+    read_by = models.CharField(max_length=200, null=True, blank=True)  # to have concaternated ids of admins (delimited by ",") that read the ticket to be concaternated to this value. I chose not to create new table as i needed to push for progress, otherwise that is defo prefered
     queue_number = models.IntegerField()  # to be implemented in future
     dateTime_created = models.DateTimeField()  # datetime object obtained with datetime.datetime.now()
 

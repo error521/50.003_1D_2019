@@ -17,7 +17,9 @@ error_message_invalid_input = "Please ensure input fields are valid"
 error_message_one_checkbox = "Please choose to be notified via SMS, email, or both"
 error_message_unauthorised = "Not authorised"  # used if the token sent by form does not tally with the one specified in /Source/webs$
 error_message_unknown_error = "Unknown error"  # thrown when we cant save ticket into model for some reason
+error_message_unique_email = "Sorry this email has already been taken, please use another email instead"
 
+input_field_test_pass = ["pass"]
 
 def view_profile(request):
 	"""
@@ -55,10 +57,25 @@ def view_profile(request):
 
 			# testing input field validity
 			input_field_test = Input_field_test()
-			username_validity = input_field_test.username(username)
-			password_validity = input_field_test.password(password)
-			email_validity = input_field_test.email(email)
-			phonenumber_validity = input_field_test.phonenumber(phonenumber)
+			if Extended_User.objects.get(id=request.user.id).username != username:
+				username_validity = input_field_test.username(username)
+			else:
+				username_validity = input_field_test_pass
+
+			if Extended_User.objects.get(id=request.user.id).password != password:
+				password_validity = input_field_test.password(password)
+			else:
+				password_validity = input_field_test_pass
+
+			if Extended_User.objects.get(id=request.user.id).email != email:
+				email_validity = input_field_test.email(email)
+			else:
+				email_validity = input_field_test_pass
+
+			if Extended_User.objects.get(id=request.user.id).phoneNumber != phonenumber:
+				phonenumber_validity = input_field_test.phonenumber(phonenumber)
+			else:
+				phonenumber_validity = input_field_test_pass
 
 			if len(username_validity)==1 and len(email_validity)==1 and len(phonenumber_validity)==1 and "invalid value" not in password_validity:  # note that password input field may be empty. if so, password is not changed
 				# input fields are valid
@@ -88,6 +105,7 @@ def view_profile(request):
 				# input fields are not valid
 				empty_input_state = False
 				invalid_input_state = False
+				email_nonunique_state = False
 
 				for i in username_validity:
 					if i == "empty":
@@ -102,6 +120,8 @@ def view_profile(request):
 						empty_input_state = True
 					elif i == "invalid value":
 						invalid_input_state = True
+					elif i == "not unique":
+						email_nonunique_state = True
 				for i in phonenumber_validity:
 					if i == "empty":
 						empty_input_state = True
@@ -114,6 +134,8 @@ def view_profile(request):
 				elif invalid_input_state:
 					# input fields have invalid input
 					error_message = error_message_invalid_input
+				elif email_nonunique_state:
+					error_message = error_message_unique_email
 
 			if error_message == error_message_success:
 				messages.success(request, error_message)
