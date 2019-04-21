@@ -2,38 +2,38 @@
 {% extends 'baseadmin.html' %}
 {% block content %}
 
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+<!-- Begin Page Content -->
+  <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        	<h1 class="h3 mb-0 text-gray-800">View All Tickets</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    	<h1 class="h3 mb-0 text-gray-800">View All Tickets</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+    <!-- all tickets Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of All tickets (includes resolved tickets)">
+            	<div class="card-body">
+                  	<div class="row no-gutters align-items-center">
+                    	<div class="col mr-2">
+                      		<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">All Tickets</div>
+                      		<div class="h5 mb-0 font-weight-bold text-gray-800">{{ ticket }}</div>
+                    	</div>
+                    	<div class="col-auto">
+                      		<i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
+                    	</div>
+                  	</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Content Row -->
-        <div class="row">
-
-            <!-- all tickets Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of All tickets (includes resolved tickets)">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">All tickets</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ ticket }}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Unresolved Tickets Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of Unresolved tickets">
+        <div class="col-xl-3 col-md-6 mb-4">
+	    	<div class="card border-left-danger shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of Unresolved tickets">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -55,7 +55,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Task Uncompleted</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ task }}%</div>
@@ -97,7 +97,7 @@
         <div class="card shadow mb-4">
             <div class="table">
 
-            	<table id="tabledata" class="table table-hover" style="width:100%" cellspacing="0">
+            <table id="tabledata" class="table table-hover" style="width:100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>id</th>
@@ -109,73 +109,42 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% load static %}
-                {% for line in list %}
-                    <tr><td>{{line.id}}</td>
-                        <td>{{line.user}}</td>
-                        <td><a href="/ticket_creation/detail/?id={{ line.id }}" >{{line.title}}</a></td>
-                        <td>{{line.read}}</td>
-                        <td>{{ line.resolved }}</td>
-                        <td>
-                            <form method="POST" action="">
-                                {% csrf_token %}
-                                <a href="/ticket_creation/delete/?id={{ line.id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Delete</a>
-                            </form></td>
-                    </tr>
-				{% endfor %}
+					{% load static %}
+					{% for line in list %}
+						<tr><td>{{line.id}}</td>
+							<td>{{line.user}}</td>
+							<td><a href="/ticket_creation/detail/?id={{ line.id }}" >{{line.title}}</a></td>
+							<td>{{line.read}}</td>
+							<td>{{ line.resolved }}</td>
+							<td>
+								<form method="POST" action="">
+									{% csrf_token %}
+									<a href="/ticket_creation/delete/?id={{ line.id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Delete</a>
+								</form></td>
+						</tr>
+					{% endfor %}
 				
-				<script>
-					function clicked() {
-						if (confirm('Do you want to delete?')) {
-							yourformelement.submit();
-						} else {
-							return false;
+					<script>
+						function clicked() {
+							if (confirm('Do you want to delete?')) {
+								yourformelement.submit();
+							} else {
+								return false;
+							}
 						}
-					}
-        </script>
-        
-        <script>
-        $(function () {
- 		 $('[data-toggle="tooltip"]').tooltip()
-		})
-        </script>
-
-
-        </tbody>
-        </table>
+					</script>
+					<script>
+					$(function () {
+					$('[data-toggle="tooltip"]').tooltip()
+					})
+					</script>
+				</tbody>
+        	</table>
 			</div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Tickets</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i>Unread
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i>Read
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i>Resolved
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
-
 {% endblock %}
+
 
 
   
