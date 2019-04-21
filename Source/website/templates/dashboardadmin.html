@@ -14,7 +14,7 @@
         <!-- Content Row -->
         <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- all tickets Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -24,28 +24,32 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ ticket }}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Unresolved Tickets Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
+              <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Unresolved tickets</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ unresovled }}</div>
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Unresolved Tickets</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ unresolved }}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-check-double fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
+
+            <!-- Task Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -58,7 +62,7 @@
                         </div>
                         <div class="col">
                           <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 1-{{ task }}*100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width:1-{{ task }}*100 " aria-valuenow="1-{{ task }}*100" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -71,7 +75,7 @@
               </div>
             </div>
 
-            <!-- Pending Requests Card Example -->
+            <!-- Unread Messages Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -100,9 +104,9 @@
                 <tr>
                     <th>id</th>
                     <th>User</th>
-                    <th>title</th>
-                    <th>read</th>
-                    <th>resolved </th>
+                    <th>Title</th>
+                    <th>Read</th>
+                    <th>Resolved </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -117,8 +121,7 @@
                         <td>
                             <form method="POST" action="">
                                 {% csrf_token %}
-                                <button type="button" class="btn btn-danger" value="delete"></button>
-                                <a href="/ticket_creation/delete/?id={{ line.id }}" type="button" onclick="return clicked();">Delete</a>
+                                <a href="/ticket_creation/delete/?id={{ line.id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Delete</a>
                             </form></td>
                     </tr>
 				{% endfor %}
