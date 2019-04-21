@@ -15,7 +15,7 @@
     {% if all_tickets_data.resolved_by == None %}
     <div class="dotted">
          <h5>Click to resolve ticket:</h5>
-        <a href="/ticket_creation/resolve/?id={{ item.0.ticket_id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Resolve</a>
+        <a href="/ticket_creation/resolve/?id={{ info.ticket_id }}" role="button" class="btn btn-danger btn-sm" onclick="return clicked();">Resolve</a>
     </div>
     {% endif %}
     {% endif %}
