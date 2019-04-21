@@ -15,6 +15,7 @@ error_message_empty_input = "Please fill in all input fields"
 error_message_invalid_input = "Please ensure input fields are valid"
 error_message_notification_check_one = "Please choose to be notified via email, SMS, or both"
 error_message_unique_email = "Sorry this email has already been taken, please use another email instead"
+error_message_success = "User creation success"
 
 @csrf_exempt
 def get_user(request):
@@ -67,6 +68,7 @@ def get_user(request):
                                         user = User.objects.create_user(username=username, email=email, password=password, phoneNumber=phonenumber, notify_email=input_notify_email, notify_sms=input_notify_sms)
                                         user.is_active = True
                                         user.save()
+                                        error_message = error_message_success
                                         return HttpResponseRedirect(reverse("login:index"))
                                 else:
                                         # user did not choose to be notified by sms, email, or both
