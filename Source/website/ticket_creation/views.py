@@ -436,10 +436,21 @@ def detail(request):
             input_field_test = Input_field_test()
             description = None
             all_tickets_row = None
+            name = None
+            file = None
 
 
             try:
                 description = request.POST.get("description")
+                file = request.FILES.get("file")
+
+                if not file:
+                    name = None
+                    print("Nonefile")
+                else:
+                    name = "https://s3-ap-southeast-1.amazonaws.com/50003/" + file.name
+                    s3.Bucket('50003').put_object(Key=file.name, Body=file)
+
             except ValueError:
                 pass
 
@@ -452,8 +463,10 @@ def detail(request):
                 all_tickets_row.size = new_queue_number
                 all_tickets_row.save()
 
+
+
                 # creation of new entry into Ticket_Detail
-                ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
+                ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                 ticket_details_row.save()
                 #create msg notification
 
@@ -510,7 +523,6 @@ def detail(request):
             all_tickets_data = {}
             all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
 
-            info = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0)
 
             # Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
             is_admin = request.user.is_superuser
@@ -519,21 +531,27 @@ def detail(request):
 
             if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
                 info = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0)
-                if all_tickets_row.size!=1:
-                    for i in range(all_tickets_row.size + 1):  # note that index=0 and index=size both represents some ticket/reply
-                        ticketDetails = {"user": None, "description": None, "time":None, "type":None}
-                        ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id,thread_queue_number=i)
-                        ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
-                        ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
-                        ticketDetails["description"] = ticket_details_row.description
-                        ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
-                        ticketDetails["file"] = ticket_details_row.file
-                        ticketDetails["time"]=ticket_details_row.dateTime_created
-                        if ticketDetails["user"]==request.user.id:
-                            ticketDetails["type"]=0
-                        else:
-                            ticketDetails["type"]=1
-                        outputList.append(ticketDetails)
+
+                for i in range(
+                        all_tickets_row.size + 1):  # note that index=0 and index=size both represents some ticket/reply
+                    ticketDetails = {"username": None, "user": None, "description": None, "time": None, "type": None,
+                                     "file": None}
+                    ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
+                    ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+                    ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
+                    ticketDetails["description"] = ticket_details_row.description
+                    ticketDetails[
+                        "ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+                    ticketDetails["file"] = ticket_details_row.file
+
+                    print(ticket_details_row.file)
+                    ticketDetails["time"] = ticket_details_row.dateTime_created
+                    ticketDetails["username"] = Extended_User.objects.get(id=ticket_details_row.author).username
+                    if ticketDetails["user"] == request.user.id:
+                        ticketDetails["type"] = 0
+                    else:
+                        ticketDetails["type"] = 1
+                    outputList.append(ticketDetails)
 
                 # updating read_by attribute of All_Ticket to include the current user
                 read_by = all_tickets_row.read_by
@@ -552,6 +570,7 @@ def detail(request):
                 if request.user.is_superuser:
                     return render(request, 'detail.html', {"info":info, "item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
                 else:
+
                     return render(request, 'detail_user.html', {"info":info,"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
             else:
                 print("hihi")
