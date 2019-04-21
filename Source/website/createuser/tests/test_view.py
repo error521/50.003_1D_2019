@@ -218,6 +218,30 @@ class CreateUserInstanceViewTest(TestCase):
         # Check that the right Error Message is displayed
         self.assertEqual(response.context['error_message'], error_message_invalid_input)
 
+    def test_form_invalid_email_and_phoneNumber(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
+                                                                  'password': 'passWord123',
+                                                                  'email': 'test.test@@gmail.com',
+                                                                  'phoneNumber':' ee3456789',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
+    def test_form_invalid_username_password_email_and_phoneNumber(self):
+        response = self.client.post(reverse('createuser:index'), {'username': 'Happy@Day1',
+                                                                  'password': None,
+                                                                  'email': 'test.test@@gmail.com',
+                                                                  'phoneNumber': ' ee3456789',
+                                                                  'notify_email': True,
+                                                                  'notify_sms': False})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('error_message' in response.context)
+        # Check that the right Error Message is displayed
+        self.assertEqual(response.context['error_message'], error_message_invalid_input)
+
     def test_form_no_notification_selected(self):
         response = self.client.post(reverse('createuser:index'), {'username': 'HappyDay1',
                                                                   'password': 'passWord123',

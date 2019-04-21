@@ -14,6 +14,15 @@ class LoginInstanceViewTest(TestCase):
         test_user1 = Extended_User.objects.create(username='testuser1')
         test_user1.set_password('HelloWorld123')
         test_user1.save()
+        test_user2 = Extended_User.objects.create(username='testuser2',
+                                                  password='HelloSekai123',
+                                                  email='testing2@test.com',
+                                                  phoneNumber='12345679',
+                                                  notify_email=True,
+                                                  notify_sms=False)
+        test_user2.set_password('HelloSekai123')
+        # test_user2.is_active = True
+        test_user2.save()
 
     # Test for correct template being used
     def test_uses_correct_template(self):
@@ -69,10 +78,18 @@ class LoginInstanceViewTest(TestCase):
         response = self.client.get(reverse("home:index"))
         self.assertEqual(response.status_code, 200)
         # Log User out
-        user_logout = self.client.logout()
         #Check Response code
-        response1 = self.client.get(reverse("login:index"))
+        response1 = self.client.get(reverse("login:logout"))
         self.assertEqual(response.status_code, 200)
         # Check Error messages
         self.assertTrue('error_message' in response.context)
         self.assertEqual(response.context['error_message'], None)
+
+    def test_valid_reset_password_USER_EXISTS(self):
+        response = self.client.get(reverse('login:resetpassword'))
+        self.assertEqual(response.status_code,200)
+        response = self.client.post(reverse("login:resetpassword"),
+                                    {'email': 'testing2@test.com'})
+        print(response.context)
+        self.assertEqual(response.context['error_message'], '')
+        pass

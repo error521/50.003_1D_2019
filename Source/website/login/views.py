@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+
 
 from input_field_test import Input_field_test
 from login.forms import LoginForm
@@ -91,7 +93,7 @@ def reset_password(request):
 	error_message = None
 	if request.method == 'POST':
 		email = None
-		email = request.POST.get('email')
+		email = [request.POST.get('email')]
 
 		# input field email does exist
 		user = User.objects.filter(email=email)

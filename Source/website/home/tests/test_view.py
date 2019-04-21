@@ -42,9 +42,15 @@ class HomeViewTest(TestCase):
 
     # test web status codes
     def test_USER_logged_in_home_status(self):
-        login = self.client.login(username='testuser2', password='HelloSekai123')
-        response = self.client.get(reverse('home:index'))
-        self.assertEqual(response.status_code, 200)
+        login = self.client.post(reverse('login:index'), {'username': 'testuser2',
+                                                          'password': 'HelloSekai123'})
+        self.assertEqual(login.status_code, 302)
+
+    def test_USER__wrong_password_status(self):
+        login = self.client.post(reverse('login:index'),{'username':'testuser2',
+                                            'password':'HellooSekai123'})
+        self.assertEqual(login.status_code, 200)
+        self.assertTemplateUsed(login,'login.html')
 
     def test_ADMIN_logged_in_home_status(self):
         login = self.client.login(username='joe', password='1234')
