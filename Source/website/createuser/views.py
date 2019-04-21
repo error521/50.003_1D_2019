@@ -14,6 +14,7 @@ error_message_user_exist = "User already exist"
 error_message_empty_input = "Please fill in all input fields"
 error_message_invalid_input = "Please ensure input fields are valid"
 error_message_notification_check_one = "Please choose to be notified via email, SMS, or both"
+error_message_unique_email = "Sorry this email has already been taken, please use another email instead"
 
 @csrf_exempt
 def get_user(request):
@@ -78,6 +79,7 @@ def get_user(request):
                         # input fields are not valid
                         empty_input_state = False
                         invalid_input_state = False
+                        email_nonunique_state = False
 
                         for i in username_validity:
                                 if i == "empty":
@@ -89,11 +91,13 @@ def get_user(request):
                                         empty_input_state = True
                                 elif i == "invalid value":
                                         invalid_input_state = True
-                        for i in email_validity:
+                        for i in email_validity:  # emails have to be unique cos forget password function relies on unique email
                                 if i == "empty":
                                         empty_input_state = True
                                 elif i == "invalid value":
                                         invalid_input_state = True
+                                elif i == "not unique":
+                                        email_nonunique_state = True
                         for i in phonenumber_validity:
                                 if i == "empty":
                                         empty_input_state = True
@@ -106,6 +110,8 @@ def get_user(request):
                         elif invalid_input_state:
                                 # input fields have invalid input
                                 error_message = error_message_invalid_input
+                        elif email_nonunique_state:
+                                error_message = error_message_unique_email
 
                 messages.error(request, error_message)
 
