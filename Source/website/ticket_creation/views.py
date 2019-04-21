@@ -189,6 +189,7 @@ def create(request):
 
                                         ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=request.user.id, title=title, description=description, image=None, file=name, dateTime_created=datetime.datetime.now())
                                         ticket_details.save()
+                                        
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
                                         error_message = error_message_success
 
@@ -245,12 +246,12 @@ def list(request):
         outputList = []
 
         if (request.user.is_superuser):
-            outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
+            outputList = sort_ticket_list(request, models.All_Tickets.objects.all(), True)
 
-			return render(request, 'dashboardadmin.html', {"list":outputList})
-		else:
-			# user is normal user
-			return HttpResponseForbidden()
+            return render(request, 'dashboardadmin.html', {"list":outputList})
+        else:
+            # user is normal user
+            return HttpResponseForbidden()
 
     else:
         return HttpResponseRedirect(reverse("login:index"))
@@ -276,10 +277,10 @@ def selected_list(request):
             if querySet != None:
                 outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
-		return render(request, 'viewticketsadmin.html', {"list":outputList, 'view':'My Assigned Tickets'})
-	else:
-		# user is not authenticated
-		return HttpResponseRedirect(reverse("login:index"))
+        return render(request, 'ticketcreation/show.html', {"list":outputList})
+    else:
+        # user is not authenticated
+        return HttpResponseRedirect(reverse("login:index"))
 
 # def detail(request):
 #     error_message = None
@@ -400,6 +401,7 @@ def selected_list(request):
 #     else:
 #         # user is not logged in
 #         return HttpResponseRedirect(reverse("login:index"))
+@csrf_exempt
 def detail(request):
     error_message = None
     if (request.user.is_authenticated):
@@ -487,11 +489,11 @@ def detail(request):
                     for i in range(all_tickets_row.size + 1):  # note that index=0 and index=size both represents some ticket/reply
                         ticketDetails = {"user": None, "description": None, "time":None, "type":None}
                         ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id,thread_queue_number=i)
-                        #ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+                        ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
                         ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
                         ticketDetails["description"] = ticket_details_row.description
-                        #ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
-                        #ticketDetails["file"] = ticket_details_row.file
+                        ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+                        ticketDetails["file"] = ticket_details_row.file
                         ticketDetails["time"]=ticket_details_row.dateTime_created
                         if ticketDetails["user"]==request.user.id:
                             ticketDetails["type"]=0
@@ -504,7 +506,7 @@ def detail(request):
                 if read_by == None:
                     all_tickets_row.read_by = str(request.user.id)+","
                 else:
-                    if request.user.id in all_tickets_row.read_by.split(","):
+                    if str(request.user.id) in all_tickets_row.read_by.split(","):
                         pass
                     else:
                         all_tickets_row.read_by += str(request.user.id)+","
@@ -518,6 +520,7 @@ def detail(request):
                 else:
                     return render(request, 'detail_user.html', {"info":info,"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
             else:
+                print("hihi")
                 return HttpResponseForbidden()
 
     else:
@@ -549,8 +552,9 @@ def resolve(request):
         if (request.user.is_superuser):
             column_id = request.GET.get("id")
             models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
+            print("yes")
 
-            return HttpResponseRedirect(reverse("ticket_creation:display"))
+            return HttpResponseRedirect(reverse("home:index"))
             # return render(request, 'ticketcreation/show.html', {"list": list})
         else:
             # user is normal user - note that only admin users can resolve tickets
@@ -641,22 +645,22 @@ def sort_ticket_list(request, querySetObj, is_superuser):
     return outputList
 
 def viewUnread(request):
-	if (request.user.is_authenticated):
-		if (request.user.is_superuser):
-			list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
-			return render(request, 'viewticketsadmin.html',{'list':list, 'view':'All Unread Tickets'})
-		else:
-			return HttpResponseRedirect(reverse("home:index"))
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+    if (request.user.is_authenticated):
+        if (request.user.is_superuser):
+            list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
+            return render(request, 'viewticketsadmin.html',{'list':list})
+        else:
+            return HttpResponseRedirect(reverse("home:index"))
+    else:
+        return HttpResponseRedirect(reverse("login:index"))
 
 def viewUnresolved(request):
     if (request.user.is_authenticated):
         if (request.user.is_superuser):
             list = sort_ticket_list(request, models.All_Tickets.objects.all().filter(resolved_by=None), request.user.is_superuser)
 
-			return render(request, 'viewticketsadmin.html',{'list':list, 'view':'All Unresolved Tickets'})
-		else:
-			return HttpResponseRedirect(reverse("home:index"))
-	else:
-		return HttpResponseRedirect(reverse("login:index"))
+            return render(request, 'viewticketsadmin.html',{'list':list})
+        else:
+            return HttpResponseRedirect(reverse("home:index"))
+    else:
+        return HttpResponseRedirect(reverse("login:index"))
