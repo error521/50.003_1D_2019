@@ -10,6 +10,58 @@
     </div>
 
     <!-- Content Row -->
+    <!-- all tickets Card Example -->
+    <div class="row">
+    <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of All tickets (includes resolved tickets)">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">All tickets</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ ticket }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unresolved Tickets Card Example -->
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of Unresolved tickets">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Unresolved Tickets</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ unresolved }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-check-double fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unread Messages Card Example -->
+          <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2" data-toggle="tooltip" data-placement="top" title="Number of tickets with new unread messages">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Unread tickets</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ unread }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
 
     <div class="card mb-4">
 		<div class="table">
@@ -19,9 +71,9 @@
                 <tr>
                     <th>id</th>
                     <th>Allocated admin</th>
-                    <th>title</th>
-                    <th>read</th>
-                    <th>resolved </th>
+                    <th>Title</th>
+                    <th>Read</th>
+                    <th>Resolved </th>
 
                 </tr>
                 </thead>
@@ -48,7 +100,8 @@
                 </tbody>
             </table>
 
-	   </div>
+       </div>
+       </div>
 	   
 	</div>
 </div>
