@@ -27,7 +27,7 @@ def home(request):
 				return render(request, 'noticketadmin.html' )
 
 			outputList = sort_ticket_list(request, All_Tickets.objects.all(), request.user.is_superuser)
-			return render(request, 'dashboardadmin.html', {"list": outputList,'error_message':error_message, 'ticket':ticketlist, "unresolved":unresolvedlist, "unread":unreadlist, 'task':task,"username":username, "new_ticket":notification_ticket,"new_msg":notification_msg})
+			return render(request, 'dashboardadmin.html', {"list": outputList,'error_message':error_message, 'ticket':ticketlist, "unresolved":unresolvedlist, "unread":unreadlist, 'task':task,"username":username, "new_ticket":notification_ticket,"new_msg":notification_msg, "numofnewticket":len(notification_ticket),"numofnewmsg":len(notification_msg)})
 
 		else:
 			# user is normal user
@@ -65,7 +65,7 @@ def home(request):
 			outputList = sort_ticket_list(request, All_Tickets.objects.all().filter(creator=request.user.id),
 				request.user.is_superuser)
 			print(len(outputList))
-			return render(request, 'dashboarduser.html', {'error_message':error_message,'username':request.user.get_username(), "list":outputList, 'ticket':len(ticketlist), "unresolved":unresolvedlist,'unread':unreadlist, "new_tickets":notification_tickets, "new_msg":notification_msgs})
+			return render(request, 'dashboarduser.html', {'error_message':error_message,'username':request.user.get_username(), "list":outputList, 'ticket':len(ticketlist), "unresolved":unresolvedlist,'unread':unreadlist, "new_tickets":notification_tickets, "new_msg":notification_msgs,"numofnewticket":len(notification_tickets),"numofnewmsg":len(notification_msgs)})
 
 	else:
 		# user has not logged in, redirect to login page
