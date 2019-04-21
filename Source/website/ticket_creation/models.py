@@ -40,7 +40,7 @@ class Ticket_Details(models.Model):
 
 
 class notification(models.Model):
-    type = models.IntegerField()
-    ticket_id = models.IntegerField()
-    creater = models.CharField(max_length=256)
-    creater_type = models.IntegerField()
+    type = models.IntegerField(null=True, blank=True)
+    ticket_id = models.IntegerField(null=True, blank=True)
+    creater = models.CharField(max_length=256, null=True, blank=True)
+    creater_type = models.IntegerField(null=True, blank=True)
