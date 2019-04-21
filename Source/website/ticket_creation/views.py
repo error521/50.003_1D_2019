@@ -222,7 +222,6 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-                                send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
@@ -489,11 +488,11 @@ def detail(request):
                     for i in range(all_tickets_row.size + 1):  # note that index=0 and index=size both represents some ticket/reply
                         ticketDetails = {"user": None, "description": None, "time":None, "type":None}
                         ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id,thread_queue_number=i)
-                        #ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
+                        ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
                         ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
                         ticketDetails["description"] = ticket_details_row.description
-                        #ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
-                        #ticketDetails["file"] = ticket_details_row.file
+                        ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
+                        ticketDetails["file"] = ticket_details_row.file
                         ticketDetails["time"]=ticket_details_row.dateTime_created
                         if ticketDetails["user"]==request.user.id:
                             ticketDetails["type"]=0
@@ -506,7 +505,7 @@ def detail(request):
                 if read_by == None:
                     all_tickets_row.read_by = str(request.user.id)+","
                 else:
-                    if request.user.id in all_tickets_row.read_by.split(","):
+                    if str(request.user.id) in all_tickets_row.read_by.split(","):
                         pass
                     else:
                         all_tickets_row.read_by += str(request.user.id)+","
@@ -550,7 +549,7 @@ def resolve(request):
     if (request.user.is_authenticated):
         # user is logged in
         if (request.user.is_superuser):
-            column_id = request.POST.get("id")
+            column_id = request.GET.get("id")
             models.All_Tickets.objects.filter(id=column_id).update(resolved_by=request.user.id)
             print("yes")
 
