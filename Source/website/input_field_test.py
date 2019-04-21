@@ -1,3 +1,6 @@
+from createuser.models import Extended_User
+
+
 class Input_field_test:
 	"""
 	Test types: (String) username, password, email, phonenumber
@@ -8,6 +11,7 @@ class Input_field_test:
 	  'empty' if input fields are empty
 	The idea is to check output length, if its more than one, it's a fail
 	"""
+	not_unique = "not unique"
 
 
 	def empty_test_pass(self, input_value):
@@ -161,6 +165,12 @@ class Input_field_test:
 		else:
 			output.append("fail")
 			output.append("invalid value")
+
+		if Extended_User.objects.filter(email=input_value):
+			if pass_fail_state:
+				pass_fail_state = False
+				output.append("fail")
+			output.append(self.not_unique)
 
 		return output
 
