@@ -222,7 +222,6 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
-                                send_mail('Ticket Created Successful','Your ticket '+title+' has been create successful','50003escproject@gmail.com',[request.user.email],fail_silently=False)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
@@ -277,7 +276,7 @@ def selected_list(request):
 			if querySet != None:
 				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
-		return render(request, 'viewticketsadmin.html', {"list":outputList})
+		return render(request, 'viewticketsadmin.html', {"list":outputList, 'view':'My Assigned Tickets'})
 	else:
 		# user is not authenticated
 		return HttpResponseRedirect(reverse("login:index"))
@@ -522,7 +521,7 @@ def viewUnread(request):
 	if (request.user.is_authenticated):
 		if (request.user.is_superuser):
 			list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
-			return render(request, 'viewticketsadmin.html',{'list':list})
+			return render(request, 'viewticketsadmin.html',{'list':list, 'view':'All Unread Tickets'})
 		else:
 			return HttpResponseRedirect(reverse("home:index"))
 	else:
@@ -533,7 +532,7 @@ def viewUnresolved(request):
 		if (request.user.is_superuser):
 			list = sort_ticket_list(request, models.All_Tickets.objects.all().filter(resolved_by=None), request.user.is_superuser)
 
-			return render(request, 'viewticketsadmin.html',{'list':list})
+			return render(request, 'viewticketsadmin.html',{'list':list, 'view':'All Unresolved Tickets'})
 		else:
 			return HttpResponseRedirect(reverse("home:index"))
 	else:
