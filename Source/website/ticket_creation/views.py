@@ -248,7 +248,7 @@ def list(request):
 		if (request.user.is_superuser):
 			outputList = sort_ticket_list(request, models.All_Tickets.objects.all())
 
-			return render(request, 'ticketcreation/show.html', {"list":outputList})
+			return render(request, 'dashboardadmin.html', {"list":outputList})
 		else:
 			# user is normal user
 			return HttpResponseForbidden()
@@ -277,7 +277,7 @@ def selected_list(request):
 			if querySet != None:
 				outputList = sort_ticket_list(request, querySet, request.user.is_superuser)
 
-		return render(request, 'ticketcreation/show.html', {"list":outputList})
+		return render(request, 'viewticketsadmin.html', {"list":outputList})
 	else:
 		# user is not authenticated
 		return HttpResponseRedirect(reverse("login:index"))
