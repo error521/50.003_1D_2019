@@ -124,17 +124,20 @@
           <div class="inbox_msg mb-4">
               <div class="type_msg">
                   {% csrf_token %}
+                  <div class="card">
                       <div class="input_msg_write">
-                          <input type="text" class="write_msg" name="description" placeholder="Type a message" />
+                          <input type="text" class="write_msg" name="description" placeholder="Type Message.." />
                       </div>
-                      <div class="form-label-group">
-                        <label for="exampleFormControlFile1">Attach File/Media</label>
-                        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
+                      <div class="form-label-group mb-2">
+                          <label class="small" for="exampleFormControlFile1">Attach File/Media: </label>
+                          <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
                       <button class="btn btn-lg btn-info btn-block text-uppercase" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>submit</button>
-                  </form>
+                  </div>
+                  
               </div>
           </div>
+        </form>
       </div>
     </div>
 
@@ -241,7 +244,7 @@
         width: 100%;
       }
 
-      .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+      .type_msg {position: relative;}
 
       .msg_send_btn {
         background: #05728f none repeat scroll 0 0;
