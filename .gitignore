@@ -6,6 +6,7 @@
 /Source/website/login/__pycache__/*
 /Source/website/my_project/__pycache__/*
 /Source/website/ticket_creation/__pycache__/*
+/Source/website/tokens.txt
 
 */__pycache__/*
 *.xml
