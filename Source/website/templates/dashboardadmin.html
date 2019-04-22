@@ -7,8 +7,10 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    	<h1 class="h3 mb-0 text-gray-800">View All Tickets</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+      <h1 class="h3 mb-0 text-gray-800">View All Tickets</h1>
+      <div class="col-3">
+      <input type="number"class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Quick Search for Ticket id..">
+    </div>
     </div>
 
     <!-- Content Row -->
@@ -143,6 +145,32 @@
 			</div>
         </div>
     </div>
+
+
+
+<script>
+        function myFunction() {
+          // Declare variables 
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("tabledata");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            } 
+          }
+        }
+</script>
 {% endblock %}
 
 
