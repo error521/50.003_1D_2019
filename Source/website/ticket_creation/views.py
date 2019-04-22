@@ -16,6 +16,16 @@ from email_functions import Email_functions
 import boto3
 from django.db.models import Q
 
+from twilio.rest import Client
+
+
+account_sid = 'AC4fe51c3cd4fb96c70553e9d6cf9a3a00'
+auth_token = '352f733922fb8352dd7e97fcefa279ed'
+client = Client(account_sid, auth_token)
+
+
+
+
 error_message_success = "Ticket creation success"
 error_message_empty_input = "Please fill in all input fields"
 error_message_invalid_input = "Please ensure input fields are valid"
@@ -111,6 +121,21 @@ def create(request):
 
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
 
+                                        if Extended_User.objects.get(id=request.user.id).notify_sms == 1:
+                                            print(Extended_User.objects.get(id=request.user.id).phoneNumber)
+                                            number = Extended_User.objects.get(id=request.user.id).phoneNumber
+                                            try:
+                                                message = client.messages \
+                                                    .create(
+                                                    body="Your ticket " + title + " has been created",
+                                                    from_='+12013081881',
+                                                    to='+65' + number
+                                                )
+                                                print(message.sid)
+                                            except:
+                                                print("invalid number user")
+
+
 
                                         # for email notification
                                         nonadmin_username = None
@@ -126,9 +151,23 @@ def create(request):
 
                                         email_status_message = email_functions.ticket_creation_new_ticket(nonadmin_username, nonadmin_email,admin_dict, title, all_tickets.id)
                                         if email_status_message != email_functions.email_sending_success:
-                                                error_message = error_message_success  #  <-- SUCCESS MESSG HERE
+                                                error_message = error_message_email_error  #  <-- SUCCESS MESSG HERE
                                         else:
-                                                error_message = error_message_email_error
+                                                error_message = error_message_success
+
+                                        #for sms notification
+                                        for i in Extended_User.objects.filter(is_superuser=1, notify_sms=1):  # retrieve all admins that want to be notified by emai
+                                            try:
+                                                message = client.messages \
+                                                    .create(
+                                                    body="A new ticket " + title + " has been created",
+                                                    from_='+12013081881',
+                                                    to='+65' + str(i.phoneNumber)
+                                                )
+                                                print(message.sid)
+
+                                            except:
+                                                print("invilid phone number")
 
                                 else:
                                         # input fields are not valid
@@ -158,6 +197,8 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
+                                print("@@@@")
+                                print(error_message)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
@@ -235,7 +276,8 @@ def detail(request):
             except:
                 remove_notify_ticket = None
         try:
-            remove_notify_msg = models.notification.objects.filter(~Q(creater=request.user.get_username()))
+            remove_notify_msg = models.notification.objects.filter(ticket_id=ticket_id)
+            remove_notify_msg = remove_notify_msg.filter(~Q(creater=request.user.get_username()))
             remove_notify_msg.delete()
         except:
             remove_notify_msg = None
@@ -286,7 +328,7 @@ def detail(request):
                 notify = models.notification(type=1, creater=request.user.get_username(), creater_type=creater_type,
                                              ticket_id=ticket_id)
                 notify.save()
-                print("save??")
+                #print("save??")
 
                 # updating read_by attribute of All_Ticket to be only read by the user posting the reply
                 # updating addressed by to the first admin that replies if addressed_by==None
@@ -296,6 +338,8 @@ def detail(request):
                     if addressed_by == None:
                         all_tickets_row.addressed_by = request.user.id
                         all_tickets_row.save()
+
+
 
                 # email notification for ticket replying
                 if (request.user.is_superuser):
@@ -346,6 +390,72 @@ def detail(request):
                     messages.add_message(request, messages.ERROR, error_message_email_error)
                     error_message = error_message_email_error
 
+                # sms notification
+                if (request.user.is_superuser):
+                    nonadmin_username = None
+                    nonadmin_phone = None
+                    # if admin made a reply - notify nonadmin
+                    nonadmin_id = all_tickets_row.creator
+                    ticket_id = all_tickets_row.id
+                    ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
+
+                    if Extended_User.objects.get(id=nonadmin_id).notify_sms==1:
+                        nonadmin_username = Extended_User.objects.get(id=nonadmin_id).username
+                        nonadmin_phone = Extended_User.objects.get(id=nonadmin_id).phoneNumber
+                        try:
+                            message = client.messages \
+                                .create(
+                                body="You have receive a reply regarding to your ticket " + ticket_title + " from Accenture",
+                                from_='+12013081881',
+                                to='+65' + nonadmin_phone
+                            )
+
+                            print(message.sid)
+                        except:
+                            print("invilid number")
+
+
+                else:
+                    # if nonadmin made a reply - notify assigned admin/all admin
+                    assigned_admin_id = all_tickets_row.addressed_by
+                    assigned_admin_username = None
+                    assigned_admin_phone = None
+                    admin_dict = {}
+                    ticket_id = all_tickets_row.id
+                    ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
+
+                    if assigned_admin_id != None:
+                        if Extended_User.objects.get(id=assigned_admin_id).notify_email==1:
+                            # when there is an admin assigned to the ticket, and admin wants to be notified by email
+                            assigned_admin_username = Extended_User.objects.get(id=assigned_admin_id).username
+                            assigned_admin_phone = Extended_User.objects.get(id=assigned_admin_id).phoneNumber
+
+                            try:
+                                message = client.messages \
+                                    .create(
+                                    body="A new reply regarding to " + ticket_title + " has received from user",
+                                    from_='+12013081881',
+                                    to='+65' + assigned_admin_phone
+                                )
+
+                                print(message.sid)
+                            except:
+                                print("invilid number")
+
+                    else:
+                        for i in Extended_User.objects.filter(is_superuser=1, notify_sms=1):
+                            print(i.phoneNumber)
+                            try:
+                                message = client.messages \
+                                    .create(
+                                    body="A new reply regarding to " + ticket_title + " has received from user",
+                                    from_='+12013081881',
+                                    to='+65' + i.phoneNumber
+                                )
+
+                                print(message.sid)
+                            except:
+                                print("wrong phone number")
 
             else:
                 # input fields are not valid
@@ -464,6 +574,24 @@ def resolve(request):
 
             notification = models.notification(type=0, creater=request.user.get_username(),creater_type=0, ticket_id=column_id)
             notification.save()
+
+            nonadmin_id = models.All_Tickets.objects.get(id=column_id).creator
+            ticket_id = column_id
+            ticket_title = Ticket_Details.objects.get(ticket_id=column_id, thread_queue_number=0).title
+
+            if Extended_User.objects.get(id=nonadmin_id).notify_sms == 1:
+                nonadmin_username = Extended_User.objects.get(id=nonadmin_id).username
+                nonadmin_phone = Extended_User.objects.get(id=nonadmin_id).phoneNumber
+                print(nonadmin_phone)
+
+                message = client.messages \
+                    .create(
+                    body="Your ticket " + ticket_title + " has been resolved by Accenture",
+                    from_='+12013081881',
+                    to='+65' + nonadmin_phone
+                )
+
+                print(message.sid)
 
 
             return HttpResponseRedirect(reverse("home:index"))
