@@ -207,16 +207,12 @@ class CreateTicketInstanceViewTest(TestCase):
         print(login)
         response = self.client.post(reverse('ticket_creation:create'), {
             'title': 'Help',
-            'email': 'testing@test.com',
             'description': 'Please help thanks',
         })
         self.client.logout()
         login = self.client.login(username='joe', password='1234')
-        print(login)
-        response = self.client.post(reverse('ticket_creation:detail'), {
-            'description': "You will be found",
-            'file': None,
-        })
+        # print(login)
+        # print(All_Tickets.objects.get_queryset())
         response = self.client.get(reverse('ticket_creation:resolve'))
         self.assertEqual(response.status_code, 302)
 

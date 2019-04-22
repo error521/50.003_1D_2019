@@ -22,14 +22,14 @@ class CreateTicketByUser(LiveServerTestCase):
         user_username= 'Tired'
         user_password = '1234'
         driver = self.driver
-        driver.get("http://127.0.0.1:8000/login/")
+        driver.get("http://127.0.0.1:8000/")
         username_field = driver.find_element_by_name("username")
         password_field = driver.find_element_by_name("password")
         username_field.send_keys(user_username)
         time.sleep(1)
         password_field.send_keys(user_password)
         time.sleep(1)
-        login_button = driver.find_element_by_xpath("/html/body/form/div/button")
+        login_button = driver.find_element_by_xpath("/html/body/form/div/div/div/div/div/button")
         login_button.click()
         time.sleep(2)
         print("User has logged in")
@@ -38,30 +38,29 @@ class CreateTicketByUser(LiveServerTestCase):
         # User clicks Create Ticket link to create ticket
         link_create_ticket = driver.find_element_by_link_text('Create Ticket')
         link_create_ticket.click()
+        time.sleep(2)
 
-        ticket_email = 'tired@mail.com'
         ticket_title = 'Help'
         ticket_description = 'Send Help'
 
-        email_field = driver.find_element_by_name('email')
-        ticket_title_field = driver.find_element_by_name('title')
-        # wait = WebDriverWait(driver, 20)
-        # wait.until(EC.visibility_of_element_located((By.NAME, "description")))
-        ticket_description_field = driver.find_element_by_tag_name('textarea')
-        # driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
-        time.sleep(5)
-        email_field.send_keys(ticket_email)
+        ticket_title_field = driver.find_element_by_name("title")
+        ticket_description_field = driver.find_element_by_name("description")
+
         time.sleep(1)
         ticket_title_field.send_keys(ticket_title)
         time.sleep(1)
 
+        # wait = WebDriverWait(driver, 20)
+        # wait.until(EC.visibility_of_element_located((By.NAME, "description")))
+        # driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
+
         # ticket_description_field.click()
         ticket_description_field.send_keys(ticket_description)
         time.sleep(1)
-        create_ticket_button = driver.find_element_by_xpath("/html/body/div/div[2]/form/button")
-        create_ticket_button.click()
+        ticket_create_button = driver.find_element_by_xpath("/html/body/div[1]/div/div/div/form/div/div/div/div/div/button")
+        ticket_create_button.click()
         expectedMessage = "Ticket creation success"
-        message = driver.find_element_by_xpath("/html/body/ul/li/div")
+        message = driver.find_element_by_xpath("/html/body/div[1]/div/div/div/div")
         msg_text = message.text
         self.assertTrue(message)
         self.assertEqual(msg_text, expectedMessage)
