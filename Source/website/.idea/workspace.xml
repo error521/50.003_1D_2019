@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +62,7 @@
     <SUITE FILE_PATH="coverage/website$Test__Profile_tests_test_view_ProfileTestView_test_valid_edit_Email_Profile.coverage" NAME="Test: Profile.tests.test_view.ProfileTestView.test_valid_edit_Email_Profile Coverage Results" MODIFIED="1555785001084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest_test_USER_logged_in_home_status.coverage" NAME="Test: home.tests.test_view.HomeViewTest.test_USER_logged_in_home_status Coverage Results" MODIFIED="1555833365987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_submit_empty_form.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_submit_empty_form Coverage Results" MODIFIED="1554812595134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_admin_reply_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_reply_ticket Coverage Results" MODIFIED="1555919907203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_admin_reply_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_reply_ticket Coverage Results" MODIFIED="1555921423378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_AccountAlreadyExists_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_AccountAlreadyExists_registerAndLogin Coverage Results" MODIFIED="1554708891915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest_test_ADMIN_LOGIN_WITHOUT_TICKET_uses_correct_template.coverage" NAME="Test: home.tests.test_view.HomeViewTest.test_ADMIN_LOGIN_WITHOUT_TICKET_uses_correct_template Coverage Results" MODIFIED="1555790943652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest_test_send_email.coverage" NAME="Test: email_notif.tests.EmailTest.test_send_email Coverage Results" MODIFIED="1554147876324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -128,7 +121,7 @@
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_system_ReadTicketFromListTest_test_ReadEqualsTrue.coverage" NAME="Test: ticket_creation.tests.test_system.ReadTicketFromListTest.test_ReadEqualsTrue Coverage Results" MODIFIED="1555054769611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_SUCCESS_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_SUCCESS_logged_in_create_ticket Coverage Results" MODIFIED="1555064654834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_invalid_username_password_email_and_phoneNumber.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_invalid_username_password_email_and_phoneNumber Coverage Results" MODIFIED="1555822581182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest Coverage Results" MODIFIED="1555920007614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest Coverage Results" MODIFIED="1555921350318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_ticket_TO_USER.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_ticket_TO_USER Coverage Results" MODIFIED="1555020107591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_system_CancelResolveTicketByAdmin.coverage" NAME="Test: ticket_creation.tests.test_system.CancelResolveTicketByAdmin Coverage Results" MODIFIED="1555610739260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest_test_home_status.coverage" NAME="Test: home.tests.test_view.HomeViewTest.test_home_status Coverage Results" MODIFIED="1555791310658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -157,10 +150,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="-663">
               <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding>
                 <element signature="e#289#304#0" expanded="true" />
@@ -169,10 +162,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6599">
+            <state relative-caret-position="-8537">
               <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
             </state>
           </provider>
@@ -194,7 +187,7 @@
         <entry file="file://$PROJECT_DIR$/login/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
-              <caret line="94" column="12" lean-forward="true" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
+              <caret line="94" column="12" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -206,7 +199,7 @@
         <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
               <folding>
                 <element signature="e#286#329#0" expanded="true" />
               </folding>
@@ -230,7 +223,7 @@
         <entry file="file://$PROJECT_DIR$/Profile/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -259,7 +252,7 @@
         <entry file="file://$PROJECT_DIR$/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="748">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -357,11 +350,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="-15" />
-    <option name="width" value="3873" />
-    <option name="height" value="2093" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1905" />
+    <option name="width" value="1948" />
+    <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -573,7 +565,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_resolve_ticket">
+  <component name="RunManager" selected="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_reply_ticket">
     <configuration name="Test: Profile.tests.test_view.ProfileTestView" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -700,9 +692,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_resolve_ticket" />
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" />
         <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_reply_ticket" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" />
+        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_resolve_ticket" />
         <item itemvalue="Django tests.Test: Profile.tests.test_view.ProfileTestView" />
         <item itemvalue="Django tests.Test: login.tests.test_view.LoginInstanceViewTest.test_valid_reset_password_USER_EXISTS" />
       </list>
@@ -737,7 +729,7 @@
       <workItem from="1554991002160" duration="4363000" />
       <workItem from="1555003365494" duration="32735000" />
       <workItem from="1555593690925" duration="69781000" />
-      <workItem from="1555831633841" duration="15169000" />
+      <workItem from="1555831633841" duration="16139000" />
     </task>
     <task id="LOCAL-00001" summary="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing">
       <created>1554826454032</created>
@@ -782,7 +774,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264102000" />
+    <option name="totallyTimeSpent" value="265072000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -801,7 +793,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899396" weight="0.24045262" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49899396" visible="true" weight="0.24045262" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -814,7 +806,7 @@
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Database Console" order="14" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="15" sideWeight="0.49832326" visible="true" weight="0.27298445" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49832326" weight="0.27298445" />
       <window_info anchor="bottom" id="Python Console" order="16" sideWeight="0.49966466" weight="0.24" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1157,7 +1149,7 @@
     <entry file="file://$PROJECT_DIR$/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
@@ -1177,7 +1169,7 @@
     <entry file="file://$PROJECT_DIR$/login/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="94" column="12" lean-forward="true" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
+          <caret line="94" column="12" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="12" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -1190,7 +1182,7 @@
     <entry file="file://$PROJECT_DIR$/Profile/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -1207,17 +1199,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6599">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
           <folding>
             <element signature="e#286#329#0" expanded="true" />
           </folding>
@@ -1236,11 +1221,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="-663">
           <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="e#289#304#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8537">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
         </state>
       </provider>
     </entry>
