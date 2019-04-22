@@ -16,6 +16,7 @@ from email_notif.views import email_to_user
 
 from createuser.models import Extended_User
 from input_field_test import Input_field_test
+from email_functions import Email_functions
 import boto3
 from django.db.models import Q
 
@@ -26,6 +27,7 @@ error_message_one_checkbox = "Please choose to be notified via SMS, email, or bo
 error_message_unauthorised = "Not authorised"  # used if the token sent by form does not tally with the one specified in /Source/website/input_field_test.py
 error_message_forbidden_administrator = "This feature is not available to administrators"
 error_message_forbidden_nonadministrator = "This feature is not available to non-administrators"
+error_message_email_error = "Error in sending notifications to email"
 error_message_unknown_error = "Unknown error"  # thrown when we cant save ticket into model for some reason
 
 highest_queue_number = 5  # (inclusive of the number itself) for iterating tickets along according to queue, a highest queue number is chosen instead of incrementing queue number until there're no more tickets. This is for ease of prototyping (someone might want to make ticket queue number 0 and then queue number 2 during prototyping)
@@ -71,97 +73,9 @@ def create(request):
         test_pass = False  # state changed when remote/non-remote input passes
         error_message = None
 
-        # checking if this url is the posting of remote form
-        error_message = None
-        if request.method == 'POST':
-                try:
-                        is_remote = request.POST.get('is_remote')
-                except ValueError:
-                        pass
-
         # remote connet to this url
-        if is_remote == "True":
-                try:
-                        name = request.POST.get("name")
-                        title = request.POST.get("title")
-                        email = request.POST.get('email')
-                        phonenumber = request.POST.get('phonenumber')
-                        description = request.POST.get('description')
-                        token = request.POST.get('token')
-                except ValueError:
-                        pass
-
-                input_field_test = Input_field_test()
-                username_validity = input_field_test.username(name)
-                title_validity = input_field_test.ticket_title(title)
-                email_validity = input_field_test.email(email)
-                description_validity = input_field_test.ticket_description(description)
-                phonenumber_validity = input_field_test.phonenumber(phonenumber)
-                token_validity = input_field_test.token(token)
-
-                if (len(username_validity)==1 and len(title_validity)==1 and len(email_validity)==1 and len(description_validity)==1 and len(phonenumber_validity)==1 and len(token_validity)==1):
-                        try:
-                                all_tickets = models.All_Tickets(size=0, creator=arbitrary_user_for_remote_user, addressed_by=None, resolved_by=None, read_by=None, queue_number=0, dateTime_created = datetime.datetime.now())
-                                all_tickets.save()
-                                ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=0, title=title, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
-                                ticket_details.save()
-
-                                notify = models.notification(type = 0, creater=request.user.get_username(),creater_type=1,ticket_id=all_tickets.id)
-                                notify.save()
-
-
-                                error_message = error_message_success
-                        except Exception:
-                                error_message = error_message_unknown_error
-                else:
-                        # input fields are not valid
-                        empty_input_state = False
-                        invalid_input_state = False
-                        invalid_token_state = False
-
-                        for i in username_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in title_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in email_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in description_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in phonenumber_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in token_validity:
-                                if i == "invalid value":
-                                        invalid_token_state = True
-
-                        if invalid_token_state:
-                                # wrong token submitted
-                                error_message = error_message_unauthorised
-                        elif empty_input_state:
-                                # input fields are empty
-                                error_message = error_message_empty_input
-                        elif invalid_input_state:
-                                # input fields have invalid input
-                                error_message = error_message_invalid_input
-
-                return HttpResponse(error_message)
-
         # user is accessing the ticket_create page explicitly
-        elif (request.user.is_authenticated):
+        if (request.user.is_authenticated):
                 # user is logged in
                 if not (request.user.is_superuser):
                         # user is normal user
@@ -171,7 +85,6 @@ def create(request):
                                 description = None
                                 file = None
                                 name = None
-
 
                                 try:
                                         title = request.POST.get("title")
@@ -201,10 +114,26 @@ def create(request):
                                         notify.save()
 
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
-                                        error_message = error_message_success
 
-                                        email_to_admin(request) # uses mail_admins
-                                        # email_to_user(request) # uses send_mail
+
+                                        # for email notification
+                                        nonadmin_username = None
+                                        nonadmin_email = None
+                                        email_functions = Email_functions()
+                                        admin_dict = {}
+                                        for i in Extended_User.objects.filter(is_superuser=1, notify_email=1):  # retrieve all admins that want to be notified by email
+                                                admin_dict[i.id] = [i.username, i.email]
+
+                                        if Extended_User.objects.get(id=request.user.id).notify_email == 1:  # if nonadmin user wants to be notified through email
+                                                nonadmin_username = Extended_User.objects.get(id=request.user.id).username
+                                                nonadmin_email = Extended_User.objects.get(id=request.user.id).email
+
+                                        email_status_message = email_functions.ticket_creation_new_ticket(nonadmin_username, nonadmin_email,admin_dict, title, all_tickets.id)
+                                        if email_status_message != email_functions.email_sending_success:
+                                                error_message = error_message_success  #  <-- SUCCESS MESSG HERE
+                                        else:
+                                                error_message = error_message_email_error
+
                                 else:
                                         # input fields are not valid
                                         empty_input_state = False
