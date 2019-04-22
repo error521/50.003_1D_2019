@@ -46,24 +46,25 @@
               <h5 class="card-title text-center">Create an <span style="text-transform: uppercase; font-weight: bold; color: purple">Accenture</span><span style="text-transform: uppercase; font-weight: lighter; color:gray">ITS</span> Account</h5>
               <form class="form-signin">
                 <div class="form-label-group">
-                  <small class="form-text text-muted">Enter Username:</small>
-                  <!-- <label for="{{form.username.id_for_label}}">Username : </label> -->
-                  {{form.username}}
+
+                <div class="form-label-group">
+                  <small class="form-text text-muted">Enter Username:</small> 
+                  <input type="text" class="form-control" id="username" name="username">
                 </div>
 
                 <div class="form-label-group">
-                    <small class="form-text text-muted">Enter Email:</small>
-                    {{ form.email }} 
+                  <small class="form-text text-muted">Enter Email:</small> 
+                  <input type="email" class="form-control" id="email" name="email">
                 </div>
 
                 <div class="form-label-group">
-                    <small class="form-text text-muted">Enter Contact Number:</small>
-                    {{ form.phoneNumber }} 
+                  <small class="form-text text-muted">Enter Contact Number:</small> 
+                  <input type="number" class="form-control" id="phoneNumber" name="phoneNumber">
                 </div>
 
                 <div class="form-label-group">
-                  <small class="form-text text-muted">Enter Password:</small>
-                  {{ form.password}}
+                  <small class="form-text text-muted">Enter Password:</small> 
+                  <input type="password" class="form-control" id="password" name="password">
                 </div>
 
                 <div clas="form-label-group">
