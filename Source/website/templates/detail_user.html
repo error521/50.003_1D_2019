@@ -92,8 +92,10 @@
                   </div>
                   <div class="card-body">
                     <p>{{ row.description }}</p>
-                      <p><a href={{ row.file }}>{{ row.file }}</a></p>
-
+                    {% if row.file %}
+                    <small>Attached file: </small>
+                    <dd><a href={{ info.file }}>{{ row.file }}</a></dd>
+                    {% endif %}
                 </div>
               </div>
 
@@ -107,7 +109,10 @@
                                 </div>
                                 <div class="card-body">
                                   <p>{{ row.description }}</p>
-                                    <p><a href={{ row.file }}>{{ row.file }}</a></p>
+                                  {% if row.file %}
+                                  <small>Attached file: </small>
+                                  <dd><a href={{ info.file }}>{{ row.file }}</a></dd>
+                                  {% endif %}
 
                               </div>
                             </div>
