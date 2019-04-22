@@ -34,6 +34,15 @@ class CreateTicketInstanceViewTest(TestCase):
         #                   #notify_sms=False)
         # test_admin.set_password('1234')
         # test_admin.save()
+        test_admin = Extended_User.objects.create(username='joe',
+                                                  email='admin@test.com',
+                                                  phoneNumber='97532134',
+                                                  notify_email=True,
+                                                  notify_sms=False,
+                                                  is_superuser=True)
+        test_admin.set_password('1234')
+        test_admin.is_active = True
+        test_admin.save()
         test_user2 = Extended_User.objects.create(username='testuser2',
                                                   password='HelloSekai123',
                                                   email='testing@test.com',
@@ -200,12 +209,16 @@ class CreateTicketInstanceViewTest(TestCase):
         })
         self.client.logout()
         login = self.client.login(username='joe', password='1234')
+        print(login)
         response = self.client.post(reverse('ticket_creation:detail'), {
             'title': "No worries",
             'description': "You will be found"
         })
         response = self.client.get(reverse('ticket_creation:resolve'))
         self.assertEqual(response.status_code, 302)
+
+    def test_admin_delete_tickets(self):
+        login = self.client.login()
 
     # def test_get_details(self):
     #     # login user first to create a ticket
