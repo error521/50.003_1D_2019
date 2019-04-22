@@ -221,6 +221,8 @@ def selected_list(request):
 @csrf_exempt
 def detail(request):
     error_message = None
+    email_notif_pass = False
+
     if (request.user.is_authenticated):
         # user is loggged in
         ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
@@ -297,26 +299,54 @@ def detail(request):
 
                 # email notification for ticket replying
                 if (request.user.is_superuser):
-                    pass
+                    # if admin made a reply - notify nonadmin
+                    nonadmin_username = None
+                    nonadmin_email = None
+                    nonadmin_id = all_tickets_row.creator
+                    ticket_id = all_tickets_row.id
+                    ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
+                    email_functions = Email_functions()
+
+                    if Extended_User.objects.get(id=nonadmin_id).notify_email==1:
+                        nonadmin_username = Extended_User.objects.get(id=nonadmin_id).username
+                        nonadmin_email = Extended_User.objects.get(id=nonadmin_id).email
+
+                    email_notif_response = email_functions.ticket_creation_admin_replies(nonadmin_username, nonadmin_email, ticket_title, ticket_id)
+                    if email_notif_response == email_functions.email_sending_success
+                        email_notif_pass = True
+
                 else:
+                    # if nonadmin made a reply - notify assigned admin/all admin
                     assigned_admin_id = all_tickets_row.addressed_by
                     assigned_admin_username = None
                     assigned_admin_email = None
                     admin_dict = {}
+                    email_functions = Email_functions()
                     ticket_id = all_tickets_row.id
                     ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
 
                     if assigned_admin_id != None:
-                        assigned_admin_username = Extended_User.objects.get(id=assigned_admin_id).username
-                        assigned_admin_email = Extended_User.objects.get(id=assigned_admin_id).email
+                        if Extended_User.objects.get(id=assigned_admin_id).notify_email==1:
+                            # when there is an admin assigned to the ticket, and admin wants to be notified by email
+                            assigned_admin_username = Extended_User.objects.get(id=assigned_admin_id).username
+                            assigned_admin_email = Extended_User.objects.get(id=assigned_admin_id).email
 
                     for i in Extended_User.objects.filter(is_superuser=1, notify_email=1):
                         admin_dict[i.id] = [i.username, i.email]
 
-                    Email_functions().ticket_creation_nonadmin_replies(assigned_admin_username, assigned_admin_email, admin_dict, ticket_title, ticket_id)
+                    email_notif_response = email_functions.ticket_creation_nonadmin_replies(assigned_admin_username, assigned_admin_email, admin_dict, ticket_title, ticket_id)
+                    if email_notif_response == email_functions.email_sending_success
+                        email_notif_pass = True
 
-                messages.add_message(request, messages.SUCCESS, error_message_success)
-                error_message = error_message_success
+
+                if email_notif_pass:
+                    messages.add_message(request, messages.SUCCESS, error_message_success)
+                    error_message = error_message_success
+                else:
+                    messages.add_message(request, messages.ERROR, error_message_email_error)
+                    error_message = error_message_email_error
+
+
             else:
                 # input fields are not valid
                 empty_input_state = False

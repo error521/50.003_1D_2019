@@ -114,5 +114,17 @@ class Email_functions:
 
 		return self.email_sending_success
 
-	def ticket_creation_admin_replies(self):
-		pass
+	def ticket_creation_admin_replies(self, nonadmin_username, nonadmin_email, ticket_title, ticket_id):
+		"""
+		Public method. Called when admin replies to existing ticket. If nonadmin did not opt to be notified, no emails will be sent
+		"""
+
+		if nonadmin_username!=None and nonadmin_email!=None:
+			subject = "A reply is received for ticket {0}".format(ticket_id)
+			message = "<h3>{0}, there is a new reply to ticket {1}</h3>".format(nonadmin_username, ticket_id)
+			if self.acnapi_email(nonadmin_email, subject, message) == self.email_sending_error:
+				return self.email_sending_error
+
+		return self.email_sending_success
+
+
