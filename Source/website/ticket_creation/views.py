@@ -126,9 +126,9 @@ def create(request):
 
                                         email_status_message = email_functions.ticket_creation_new_ticket(nonadmin_username, nonadmin_email,admin_dict, title, all_tickets.id)
                                         if email_status_message != email_functions.email_sending_success:
-                                                error_message = error_message_success  #  <-- SUCCESS MESSG HERE
+                                                error_message = error_message_email_error  #  <-- SUCCESS MESSG HERE
                                         else:
-                                                error_message = error_message_email_error
+                                                error_message = error_message_success
 
                                 else:
                                         # input fields are not valid
@@ -158,6 +158,8 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
+                                print("@@@@")
+                                print(error_message)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)
