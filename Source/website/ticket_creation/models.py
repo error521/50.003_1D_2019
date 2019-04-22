@@ -37,3 +37,10 @@ class Ticket_Details(models.Model):
     image = models.ImageField(max_length=100, null=True, blank=True)  # to be implemented
     file = models.CharField(null=True, max_length=256,default=None)
     dateTime_created = models.DateTimeField()  # datetime object obtained with datetime.datetime.now()
+
+
+class notification(models.Model):
+    type = models.IntegerField(null=True, blank=True)
+    ticket_id = models.IntegerField(null=True, blank=True)
+    creater = models.CharField(max_length=256, null=True, blank=True)
+    creater_type = models.IntegerField(null=True, blank=True)
