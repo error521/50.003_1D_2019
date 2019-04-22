@@ -113,3 +113,6 @@ class Email_functions:
 					return self.email_sending_error
 
 		return self.email_sending_success
+
+	def ticket_creation_admin_replies(self):
+		pass
