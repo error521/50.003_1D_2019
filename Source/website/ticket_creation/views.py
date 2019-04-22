@@ -4,18 +4,15 @@ from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse
-
-from . import models
-from createuser.models import Extended_User
-
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from email_notif.views import email_from_admin
-from email_notif.views import email_to_admin
-from email_notif.views import email_to_user
 
+from . import models
+
+from ticket_creation.models import Ticket_Details, All_Tickets
 from createuser.models import Extended_User
 from input_field_test import Input_field_test
+from email_functions import Email_functions
 import boto3
 from django.db.models import Q
 
@@ -26,6 +23,7 @@ error_message_one_checkbox = "Please choose to be notified via SMS, email, or bo
 error_message_unauthorised = "Not authorised"  # used if the token sent by form does not tally with the one specified in /Source/website/input_field_test.py
 error_message_forbidden_administrator = "This feature is not available to administrators"
 error_message_forbidden_nonadministrator = "This feature is not available to non-administrators"
+error_message_email_error = "Error in sending notifications to email"
 error_message_unknown_error = "Unknown error"  # thrown when we cant save ticket into model for some reason
 
 highest_queue_number = 5  # (inclusive of the number itself) for iterating tickets along according to queue, a highest queue number is chosen instead of incrementing queue number until there're no more tickets. This is for ease of prototyping (someone might want to make ticket queue number 0 and then queue number 2 during prototyping)
@@ -71,97 +69,9 @@ def create(request):
         test_pass = False  # state changed when remote/non-remote input passes
         error_message = None
 
-        # checking if this url is the posting of remote form
-        error_message = None
-        if request.method == 'POST':
-                try:
-                        is_remote = request.POST.get('is_remote')
-                except ValueError:
-                        pass
-
         # remote connet to this url
-        if is_remote == "True":
-                try:
-                        name = request.POST.get("name")
-                        title = request.POST.get("title")
-                        email = request.POST.get('email')
-                        phonenumber = request.POST.get('phonenumber')
-                        description = request.POST.get('description')
-                        token = request.POST.get('token')
-                except ValueError:
-                        pass
-
-                input_field_test = Input_field_test()
-                username_validity = input_field_test.username(name)
-                title_validity = input_field_test.ticket_title(title)
-                email_validity = input_field_test.email(email)
-                description_validity = input_field_test.ticket_description(description)
-                phonenumber_validity = input_field_test.phonenumber(phonenumber)
-                token_validity = input_field_test.token(token)
-
-                if (len(username_validity)==1 and len(title_validity)==1 and len(email_validity)==1 and len(description_validity)==1 and len(phonenumber_validity)==1 and len(token_validity)==1):
-                        try:
-                                all_tickets = models.All_Tickets(size=0, creator=arbitrary_user_for_remote_user, addressed_by=None, resolved_by=None, read_by=None, queue_number=0, dateTime_created = datetime.datetime.now())
-                                all_tickets.save()
-                                ticket_details = models.Ticket_Details(ticket_id=all_tickets.id, thread_queue_number=0, author=0, title=title, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
-                                ticket_details.save()
-
-                                notify = models.notification(type = 0, creater=request.user.get_username(),creater_type=1,ticket_id=all_tickets.id)
-                                notify.save()
-
-
-                                error_message = error_message_success
-                        except Exception:
-                                error_message = error_message_unknown_error
-                else:
-                        # input fields are not valid
-                        empty_input_state = False
-                        invalid_input_state = False
-                        invalid_token_state = False
-
-                        for i in username_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in title_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in email_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in description_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in phonenumber_validity:
-                                if i == "empty":
-                                        empty_input_state = True
-                                elif i == "invalid value":
-                                        invalid_input_state = True
-                        for i in token_validity:
-                                if i == "invalid value":
-                                        invalid_token_state = True
-
-                        if invalid_token_state:
-                                # wrong token submitted
-                                error_message = error_message_unauthorised
-                        elif empty_input_state:
-                                # input fields are empty
-                                error_message = error_message_empty_input
-                        elif invalid_input_state:
-                                # input fields have invalid input
-                                error_message = error_message_invalid_input
-
-                return HttpResponse(error_message)
-
         # user is accessing the ticket_create page explicitly
-        elif (request.user.is_authenticated):
+        if (request.user.is_authenticated):
                 # user is logged in
                 if not (request.user.is_superuser):
                         # user is normal user
@@ -171,7 +81,6 @@ def create(request):
                                 description = None
                                 file = None
                                 name = None
-
 
                                 try:
                                         title = request.POST.get("title")
@@ -201,10 +110,26 @@ def create(request):
                                         notify.save()
 
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
-                                        error_message = error_message_success
 
-                                        email_to_admin(request) # uses mail_admins
-                                        # email_to_user(request) # uses send_mail
+
+                                        # for email notification
+                                        nonadmin_username = None
+                                        nonadmin_email = None
+                                        email_functions = Email_functions()
+                                        admin_dict = {}
+                                        for i in Extended_User.objects.filter(is_superuser=1, notify_email=1):  # retrieve all admins that want to be notified by email
+                                                admin_dict[i.id] = [i.username, i.email]
+
+                                        if Extended_User.objects.get(id=request.user.id).notify_email == 1:  # if nonadmin user wants to be notified through email
+                                                nonadmin_username = Extended_User.objects.get(id=request.user.id).username
+                                                nonadmin_email = Extended_User.objects.get(id=request.user.id).email
+
+                                        email_status_message = email_functions.ticket_creation_new_ticket(nonadmin_username, nonadmin_email,admin_dict, title, all_tickets.id)
+                                        if email_status_message != email_functions.email_sending_success:
+                                                error_message = error_message_success  #  <-- SUCCESS MESSG HERE
+                                        else:
+                                                error_message = error_message_email_error
+
                                 else:
                                         # input fields are not valid
                                         empty_input_state = False
@@ -292,128 +217,12 @@ def selected_list(request):
         # user is not authenticated
         return HttpResponseRedirect(reverse("login:index"))
 
-# def detail(request):
-#     error_message = None
-#     if (request.user.is_authenticated):
-#         # user is loggged in
-#         ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
-#
-#         if request.method == "POST":
-#             # user is posting reply to ticket
-#             input_field_test = Input_field_test()
-#             description = None
-#             all_tickets_row = None
-#
-#
-#             try:
-#                 description = request.POST.get("description")
-#             except ValueError:
-#                 pass
-#
-#             description_validity = input_field_test.ticket_description(description)
-#
-#             if len(description_validity)==1:
-#                 # update data of thread under All_Tickets
-#                 all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
-#                 new_queue_number = all_tickets_row.size + 1
-#                 all_tickets_row.size = new_queue_number
-#                 all_tickets_row.save()
-#
-#                 # creation of new entry into Ticket_Detail
-#                 ticket_details_row = models.Ticket_Details(ticket_id=ticket_id, thread_queue_number=new_queue_number, author=request.user.id, description=description, image=None, file=None, dateTime_created=datetime.datetime.now())
-#                 ticket_details_row.save()
-#
-#                 # updating read_by attribute of All_Ticket to be only read by the user posting the reply
-#                 # updating addressed by to the first admin that replies if addressed_by==None
-#                 all_tickets_row.read_by = str(request.user.id)+","
-#                 if (request.user.is_superuser):
-#                     addressed_by = all_tickets_row.addressed_by
-#                     if addressed_by == None:
-#                         all_tickets_row.addressed_by = request.user.id
-#                         all_tickets_row.save()
-#
-#                 messages.add_message(request, messages.SUCCESS, error_message_success)
-#                 error_message = error_message_success
-#             else:
-#                 # input fields are not valid
-#                 empty_input_state = False
-#                 invalid_input_state = False
-#                 invalid_token_state = False
-#
-#                 for i in description_validity:
-#                     if i == "empty":
-#                         empty_input_state = True
-#                     elif i == "invalid value":
-#                         invalid_input_state = True
-#
-#                 if invalid_token_state:
-#                     # wrong token submitted
-#                     error_message = error_message_unauthorised
-#                 elif empty_input_state:
-#                     # input fields are empty
-#                     error_message = error_message_empty_input
-#                 elif invalid_input_state:
-#                     # input fields have invalid input
-#                     error_message = error_message_invalid_input
-#
-#                 messages.add_message(request, messages.SUCCESS, error_message)
-#
-#             return HttpResponseRedirect(reverse("ticket_creation:detail")+"?id={0}".format(ticket_id))
-#
-#         else:
-#             # user is retrieving the message thread of a ticket
-#             outputList = []
-#             all_tickets_data = {}
-#             all_tickets_row = models.All_Tickets.objects.get(id=ticket_id)
-#
-#             # Check if user is authorised to this feature - User can only view the ticket if (1. User is admin) (2. User is non-admin and author of ticket)
-#             is_admin = request.user.is_superuser
-#             is_author = request.user.id == all_tickets_row.creator
-#             is_authorised = is_admin or (not is_admin and is_author)
-#
-#             if is_authorised:  # prevent non-admin users from accessing/replying to tickets that they didnt write
-#                 for i in range(all_tickets_row.size+1):   # note that index=0 and index=size both represents some ticket/reply
-#                     ticketDetails = {"id":None, "user":None, "description":None, "ticket_id":None, 'file':None}
-#                     ticket_details_row = models.Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=i)
-#
-#                     ticketDetails["id"] = ticket_details_row.id  # id of this ticket/reply (in Ticket_Details)
-#                     ticketDetails["user"] = ticket_details_row.author  # author of this particular ticket/reply
-#                     ticketDetails["description"] = ticket_details_row.description
-#                     ticketDetails["ticket_id"] = ticket_details_row.ticket_id  # id of the ticket that this ticket/reply (in All_Ticket) is tied to
-#                     ticketDetails["file"]=ticket_details_row.file
-#
-#                     if i==0:  # first row is the only row with title
-#                         ticketDetails["title"] = ticket_details_row.title
-#
-#                     outputList.append(ticketDetails)
-#
-#                 # updating read_by attribute of All_Ticket to include the current user
-#                 read_by = all_tickets_row.read_by
-#                 if read_by == None:
-#                     all_tickets_row.read_by = str(request.user.id)+","
-#                 else:
-#                     if request.user.id in all_tickets_row.read_by.split(","):
-#                         pass
-#                     else:
-#                         all_tickets_row.read_by += str(request.user.id)+","
-#                 all_tickets_row.save()
-#
-#                 # fill up all_tickets_data
-#                 all_tickets_data["resolved_by"] = all_tickets_row.resolved_by
-#
-#                 if request.user.is_superuser:
-#                     return render(request, 'detail.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
-#                 else:
-#                     return render(request, 'detail_user.html', {"item": outputList, "all_tickets_data":all_tickets_data,'username':request.user.get_username()})
-#             else:
-#                 return HttpResponseForbidden()
-#
-#     else:
-#         # user is not logged in
-#         return HttpResponseRedirect(reverse("login:index"))
+
 @csrf_exempt
 def detail(request):
     error_message = None
+    email_notif_pass = False
+
     if (request.user.is_authenticated):
         # user is loggged in
         ticket_id = request.GET.get("id")  # this works even when submitting replies cos the url is still the same, and "id" is retrieved from the url
@@ -438,7 +247,6 @@ def detail(request):
             all_tickets_row = None
             name = None
             file = None
-
 
             try:
                 description = request.POST.get("description")
@@ -489,8 +297,56 @@ def detail(request):
                         all_tickets_row.addressed_by = request.user.id
                         all_tickets_row.save()
 
-                messages.add_message(request, messages.SUCCESS, error_message_success)
-                error_message = error_message_success
+                # email notification for ticket replying
+                if (request.user.is_superuser):
+                    # if admin made a reply - notify nonadmin
+                    nonadmin_username = None
+                    nonadmin_email = None
+                    nonadmin_id = all_tickets_row.creator
+                    ticket_id = all_tickets_row.id
+                    ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
+                    email_functions = Email_functions()
+
+                    if Extended_User.objects.get(id=nonadmin_id).notify_email==1:
+                        nonadmin_username = Extended_User.objects.get(id=nonadmin_id).username
+                        nonadmin_email = Extended_User.objects.get(id=nonadmin_id).email
+
+                    email_notif_response = email_functions.ticket_creation_admin_replies(nonadmin_username, nonadmin_email, ticket_title, ticket_id)
+                    if email_notif_response == email_functions.email_sending_success:
+                        email_notif_pass = True
+
+                else:
+                    # if nonadmin made a reply - notify assigned admin/all admin
+                    assigned_admin_id = all_tickets_row.addressed_by
+                    assigned_admin_username = None
+                    assigned_admin_email = None
+                    admin_dict = {}
+                    email_functions = Email_functions()
+                    ticket_id = all_tickets_row.id
+                    ticket_title = Ticket_Details.objects.get(ticket_id=ticket_id, thread_queue_number=0).title
+
+                    if assigned_admin_id != None:
+                        if Extended_User.objects.get(id=assigned_admin_id).notify_email==1:
+                            # when there is an admin assigned to the ticket, and admin wants to be notified by email
+                            assigned_admin_username = Extended_User.objects.get(id=assigned_admin_id).username
+                            assigned_admin_email = Extended_User.objects.get(id=assigned_admin_id).email
+
+                    for i in Extended_User.objects.filter(is_superuser=1, notify_email=1):
+                        admin_dict[i.id] = [i.username, i.email]
+
+                    email_notif_response = email_functions.ticket_creation_nonadmin_replies(assigned_admin_username, assigned_admin_email, admin_dict, ticket_title, ticket_id)
+                    if email_notif_response == email_functions.email_sending_success:
+                        email_notif_pass = True
+
+
+                if email_notif_pass:
+                    messages.add_message(request, messages.SUCCESS, error_message_success)
+                    error_message = error_message_success
+                else:
+                    messages.add_message(request, messages.ERROR, error_message_email_error)
+                    error_message = error_message_email_error
+
+
             else:
                 # input fields are not valid
                 empty_input_state = False

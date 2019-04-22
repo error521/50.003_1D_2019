@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'ticket_creation',
     'Profile',
     'createuser',
-    'email_notif',
 ]
 
 MIDDLEWARE = [
