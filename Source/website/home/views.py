@@ -57,7 +57,14 @@ def home(request):
 
 
 			unresolvedlist = len(All_Tickets.objects.all().filter(resolved_by=None, creator=username))
-			unreadlist = len(All_Tickets.objects.all().filter(read_by=None, creator=username))
+
+			# count unread tickets - essentially check how many tickets is created by the user but does not have the user's id in read_by
+			unreadlist = 0
+			for i in All_Tickets.objects.all().filter(creator=username):
+				if i.read_by == None:  # no one has read the ticket yet
+					unreadlist += 1
+				elif str(request.user.id) not in i.read_by:  # someone has read it but its not the user
+					unreadlist += 1
 
 			if (ticketlist ==0):
 				return render(request, 'noticketuser.html' )

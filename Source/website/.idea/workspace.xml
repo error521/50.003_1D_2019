@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0002_auto_20190407_1617.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0003_auto_20190420_0637.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0004_auto_20190420_1633.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0005_auto_20190421_1319.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0005_auto_20190421_2320.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0006_auto_20190421_1746.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/migrations/0007_merge_20190422_1616.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/email_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createticketform.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createticketform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profileadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profileadmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profileuser.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profileuser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket_creation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -175,8 +169,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="439" column="59" selection-start-line="439" selection-start-column="59" selection-end-line="439" selection-end-column="59" />
+            <state relative-caret-position="435">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -659,7 +653,7 @@
       <workItem from="1555003365494" duration="32735000" />
       <workItem from="1555593690925" duration="69781000" />
       <workItem from="1555831633841" duration="21397000" />
-      <workItem from="1555936460487" duration="7669000" />
+      <workItem from="1555936460487" duration="9087000" />
     </task>
     <task id="LOCAL-00001" summary="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing">
       <created>1554826454032</created>
@@ -704,7 +698,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277999000" />
+    <option name="totallyTimeSpent" value="279417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -724,20 +718,20 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899396" weight="0.44585988" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49899396" visible="true" weight="0.17070064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966466" weight="0.32857144" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49966466" weight="0.3281471" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49966466" weight="0.32738853" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.501006" side_tool="true" weight="0.5572843" />
       <window_info anchor="bottom" id="manage.py@website" order="11" weight="0.3285968" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="bottom" id="Database Console" order="14" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="15" sideWeight="0.49832326" visible="true" weight="0.17579618" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49832326" weight="0.2624204" />
       <window_info anchor="bottom" id="Python Console" order="16" sideWeight="0.49966466" weight="0.24" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1128,8 +1122,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket_creation/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="439" column="59" selection-start-line="439" selection-start-column="59" selection-end-line="439" selection-end-column="59" />
+        <state relative-caret-position="435">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

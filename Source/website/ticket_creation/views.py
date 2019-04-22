@@ -121,6 +121,21 @@ def create(request):
 
                                         messages.add_message(request, messages.SUCCESS, error_message_success)
 
+                                        if Extended_User.objects.get(id=request.user.id).notify_sms == 1:
+                                            print(Extended_User.objects.get(id=request.user.id).phoneNumber)
+                                            number = Extended_User.objects.get(id=request.user.id).phoneNumber
+                                            try:
+                                                message = client.messages \
+                                                    .create(
+                                                    body="Your ticket " + title + " has been created",
+                                                    from_='+12013081881',
+                                                    to='+65' + number
+                                                )
+                                                print(message.sid)
+                                            except:
+                                                print("invalid number user")
+
+
 
                                         # for email notification
                                         nonadmin_username = None
@@ -136,20 +151,21 @@ def create(request):
 
                                         email_status_message = email_functions.ticket_creation_new_ticket(nonadmin_username, nonadmin_email,admin_dict, title, all_tickets.id)
                                         if email_status_message != email_functions.email_sending_success:
-                                                error_message = error_message_success  #  <-- SUCCESS MESSG HERE
+                                                error_message = error_message_email_error  #  <-- SUCCESS MESSG HERE
                                         else:
-                                                error_message = error_message_email_error
+                                                error_message = error_message_success
 
                                         #for sms notification
                                         for i in Extended_User.objects.filter(is_superuser=1, notify_sms=1):  # retrieve all admins that want to be notified by emai
                                             try:
                                                 message = client.messages \
                                                     .create(
-                                                    body="A new ticket " + str(all_tickets.id) + " has been created",
+                                                    body="A new ticket " + title + " has been created",
                                                     from_='+12013081881',
                                                     to='+65' + str(i.phoneNumber)
                                                 )
                                                 print(message.sid)
+
                                             except:
                                                 print("invilid phone number")
 
@@ -181,6 +197,8 @@ def create(request):
                                                 error_message = error_message_invalid_input
 
                                         messages.add_message(request, messages.SUCCESS, error_message)
+                                print("@@@@")
+                                print(error_message)
                                 return render(request, 'createticketform.html', {'error_message':error_message})
                         else:
                                 q = models.All_Tickets.objects.filter(queue_number=0)

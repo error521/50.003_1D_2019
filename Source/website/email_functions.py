@@ -92,6 +92,8 @@ class Email_functions:
 		for i in admin_dict.keys():
 			message = "<h3>{0}, there is a new ticket {1}</h3>".format(admin_dict[i][0], ticket_id)  # for dat personalization ;))))
 			if self.acnapi_email(admin_dict[i][1], subject, message) == self.email_sending_error:
+				print("@@@@")
+				print("admin email: {0}; subject: {1}; message: {2}".format(admin_dict[i][1], subject, message))
 				return self.email_sending_error
 
 		return self.email_sending_success
