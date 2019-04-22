@@ -312,7 +312,7 @@ def detail(request):
                         nonadmin_email = Extended_User.objects.get(id=nonadmin_id).email
 
                     email_notif_response = email_functions.ticket_creation_admin_replies(nonadmin_username, nonadmin_email, ticket_title, ticket_id)
-                    if email_notif_response == email_functions.email_sending_success
+                    if email_notif_response == email_functions.email_sending_success:
                         email_notif_pass = True
 
                 else:
@@ -335,7 +335,7 @@ def detail(request):
                         admin_dict[i.id] = [i.username, i.email]
 
                     email_notif_response = email_functions.ticket_creation_nonadmin_replies(assigned_admin_username, assigned_admin_email, admin_dict, ticket_title, ticket_id)
-                    if email_notif_response == email_functions.email_sending_success
+                    if email_notif_response == email_functions.email_sending_success:
                         email_notif_pass = True
 
 

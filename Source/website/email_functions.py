@@ -10,7 +10,12 @@ class Email_functions:
 	Available public functions:
 	ticket_creation_new_ticket() - Called when nonadmin creates new ticket
 	ticket_creation_nonadmin_replies() - Called when nonadmin replies to ticket
+	ticket_creation_admin_replies() - Called when admin replies to ticket
+	login_forget_password() - Called when password is forgotted
+
 	"""
+
+
 	email_sending_success = "Email is sent successfully"
 	email_sending_error = "Error faced when sending email"
 
@@ -127,4 +132,5 @@ class Email_functions:
 
 		return self.email_sending_success
 
-
+	def login_forget_password(self):
+		pass
