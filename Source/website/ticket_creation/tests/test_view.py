@@ -46,7 +46,7 @@ class CreateTicketInstanceViewTest(TestCase):
         test_admin.save()
         test_user2 = Extended_User.objects.create(username='testuser2',
                                                   password='HelloSekai123',
-                                                  email='testing@test.com',
+                                                  email='pleasedontlockthisemailthanks@gmail.com',
                                                   phoneNumber='12345679',
                                                   notify_email=True,
                                                   notify_sms=False)
@@ -101,7 +101,6 @@ class CreateTicketInstanceViewTest(TestCase):
         login = self.client.login(username='testuser2', password='HelloSekai123')
         response = self.client.post(reverse('ticket_creation:create'), {
                                                                         'title': 'Help',
-                                                                        'email': 'testing@test.com',
                                                                         'description': 'Please help thanks',
                                                                         })
         # print(response)
@@ -121,7 +120,7 @@ class CreateTicketInstanceViewTest(TestCase):
         # print(response.context)
         # print(response.context['error_message'])
         self.assertTrue(response.status_code,200)
-        self.assertNotEqual(response.context["error_message"], error_message_invalid_input)
+        self.assertNotEqual(error_message_invalid_input, response.context["error_message"])
 
     def test_FAILURE_INVALID_DESCRIPTION_logged_in_create_ticket(self):
         login = self.client.login(username='testuser2', password='HelloSekai123')

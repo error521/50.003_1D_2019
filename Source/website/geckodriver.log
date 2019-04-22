@@ -1891,3 +1891,353 @@ JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(
 [Child 295[GPU 3780
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1555936298338	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.zQCjAnkUKBOw"
+1555936298724	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555936298724	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555936298724	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555936300358	Marionette	INFO	Listening on port 58749
+1555936300459	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555936310184	Marionette	INFO	Stopped listening on port 58749
+[Child 17788, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 17788,[Child 40280, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 40280, Chrome_Chil[Parent 14996, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 57052, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 57052, Chr[GPU 20700,
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555936878862	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.L1hmeZKv2GKT"
+1555936879236	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555936879237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555936879237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555936880914	Marionette	INFO	Listening on port 59368
+1555936880974	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555936888604	Marionette	INFO	Stopped listening on port 59368
+[Parent 25980, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 30772, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 307[Child 51356, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 51356, Chrome_ChildThread] WARNING: pipe error: 109: file z:/bui[Parent 25980, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 40464, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 40464, Chrome[GPU 2
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555937448707	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.tJnac8Q1PhXk"
+1555937449083	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555937449083	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555937449083	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555937450723	Marionette	INFO	Listening on port 60018
+1555937450825	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555937468527	Marionette	INFO	Stopped listening on port 60018
+[Child 53196, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 531[Parent 48928, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 28860, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 28860, Chrome_ChildTh[Parent 48928, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 61444, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 61444
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555937530189	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.v0OEeAXvLSbt"
+1555937530545	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555937530545	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555937530545	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555937531882	Marionette	INFO	Listening on port 60147
+1555937532300	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555937550934	Marionette	INFO	Stopped listening on port 60147
+[Child 41916, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 41916, Chrome_C[Parent 28828, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 7788, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 7788, Chrome_ChildThrea[Child 50124, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 5012[GPU 45732, C
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555937700935	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.BwyF4uTpTxwt"
+1555937701302	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555937701302	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555937701302	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555937702666	Marionette	INFO	Listening on port 60366
+1555937703062	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555937721592	Marionette	INFO	Stopped listening on port 60366
+[Child 47740, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 47740, Chrome_Chi[Child 10096, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 10096, Chrome_[Child 55152, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 551
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[G
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555937789092	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.pQnvgyNYzWUm"
+1555937789443	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555937789444	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555937789444	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555937790846	Marionette	INFO	Listening on port 60503
+1555937791204	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555937799909	Marionette	INFO	Stopped listening on port 60503
+[Child 46760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 46760, Chro[Parent 50940, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 36264, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 36264, Chr[Parent 50940, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11176, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11176, C
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555937858325	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.WPOnVjhv7JXi"
+1555937858674	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555937858675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555937858675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555937860105	Marionette	INFO	Listening on port 60619
+1555937860439	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555937868765	Marionette	INFO	Stopped listening on port 60619
+[Parent 32120, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 62100, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 62100, Chrome_[Parent 32120, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 33056, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 33056, Chrome_ChildT[Child 9764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 9764, [GPU 21408,
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ Chrome_Ch
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555938383150	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.5bWBTRWnMaLt"
+1555938383513	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555938383514	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555938383514	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555938385042	Marionette	INFO	Listening on port 61232
+1555938385260	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555938393855	Marionette	INFO	Stopped listening on port 61232
+[Child 22612, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 22612[Parent 59568, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 44036, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 44036, Chrome_ChildThr[Parent 59568, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 19624, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 19624, Chrome_ChildT
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[G
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555938513624	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.8UTARubwLxKl"
+1555938513995	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555938513995	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555938513995	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555938515379	Marionette	INFO	Listening on port 61415
+1555938515739	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555938525878	Marionette	INFO	Stopped listening on port 61415
+[Child 52320, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 52320, Chrome_ChildTh[Parent 23412, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 57096, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 57096, Chrome_Chi
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 1
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555938551113	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.EeMmES4mgikX"
+1555938551517	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555938551517	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555938551517	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555938552932	Marionette	INFO	Listening on port 61500
+1555938553235	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555938564385	Marionette	INFO	Stopped listening on port 61500
+[Child 41680, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 4168[Parent 61628, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 24828, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 24828, C[Parent 61628, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 43736, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555938688910	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.fvfKpCz9RgAJ"
+1555938689265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555938689265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555938689265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555938690568	Marionette	INFO	Listening on port 61684
+1555938691020	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/, line 27: TypeError: $(...).DataTable is not a function
+1555938701006	Marionette	INFO	Stopped listening on port 61684
+[Parent 25528, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 46032, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 46032, [Child 24916, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 24916, [Child 29384, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 29384, Ch
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 16004,
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555942103730	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.PajasL0ecy1m"
+1555942104149	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555942104150	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555942104150	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555942105910	Marionette	INFO	Listening on port 65459
+1555942105958	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 431: TypeError: $(...).tooltip is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/display/, line 431: TypeError: $(...).tooltip is not a function
+1555942118620	Marionette	INFO	Stopped listening on port 65459
+[Parent 52932, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 46260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 46260, Chrome_Child[Child 20704, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 20704, Chrome_ChildThread] WAR[Parent 52932, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 54424, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 54424, Chr
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555942139320	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.wzctTp2Evvaw"
+1555942139682	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555942139683	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555942139683	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555942140986	Marionette	INFO	Listening on port 49165
+1555942141429	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 431: TypeError: $(...).tooltip is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/display/, line 431: TypeError: $(...).tooltip is not a function
+1555942153560	Marionette	INFO	Stopped listening on port 49165
+[Parent 44688, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 21072, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 21072,[Child 53020, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 53020, [Parent 44688, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 32468, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 32468, 
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555942191253	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.1EPalgoRyN8a"
+1555942191606	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555942191607	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555942191607	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555942192944	Marionette	INFO	Listening on port 49270
+1555942193365	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 431: TypeError: $(...).tooltip is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/ticket_creation/display/, line 431: TypeError: $(...).tooltip is not a function
+1555942205637	Marionette	INFO	Stopped listening on port 49270
+[Parent 53956, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 22968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 22968, Ch[Child 11336, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 11336, Chr[Parent 53956, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 54312, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 54312, Chrome_Chi[GPU 49920,
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1555942356686	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\wanzh\\AppData\\Local\\Temp\\rust_mozprofile.sn1M55LH3Nwv"
+1555942357071	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1555942357072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1555942357072	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1555942358567	Marionette	INFO	Listening on port 49503
+1555942358799	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 431: TypeError: $(...).tooltip is not a function
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/static/vendor/chart.js/Chart.min.js, line 7: TypeError: t is null
+JavaScript error: http://127.0.0.1:8000/home/, line 431: TypeError: $(...).tooltip is not a function
+1555942371416	Marionette	INFO	Stopped listening on port 49503
+[Child 61172, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 61172, C[Child 40904, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Parent 58104, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 29240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 332
+[Child 2924
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 4
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
