@@ -1,9 +1,0 @@
-{% if error_message%}
-	<p>{{error_message}}</p>
-{% endif %}
-<form action="/forms/basicform/" method="post">
-	{% csrf_token %}
-	{{ form }}
-	<input type="submit" value="Submit">
-</form>
-<a href="/home">Back to home</a>

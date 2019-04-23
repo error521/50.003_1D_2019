@@ -73,7 +73,7 @@ def home(request):
 				elif str(request.user.id) not in i.read_by:  # someone has read it but its not the user
 					unreadlist += 1
 
-			if (ticketlist ==0):
+			if (len(ticketlist) == 0):
 				return render(request, 'noticketuser.html' )
 			print(request.user.email)
 			outputList = sort_ticket_list(request, All_Tickets.objects.all().filter(creator=request.user.id),
