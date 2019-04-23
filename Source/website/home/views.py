@@ -15,7 +15,14 @@ def home(request):
 			username = request.user.get_username()
 			ticketlist = len(All_Tickets.objects.all())
 			unresolvedlist = len(All_Tickets.objects.all().filter(resolved_by=None))
-			unreadlist = len(All_Tickets.objects.all().filter(read_by=None))
+
+			# count unread tickets - essentially check how many tickets is created by the user but does not have the user$
+			unreadlist = 0
+			for i in All_Tickets.objects.all():
+				if i.read_by == None:  # no one has read the ticket yet
+					unreadlist += 1
+				elif str(request.user.id) not in i.read_by:  # someone has read it but its not the user
+					unreadlist += 1
 
 			notification_ticket = notification.objects.filter(type=0,creater_type=1)
 			notification_msg = notification.objects.filter(type=1,creater_type=1)
