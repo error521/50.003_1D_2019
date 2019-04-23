@@ -134,5 +134,13 @@ class Email_functions:
 
 		return self.email_sending_success
 
-	def login_forget_password(self):
-		pass
+	def login_forget_password(self, username, email, new_password):
+		"""
+		Public method. Called when user forgotten their password and we have reset the password for them.
+		"""
+		subject = "Reset Password fo AccentureIST Account"
+		message = "<h3>Greetings {0},</h3><h3>A request is sent to your email to reset your password, and your new password is '{1}'. If this password is not to your liking, do change the password under Profile.</h3>".format(username, new_password)
+
+		if self.acnapi_email(email, subject, message) == self.email_sending_error:
+			return self.email_sending_error
+		return self.email_sending_success

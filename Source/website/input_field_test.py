@@ -129,6 +129,7 @@ class Input_field_test:
 		Public method
 		Returns True if input_value is not empty string, input_value
 		  contains only alphabets and numbers, and one '@'
+		Note: Used when editing email of user/creating account. For resetting password, use email_reset_password
 		"""
 		output = []
 		pass_fail_state = True
@@ -173,6 +174,53 @@ class Input_field_test:
 			output.append(self.not_unique)
 
 		return output
+
+	def email_reset_password(self, input_value):
+		"""
+		Public method
+		Returns True if input_value is not empty string, input_value
+		contains only alphabets and numbers, and one '@'
+		Note: Used when editing email of user/creating account. For resetting password, use email_reset_password
+		"""
+		output = []
+		pass_fail_state = True
+		email_addr_count = 0
+
+		if not self.empty_test_pass(input_value):
+			if pass_fail_state:
+				pass_fail_state = False
+				output.append("fail")
+			output.append("empty")
+			return output
+
+		for i in input_value:
+			if ord(i) >= 97 and ord(i) <= 122:
+				# character is small capital alphabet
+				pass
+			elif ord(i) >= 65 and ord(i) <= 90:
+				# character is large capital alphabet
+				pass
+			elif ord(i) >= 48 and ord(i) <= 57:
+				# character is number
+				pass
+			elif ord(i) == 46:
+				# character is .
+				pass
+			elif ord(i) == 64:
+				# character is @
+				email_addr_count += 1
+			else:
+				pass_fail_state = False
+
+		if pass_fail_state and email_addr_count == 1:
+			output.append("pass")
+		else:
+			output.append("fail")
+			output.append("invalid value")
+
+		return output
+
+
 
 
 	def phonenumber(self, input_value):
