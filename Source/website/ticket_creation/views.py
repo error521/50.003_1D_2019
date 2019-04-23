@@ -79,7 +79,6 @@ def create(request):
         test_pass = False  # state changed when remote/non-remote input passes
         error_message = None
 
-        # remote connet to this url
         # user is accessing the ticket_create page explicitly
         if (request.user.is_authenticated):
                 # user is logged in
