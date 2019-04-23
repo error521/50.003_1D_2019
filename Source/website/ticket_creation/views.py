@@ -657,7 +657,7 @@ def sort_ticket_list(request, querySetObj, is_superuser):
     for i in nonreadList,readList:  # first nonreadList, then readList
         for j in i:  # first unresolved tickets, then resolved tickets
             for k in j:  # for all elements in unresolved/resolved tickets
-                each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None}
+                each_ticket = {"id":None, "user":None, "title":None, "read":None, "resolved":None, "read_by":None}
                 each_ticket["id"] = k.id
 
                 if (request.user.is_superuser):
@@ -680,6 +680,7 @@ def sort_ticket_list(request, querySetObj, is_superuser):
                 else:
                     each_ticket["resolved"] = True
 
+                each_ticket["read_by"] = k.read_by
                 outputList.append(each_ticket)
 
     return outputList
@@ -687,7 +688,15 @@ def sort_ticket_list(request, querySetObj, is_superuser):
 def viewUnread(request):
     if (request.user.is_authenticated):
         if (request.user.is_superuser):
-            list = sort_ticket_list(request,models.All_Tickets.objects.all().filter(read_by=None),request.user.is_superuser)
+            list = []
+            all_tickets = sort_ticket_list(request, models.All_Tickets.objects.all(), request.user.is_superuser)
+
+            for i in all_tickets:
+                if i["read_by"] == None:
+                    list.append(i)
+                elif str(request.user.id) not in i["read_by"]:
+                    list.append(i)
+
             return render(request, 'viewticketsadmin.html',{'list':list, 'view':'All Unread Tickets'})
         else:
             return HttpResponseRedirect(reverse("home:index"))
