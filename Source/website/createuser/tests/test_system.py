@@ -427,7 +427,7 @@ class AccountRegisterTestCase(LiveServerTestCase):
         return str(text) in self.driver.page_source
 
     def test_login_register_login(self):
-        create_user = 'testuser15'
+        create_user = 'testuser16'
         create_phoneNumber = '12345678'
         create_email = 'testuser15@mail.com'
         create_password = 'Password123'

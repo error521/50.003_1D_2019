@@ -30,8 +30,8 @@ class AccountLoginTestCase(LiveServerTestCase):
     # Test a login with an already created account
     def test_successful_login(self):
         # login only requires username and password
-        existing_user = 'testuser1'
-        existing_password = 'Password123'
+        existing_user = 'Tired'
+        existing_password = '1234'
 
         driver = self.driver
         # Open wanted link
@@ -61,8 +61,8 @@ class AccountLoginTestCase(LiveServerTestCase):
     # Test a login with an already created User account
     def test_successful_login_user(self):
         # login only requires username and password
-        existing_user = 'testuser1'
-        existing_password = 'Password123'
+        existing_user = 'Tired'
+        existing_password = '1234'
 
         driver = self.driver
 
@@ -102,8 +102,8 @@ class AccountLoginTestCase(LiveServerTestCase):
 
     def test_successful_login_admin(self):
         # login only requires username and password
-        existing_user = 'testadmin1'
-        existing_password = "Tonight'sdinner"
+        existing_user = 'joe'
+        existing_password = "1234"
 
         driver = self.driver
 
