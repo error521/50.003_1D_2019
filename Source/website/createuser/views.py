@@ -19,6 +19,10 @@ error_message_success = "User creation success"
 
 @csrf_exempt
 def get_user(request):
+	"""
+	If GET http request method, the view renders register.html template for user to create account. 
+	If POST http request method, the view allows user to submit his form to create account.
+	"""
 	error_message = None
 	#messages.add_message(request, messages.ERROR, 'User Exist!')
 	if request.method == 'POST':
