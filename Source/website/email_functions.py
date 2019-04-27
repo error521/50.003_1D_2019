@@ -1,10 +1,6 @@
 import requests
 import copy
 
-
-
-
-
 class Email_functions:
 	"""
 	Available public functions:

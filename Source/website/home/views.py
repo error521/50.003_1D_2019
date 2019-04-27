@@ -7,6 +7,10 @@ from ticket_creation.views import sort_ticket_list
 from ticket_creation.models import All_Tickets,Ticket, notification
 
 def home(request):
+	"""
+	Used by admin and nonadmin. Displays all tickets for admin, and all tickets posted nonadmin for nonadmins
+	"""
+
 	error_message = None
 	if (request.user.is_authenticated):
 		# user is logged in

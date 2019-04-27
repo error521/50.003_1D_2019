@@ -22,4 +22,7 @@ Note: As of 23/5/19, the AWS account which the system is tied to is no longer ac
 
 ---
 
+Note: This website requires tokens to both use POSTMAN API and to access Accenture's ACNAPI. Contact one of the project members if you require the token.
+
+
 Documentations by SolsticeDante

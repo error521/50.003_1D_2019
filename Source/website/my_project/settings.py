@@ -144,22 +144,12 @@ AUTH_USER_MODEL = "createuser.Extended_User"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_SSL = False
-#EMAIL_USE_TLS = True
 EMAIL_USE_TLS = False
 EMAIL_PORT = 25
-#EMAIL_PORT = 587
-#EMAIL_PORT = 465
 EMAIL_HOST_USER = "pleasedontlockthisemailthanks@gmail.com"
 EMAIL_HOST_PASSWORD = "e@5yp@55w0rd"
 SERVER_EMAIL = "pleasedontlockthisemailthanks@gmail.com"
 
-
-# # Testing Email backend?????
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT = 1025
-#
-# SERVER_EMAIL = 'root@localhost'
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HERE = os.path.join(HERE, '../')

@@ -4,9 +4,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
-
 from django.db import models
-
 from django.contrib import messages
 
 from input_field_test import Input_field_test
@@ -138,6 +136,7 @@ def view_profile(request):
 					# input fields have invalid input
 					error_message = error_message_invalid_input
 				elif email_nonunique_state:
+					# email is not unique
 					error_message = error_message_unique_email
 
 			if error_message == error_message_success:
