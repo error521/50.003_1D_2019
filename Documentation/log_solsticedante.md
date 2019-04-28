@@ -1,3 +1,8 @@
+#### 23/4/19
+- Is done:
+  - Yes
+
+
 #### 7/4
 To do:
 - Fix creation of ticket id

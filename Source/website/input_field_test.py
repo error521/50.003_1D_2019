@@ -3,13 +3,15 @@ from createuser.models import Extended_User
 
 class Input_field_test:
 	"""
-	Test types: (String) username, password, email, phonenumber
+	This file contains all tests that are run on all input fields on the website before submitted to the backend.
+	It determines if input is valid/invalid, and provides reasons if it is invalid.
+
 	Return: A list that contains
 	  'pass' if input fields passes,
 	  'fail' if input field fails,
 	  'invalid value' if invalid values are given,
 	  'empty' if input fields are empty
-	The idea is to check output length, if its more than one, it's a fail
+	This class is utilised by checking the output length of the function called. If its more than one, it's a fail
 	"""
 	not_unique = "not unique"
 

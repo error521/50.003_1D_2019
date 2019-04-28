@@ -24,9 +24,9 @@ error_message_success = "Password reset is successful. Please check your email f
 
 @csrf_exempt
 def index(request):
-	#if request.user.is_authenticated:
-	#    return HttpResponseRedirect('/home/')
-	#else:
+	"""
+	Used by admin and nonadmin. If GET request, renders log in page. If POST request, checks input field validity before submitting log in information.
+	"""
 
 	error_message = None
 	if request.method == 'POST':
@@ -90,11 +90,18 @@ def index(request):
 	return render(request, 'login.html', {'form':LoginForm(), 'error_message':error_message})
 
 def log_out(request):
+	"""
+	Used by admin and nonadmin to log out
+	"""
 	logout(request)
 	return HttpResponseRedirect(reverse('login:index'))
 
 @csrf_exempt
 def reset_password(request):
+	"""
+	Used by admin and nonadmin. If GET, renders forget-password.html. Otherwise randomly generates new password,
+	change current password to new password, and send new password to user via email.
+	"""
 	error_message = None
 	if request.method == 'POST':
 		email = None
