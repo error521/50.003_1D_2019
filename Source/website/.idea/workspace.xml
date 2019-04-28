@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eff446d5-2e65-4c48-a7f9-257469caae9d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Profile/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profile/tests/test_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createuser/tests/test_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests/test_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createuser/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/createuser/tests/test_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/tests/test_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/tests/test_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/tests/test_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/tests/test_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket_creation/tests/test_view.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,12 +70,14 @@
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_admin_reply_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_admin_reply_ticket Coverage Results" MODIFIED="1555932960683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_system_AccountTestCase_test_AccountAlreadyExists_registerAndLogin.coverage" NAME="Test: createuser.tests.test_system.AccountTestCase.test_AccountAlreadyExists_registerAndLogin Coverage Results" MODIFIED="1554708891915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest_test_ADMIN_LOGIN_WITHOUT_TICKET_uses_correct_template.coverage" NAME="Test: home.tests.test_view.HomeViewTest.test_ADMIN_LOGIN_WITHOUT_TICKET_uses_correct_template Coverage Results" MODIFIED="1555790943652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__home_tests_test_system_complete_AccountTestCase.coverage" NAME="Test: home.tests.test_system_complete.AccountTestCase Coverage Results" MODIFIED="1556422664035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__email_notif_tests_EmailTest_test_send_email.coverage" NAME="Test: email_notif.tests.EmailTest.test_send_email Coverage Results" MODIFIED="1554147876324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__home_tests_test_system_complete_AccountTestCase_test_demo_full.coverage" NAME="Test: home.tests.test_system_complete.AccountTestCase.test_demo_full Coverage Results" MODIFIED="1556423065271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__Profile_tests_test_view_ProfileTestView_test_invalid_username_Profile.coverage" NAME="Test: Profile.tests.test_view.ProfileTestView.test_invalid_username_Profile Coverage Results" MODIFIED="1555784988060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_message_after_sucessful_creation.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_message_after_sucessful_creation Coverage Results" MODIFIED="1554296188646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__Profile_tests_test_view_ProfileTestView_test_Profile_index_status_code.coverage" NAME="Test: Profile.tests.test_view.ProfileTestView.test_Profile_index_status_code Coverage Results" MODIFIED="1555784792669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest Coverage Results" MODIFIED="1556003490051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_view_LoginInstanceViewTest.coverage" NAME="Test: login.tests.test_view.LoginInstanceViewTest Coverage Results" MODIFIED="1556003811684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest Coverage Results" MODIFIED="1556008360066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_view_LoginInstanceViewTest_test_valid_reset_password_USER_EXISTS.coverage" NAME="Test: login.tests.test_view.LoginInstanceViewTest.test_valid_reset_password_USER_EXISTS Coverage Results" MODIFIED="1555919536170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest_test_USER_LOGIN_uses_correct_template.coverage" NAME="Test: home.tests.test_view.HomeViewTest.test_USER_LOGIN_uses_correct_template Coverage Results" MODIFIED="1556003584072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__login_tests_test_system_AccountLoginTestCase.coverage" NAME="Test: login.tests.test_system.AccountLoginTestCase Coverage Results" MODIFIED="1556004670162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -126,7 +122,7 @@
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_FAILURE_INVALID_TITLE_logged_in_create_ticket.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_FAILURE_INVALID_TITLE_logged_in_create_ticket Coverage Results" MODIFIED="1555941023057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__Profile_tests_test_view_ProfileTestView_test_redirect_if_not_logged_in.coverage" NAME="Test: Profile.tests.test_view.ProfileTestView.test_redirect_if_not_logged_in Coverage Results" MODIFIED="1555784937700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_after_sucessful_creation.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_after_sucessful_creation Coverage Results" MODIFIED="1554803032795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest.coverage" NAME="Test: home.tests.test_view.HomeViewTest Coverage Results" MODIFIED="1556003593018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/website$Test__home_tests_test_view_HomeViewTest.coverage" NAME="Test: home.tests.test_view.HomeViewTest Coverage Results" MODIFIED="1556422467037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest_test_display_page_status_code.coverage" NAME="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest.test_display_page_status_code Coverage Results" MODIFIED="1555001332642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewTest_test_form_empty_username.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewTest.test_form_empty_username Coverage Results" MODIFIED="1555783393114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/website$Test__createuser_tests_test_view_CreateUserInstanceViewtest_test_redirect_if_username_taken.coverage" NAME="Test: createuser.tests.test_view.CreateUserInstanceViewtest.test_redirect_if_username_taken Coverage Results" MODIFIED="1554811903915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -163,11 +159,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+              <folding>
+                <element signature="e#286#329#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/tests/test_view.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/tests/test_system_complete.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/baseadmin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1442">
+              <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/baseuser.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="206" column="42" lean-forward="true" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/tests/test_system.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
+            <state relative-caret-position="3944">
+              <caret line="246" selection-start-line="246" selection-end-line="246" />
               <folding>
                 <element signature="e#289#304#0" expanded="true" />
               </folding>
@@ -178,20 +240,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createuser/tests/test_system.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="6732">
               <caret line="423" column="32" selection-start-line="423" selection-start-column="32" selection-end-line="423" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/tests/test_system.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -202,7 +252,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Profile/tests/test_system.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
+            <state relative-caret-position="918">
               <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -212,69 +262,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="94" column="20" lean-forward="true" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
-              <folding>
-                <element signature="e#286#329#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createuser/tests/test_form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="154" column="9" lean-forward="true" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
-              <folding>
-                <element signature="e#160#203#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login/tests/test_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/tests/test_form.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Profile/tests/test_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/tests/test_view.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="1496">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -320,7 +311,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ticket_creation/templates/ticketcreation/show.html" />
         <option value="$PROJECT_DIR$/createuser/urls.py" />
         <option value="$PROJECT_DIR$/ticket_creation/templates/ticketcreation/detail.html" />
         <option value="$PROJECT_DIR$/ticket_creation/urls.py" />
@@ -371,12 +361,13 @@
         <option value="$PROJECT_DIR$/ticket_creation/tests/test_view.py" />
         <option value="$PROJECT_DIR$/createuser/tests/test_system.py" />
         <option value="$PROJECT_DIR$/login/tests/test_system.py" />
+        <option value="$PROJECT_DIR$/home/tests/test_system_complete.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1905" />
-    <option name="width" value="1948" />
+    <option name="width" value="1950" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -385,6 +376,96 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Profile" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Profile" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="templates" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -470,72 +551,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="createuser" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="login" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Profile" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="Profile" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="website" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="ticket_creation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -574,7 +589,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django tests.Test: Profile.tests.test_system.EditProfileByUser">
+  <component name="RunManager" selected="Django tests.Test: home.tests.test_system_complete.AccountTestCase.test_demo_full">
     <configuration name="Test: Profile.tests.test_system.EditProfileByUser" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -595,7 +610,7 @@
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: createuser.tests.test_system.AccountRegisterTestCase" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: createuser.tests.test_view.CreateUserInstanceViewTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -608,14 +623,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="createuser.tests.test_system.AccountRegisterTestCase" />
+      <option name="TARGET" value="createuser.tests.test_view.CreateUserInstanceViewTest" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: createuser.tests.test_system.AccountTestCase" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: home.tests.test_system_complete.AccountTestCase" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -628,14 +643,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="createuser.tests.test_system.AccountTestCase" />
+      <option name="TARGET" value="home.tests.test_system_complete.AccountTestCase" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: login.tests.test_system.AccountLoginTestCase" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: home.tests.test_system_complete.AccountTestCase.test_demo_full" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -648,14 +663,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="login.tests.test_system.AccountLoginTestCase" />
+      <option name="TARGET" value="home.tests.test_system_complete.AccountTestCase.test_demo_full" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: home.tests.test_view.HomeViewTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -668,7 +683,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="ticket_creation.tests.test_view.CreateTicketInstanceViewTest" />
+      <option name="TARGET" value="home.tests.test_view.HomeViewTest" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -701,11 +716,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Django tests.Test: home.tests.test_system_complete.AccountTestCase.test_demo_full" />
+        <item itemvalue="Django tests.Test: home.tests.test_system_complete.AccountTestCase" />
+        <item itemvalue="Django tests.Test: home.tests.test_view.HomeViewTest" />
+        <item itemvalue="Django tests.Test: createuser.tests.test_view.CreateUserInstanceViewTest" />
         <item itemvalue="Django tests.Test: Profile.tests.test_system.EditProfileByUser" />
-        <item itemvalue="Django tests.Test: login.tests.test_system.AccountLoginTestCase" />
-        <item itemvalue="Django tests.Test: createuser.tests.test_system.AccountRegisterTestCase" />
-        <item itemvalue="Django tests.Test: createuser.tests.test_system.AccountTestCase" />
-        <item itemvalue="Django tests.Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" />
       </list>
     </recent_temporary>
   </component>
@@ -740,7 +755,8 @@
       <workItem from="1555593690925" duration="69781000" />
       <workItem from="1555831633841" duration="36572000" />
       <workItem from="1555968956032" duration="8535000" />
-      <workItem from="1556000627021" duration="4304000" />
+      <workItem from="1556000627021" duration="6178000" />
+      <workItem from="1556422298747" duration="2746000" />
     </task>
     <task id="LOCAL-00001" summary="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing">
       <created>1554826454032</created>
@@ -753,39 +769,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__Profile_tests_test_view_ProfileTestView_test_invalid_notify_All_False_Profile - 2019.04.23 at 15h 18m 59s.xml">
-      <configuration name="Test: Profile.tests.test_view.ProfileTestView.test_invalid_notify_All_False_Profile" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__Profile_tests_test_view_ProfileTestView - 2019.04.23 at 15h 19m 17s.xml">
-      <configuration name="Test: Profile.tests.test_view.ProfileTestView" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__Profile_tests_test_view_ProfileTestView - 2019.04.23 at 15h 20m 25s.xml">
-      <configuration name="Test: Profile.tests.test_view.ProfileTestView" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest - 2019.04.23 at 15h 21m 45s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__ticket_creation_tests_test_view_CreateTicketInstanceViewTest - 2019.04.23 at 15h 24m 05s.xml">
-      <configuration name="Test: ticket_creation.tests.test_view.CreateTicketInstanceViewTest" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__createuser_tests_test_system_AccountTestCase - 2019.04.23 at 15h 25m 35s.xml">
-      <configuration name="Test: createuser.tests.test_system.AccountTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__createuser_tests_test_system_AccountRegisterTestCase - 2019.04.23 at 15h 28m 40s.xml">
-      <configuration name="Test: createuser.tests.test_system.AccountRegisterTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__login_tests_test_system_AccountLoginTestCase - 2019.04.23 at 15h 30m 20s.xml">
-      <configuration name="Test: login.tests.test_system.AccountLoginTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__login_tests_test_system_AccountLoginTestCase - 2019.04.23 at 15h 33m 05s.xml">
-      <configuration name="Test: login.tests.test_system.AccountLoginTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="Test__Profile_tests_test_system_EditProfileByUser - 2019.04.23 at 15h 34m 00s.xml">
       <configuration name="Test: Profile.tests.test_system.EditProfileByUser" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="Test__createuser_tests_test_view_CreateUserInstanceViewTest - 2019.04.23 at 16h 32m 50s.xml">
+      <configuration name="Test: createuser.tests.test_view.CreateUserInstanceViewTest" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_view_HomeViewTest - 2019.04.23 at 16h 33m 44s.xml">
+      <configuration name="Test: home.tests.test_view.HomeViewTest" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_view_HomeViewTest - 2019.04.28 at 11h 34m 41s.xml">
+      <configuration name="Test: home.tests.test_view.HomeViewTest" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase - 2019.04.28 at 11h 35m 06s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase - 2019.04.28 at 11h 35m 44s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase - 2019.04.28 at 11h 37m 11s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase - 2019.04.28 at 11h 38m 18s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase_test_demo_full - 2019.04.28 at 11h 39m 43s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase.test_demo_full" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__home_tests_test_system_complete_AccountTestCase_test_demo_full - 2019.04.28 at 11h 45m 39s.xml">
+      <configuration name="Test: home.tests.test_system_complete.AccountTestCase.test_demo_full" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298344000" />
+    <option name="totallyTimeSpent" value="302964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -800,12 +816,12 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13413817" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13615024" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49899396" visible="true" weight="0.36775106" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49899396" visible="true" weight="0.06506365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -902,7 +918,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Testing happened and various bug fixes&#10;- Semi-fixed the previously broken createuser test_view (unit testing). (still have like 2 cases maybe plus some new ones to reflect the new data fields phoneNumber notifications etc)&#10;- Added ticket_creation test_view cases (unit testing). Not logged in redirect test case passed, logging in test case passed, creating a ticket successfully while logged in test case passed&#10;- Syntax error bug fixes in template files for both createuser and ticket_creation (closing endif blocks)&#10;- Bug fixes in createuser and ticket_creation involving error_message variable always displaying as a None type &#10;- Added a selenium test case for logging in where user inputs an invalid username while creating a new account (user), test case doesn't assert properly though&#10;&#10;TODO:&#10;- fail cases for ticket_creation test_views&#10;- ticket model testing, preparing for some the new ticket model incoming&#10;- display ticket testing&#10;- resolve ticket testing&#10;- delete ticket testing&#10;- selenium testing for ticket creation????&#10;- notification testing" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://be340fd4-fba9-48d4-878e-864238f1b78c/schema/50003/table/django_content_type" />
     <entry file="das://be340fd4-fba9-48d4-878e-864238f1b78c/schema/50003/table/createuser_extended_user_user_permissions" />
     <entry file="file://$PROJECT_DIR$/ticket_creation/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1099,25 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/baseuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="305" column="2" selection-start-line="305" selection-start-column="2" selection-end-line="305" selection-end-column="2" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#a#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#1;n#a#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#1;n#a#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/baseadmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4658">
-          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/createuser/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -1147,26 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/tests/test_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/tests/test_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/tests/test_form.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1178,18 +1154,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Profile/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="34">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3944">
+          <caret line="246" selection-start-line="246" selection-end-line="246" />
+          <folding>
+            <element signature="e#289#304#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Profile/tests/test_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/tests/test_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/tests/test_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/createuser/tests/test_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="94" column="20" lean-forward="true" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+        <state relative-caret-position="17">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
           <folding>
             <element signature="e#286#329#0" expanded="true" />
           </folding>
@@ -1198,7 +1214,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/createuser/tests/test_system.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="6732">
           <caret line="423" column="32" selection-start-line="423" selection-start-column="32" selection-end-line="423" selection-end-column="32" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
@@ -1208,30 +1224,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/tests/test_system.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="105" column="33" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+        <state relative-caret-position="167">
+          <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Profile/tests/test_system.py">
+    <entry file="file://$PROJECT_DIR$/templates/baseadmin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1442">
+          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ticket_creation/tests/test_view.py">
+    <entry file="file://$PROJECT_DIR$/templates/baseuser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="246" lean-forward="true" selection-start-line="246" selection-end-line="246" />
+        <state relative-caret-position="190">
+          <caret line="206" column="42" lean-forward="true" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/tests/test_system_complete.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
           <folding>
-            <element signature="e#289#304#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
